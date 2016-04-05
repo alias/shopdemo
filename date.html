@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="app.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="header">
+            <div class="oo-loading" style="display: none"></div>
+            <div id="oo-status" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html"  data-oo-profile-page="profile.html"  data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
+            <div><a href="index.html">Start</a></div>
+        </div>
+
+        <h2>Datumswahl</h2>
+        <h1>NoDesignButTaste Inc.</h1>
+        <div id="oo-flash" ></div>
+        <div id="pagecontent">
+            <div id="oo-navi" data-oo-shop-page="shop.html"></div>
+
+            <div id="oo-date" data-oo-shop-page="shop.html" data-oo-cart-page="cart.html"></div>
+
+            <div class="hints">
+                Hinweise:
+                <ul>
+                    <li>Aktuell ist die Datumswahl nur in Listenform implementiert</li>
+                    <li>Das title Attribute trägt hier den Bestellschluss.</li>
+                    <li>Klicks sollten direkt zur Shop-Komponente führen.</li>
+                    <li>Es mögliche Hinweise an jedem Termin: "Gerade ausgewählt", "Bestellung (X Artikel) liegt vor", "Abo (X Artikel) liegt vor."</li>
+                    <li>Ggf. wird auch ein kürzlicher nicht mehr veränderbarer Termin angezeigt - ein Klick führt dann in die Shop-Kompoente mit einer Read-Only Ansicht.</li>
+                    <li>Es gibt ggf. Rückfragen, wenn bereits Artikel im Warenkorb sind!</li>
+                </ul>
+
+            </div>
+
+            <div class="oo-ticker" data-oo-shop-page="shop.html" data-oo-ticker-data="Group:114" data-oo-ticker-speed="8"></div>
+
+        </div>
+
+        <script src="../../api/client.js"></script>
+
+    </body>
+</html>

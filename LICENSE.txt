@@ -1,0 +1,10 @@
+All files are copyright oekobox-online.eu / Bob Schulze
+
+They can freely be used and modified as long as they are only used to allow access to oekobox-online's
+servers or to build own services that do so.
+In any case, the url and the access of this code to oekobox-online must not be hidden.
+
+Several Code Fragments and libraries are used within this framework:
+
+requirejs / / MIT License
+moment.js /

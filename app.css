@@ -1,0 +1,384 @@
+Body {
+    font-family: "Arial", "sans-serif";
+    margin: 10px; padding: 0;
+}
+
+h2, h1 {
+    margin: 0; padding: 0;
+}
+h1 {
+    padding: 5px;
+    background-color: #D0BFA6;
+}
+.hints li {
+    margin-left: 20px;
+}
+div {
+    Xpadding: 5px;
+}
+a {
+    text-decoration: none;
+    padding-left: 2px;
+    padding-right: 10px;
+    margin-right: 5px;
+    border-bottom: 1px solid #D0BFA6;
+    border-left: 4px solid #D0BFA6;
+}
+div#pagecontent > div, #oo-navi > ul {
+    margin-top: 20px;
+    padding-left: 5px;
+}
+#oo-navi LI {
+    display: inline-block;
+}
+#oo-navi .oo-navi-2nd-pane {
+    display: none; /* initially */
+    position: absolute;
+    z-index: 1000; /* to be atop anything rendered later */
+    background-color: ivory;
+    padding: 20px;
+}
+#oo-shop-sl-pane {
+
+}
+/* all "small" boxes within the selection */
+#oo-shop-sl-pane > DIV {
+    display: inline-block;
+    position: relative;
+    border-bottom: 1px solid #D0BFA6;
+    border-left: 4px solid #D0BFA6;
+    background-color: #fcebcf;
+    overflow: hidden;
+    text-align: center;
+    margin: 5px;
+}
+#oo-shop-sl-pane > DIV.oo-shop-item {
+    width: 200px;
+    height: 200px;
+
+}
+.oo-shop-singleitem .oo-item-img {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+}
+
+.hints {
+    font-style: italic;
+    padding: 30px;
+}
+.header {
+    float: right;
+}
+.header > div {
+    display: inline-block;
+}
+#oo-status div {
+    display: inline-block;
+}
+#oo-status .oo-status-cart-preview {
+    width: 350px;
+    max-height: 350px;
+    right: 0;
+}
+#oo-status .oo-cart-pos-controls, #oo-cart .oo-cart-pos-controls {
+    display: none;  /* initially */
+}
+#oo-status .oo-cart-pos-controls A , #oo-cart .oo-cart-pos-controls A{
+    margin-right: 2px;
+    padding:2px;
+    border: 0;
+    border-radius: 3px;
+    background-color: #D0BFA6;
+    float: right;
+}
+label {
+    display: inline-block;
+    width: 8em;
+}
+button {
+    background-color:  #D0BFA6;
+    border-style: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.oo-flash-msg {
+    color: darkgreen;
+}
+.oo-flash-error {
+    background-color: lightsalmon;
+}
+
+.oo-navi-active, .oo-date-active {
+    background-color: chartreuse;
+}
+
+/** oo-path */
+#oo-path UL {
+    margin:0;
+}
+#oo-path  li  {
+    display: inline;
+    list-style-image: none;
+    font-size: smaller;
+}
+#oo-path  li + li:before {
+    content: '> ';
+}
+#oo-date-pane A span + span:before {
+   content: ", ";
+}
+.oo-ticker {
+    width: 200px;
+}
+
+/* cart */
+.oo-cart-pos {
+    border: 1px solid silver;
+}
+#oo-cart TD {
+    padding: 5px;
+}
+.oo-cart-pos > div {
+    float: left;
+    display: inline-block;
+}
+.oo-cart-pos-info {
+    clear: left;
+}
+.oo-cart-pos IMG {
+    vertical-align: top;
+    float: left;
+}
+#oo-cart-pane DIV {
+    display: inline;
+}
+#oo-cart-pane .oo-cart-pos-info {
+    display: inline-block;
+}
+#oo-cart-sum, #oo-cart-vat-pane, #oo-cart-pane .oo-cart-pos-total, .oo-cart-delivercost TD {
+    text-align: right;
+}
+
+/* shop */
+
+/* list item blend helper , see app.js */
+#oo-shop .blend {
+    top:0;left:0;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    opacity: 0.5;
+    background-color: white;
+    display: none;  /* initially*/
+}
+/* green triangle indicating that item is in cart */
+#oo-shop .oo-shop-item-loaded {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 30px 30px;
+    border-color: transparent transparent #3b9c4a transparent;
+    z-index: 100;
+    position: absolute;
+    left: 170px;
+    top: 170px;
+    display: none;  /* initially*/
+}
+/* element with an image */
+.oo-item-img {
+    background-size: contain;
+}
+.oo-item-name, .oo-shop-item-price-wrapper , .oo-item-txt, .oo-shop-item-select {
+    background-color: white;
+    border-radius: 5px;
+    opacity: 0.8;
+    margin: 10px 5px 5px;
+}
+.oo-item-txt {
+    font-size: 0.8em;
+}
+
+.oo-shop-item-select, .oo-shop-item-price-wrapper {
+    position: absolute;
+    width: 190px;
+    margin: 5px;
+}
+.oo-shop-singleitem .oo-shop-item-select {
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+}
+.oo-shop-item .oo-shop-item-select {
+    position: absolute;
+    top: 70px;
+    display: none; /* initially, see app.js */
+}
+.oo-shop-item-price-wrapper {
+    top: 150px;
+}
+.oo-shop-title-head{
+    background-color: #ebd8bc;
+}
+
+/* (list) item selector */
+.select_container .select_value {
+    width: 60px;
+}
+.select_container div:first-child {
+    float: left;
+    width: 100%;
+}
+.select_container div:nth-child(2) {
+    display: inline-block;
+    vertical-align: bottom;
+}
+/* added to oo-shop-item ehrn item is already in cart,  */
+.oo-shop-item-incart {
+    /* unused here, we use an extra layer .oo-shop-item-loaded */
+}
+.select_base {
+    font-size: 0.8em;
+}
+
+/* title in shop component */
+#oo-shop-title BUTTON {
+    float: right;
+}
+
+/* search */
+#oo-search {
+    height: 20px;
+}
+#oo-search .oo-item-img {
+    height: 80px;
+    width: 80px;
+}
+#oo-search .oo-search-preview, #oo-status .oo-status-cart-preview {
+    display: none; /* initially */
+    z-index: 1000; /* to be atop anything rendered later */
+    position: absolute;
+    background-color: ivory;
+    overflow-y: scroll;
+    font-size: smaller;
+}
+#oo-search .oo-search-preview {
+    max-width: 400px;
+    max-height: 550px;
+}
+.oo-search-preview-items-item {
+    width: 100px;
+    height: 130px;
+    float: left;
+    margin: 5px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.oo-search-preview-items-item .oo-item-name {
+    position: absolute;
+    top: 60px;
+    opacity: 0.8;
+    background-color: white;
+}
+.oo-search-preview-items-addbox {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.oo-search-preview-close, .oo-status-cart-preview-close {
+    color: red;
+    float: right;
+}
+.oo-search-preview-items-plus {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.oo-search-preview-items-more {
+    float: right;
+}
+.oo-search-preview-hint, .oo-status-cart-hint {     /*todo make it a framework thing */
+    margin-top: 5px;
+    font-size: smaller;
+}
+
+/* profile component */
+
+#oo-profile-anon, #oo-profile-authed {
+    display: none;
+}
+#oo-profile > div, #oo-profile form > div {
+    margin: 5px;
+    padding: 10px;
+}
+
+input#oo-profile-zip, input#oo-profile-number { width: 60px;}
+input#oo-profile-city, input#oo-profile-street  { width: 200px;}
+.oo-profile-address-zc-label, .oo-profile-address-sn-label { width: 80px; display: inline-block;}
+
+/* logon component */
+
+#oo-logon {
+    float: left; /* just to keep the border around */
+}
+#oo-logon .oo-status-anon > div {
+    float: left;
+    margin: 20px;
+}
+
+
+/** Indicates the components - remove this once you learned about it */
+.oo-component, #oo-search .oo-search-preview, #oo-status .oo-status-cart-preview  {
+    border: 1px dashed gray;
+}
+.oo-component::after {
+    bottom: 14px;
+    color: silver;
+    content: "(#" attr(id) ") ";
+    float: right;
+    font-size: 8px;
+    padding: 3px;
+    position: relative;
+}
+#oo-status::after , .oo-ticker::after, .oo-loading::after{
+    bottom: 0;
+}
+.oo-ticker::after {
+    content: "(.oo-ticker " attr(data-oo-ticker-data) ")";
+}
+.oo-loading::after {
+    content: "(.oo-loading)";
+}
+/* End highighting components */
+
+/* framework */
+
+.oo-container {
+    display: inline-block;
+}
+.oo-unused {
+    opacity: .2;
+    cursor: not-allowed !important;
+    pointer-events: none;
+}
+.ui-disabled, .oo-css-disabled {
+    opacity: .3;
+    cursor: default !important;
+    pointer-events: none;
+}
+/*
+.ui-hidden {
+    display: none;
+}
+*/
+
+/* helper */
+.clearfix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0px;
+}

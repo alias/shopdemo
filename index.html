@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="app.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="header">
+            <div class="oo-loading" style="display: none"></div>
+            <div id="oo-search" data-oo-shop-page="shop.html"></div>
+            <div id="oo-status" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html"  data-oo-profile-page="profile.html" data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
+        </div>
+
+        <h2>Startseite</h2>
+        <h1>NoDesignButTaste Inc.</h1>
+        <div id="oo-flash" ></div>
+        <div id="pagecontent">
+            <div id="oo-navi" data-oo-shop-page="shop.html"></div>
+            <div class="hints">
+                Hinweise:
+                <ul>
+                        <li>Dies könnte die Startseite der WebSite sein. Zur Illustration sind nicht alle Seiten komplett gleich. Diese Seiten können <a href="">hier</a>
+                                heruntergeladen werden.</li>
+                        <li>Doku der Komponenten und des CSS unter <a href="http://oekobox-online.de">Ökobox-Online</a></li>
+                            <li>Insgesamt wird versucht, hier so wenig wie möglich Code (HTML und CSS) zu verwenden.</li>
+                            <li>Komponenten sind gestrichelt markiert.</li>
+                            <li>Diese HTML Dateien sind Beispiele und sollen in Zukunft auf dem Host des WebSites  bzw. in dessen CMS hinterlegt sein.
+                                Sie können zum Test einfach kopiert werden.</li>
+                            <li>Es fehlt noch die Komponente "Registrieren".  English beschriftete Links funktionieren nicht.</li>
+
+                    <li>Manche Componenten können Elemente überall in der Seite Steuern, hier der Warenkorbwert von der Status-Komponente: <span class="oo-status-cart-value">0</span></li>
+                </ul>
+            </div>
+
+            <div class="oo-ticker" data-oo-ticker-data="Group:123" data-oo-ticker-speed="2" data-oo-shop-page="shop.html"></div>
+
+        </div>
+
+        <script src="../../api/client.js"></script>
+        <!-- Anpassen wenn lokal!! Auf allen Seiten die Komponenten verwenden. z.B.
+             https://oekobox-online.eu/v3/shop/tagwerk/api/client.js  oder
+             script src="http://oekobox-online.eu/v3/shop/bosshamerschhof/api/client.js"></script>
+        -->
+        <!--<script src="http://localhost:8081/v3/shop/hofmahlitzsch/api/client.js"></script>-->
+
+    </body>
+</html>
