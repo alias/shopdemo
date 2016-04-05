@@ -1,2 +1,4 @@
 # shopdemo
 Demo HTML Page set to build your own online shop for PCG
+
+Replace the call to client.js !
