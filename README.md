@@ -14,7 +14,7 @@ How to build the complete url to `client.js`:
 > You need to know `shopname` of course ;-)
 
 **Alternativly,** 
-* download a full functional pages set from [https://oekobox-online.eu/v3/demo/<shopname>]
+* download a full functional pages set from ``https://oekobox-online.eu/v3/demo/<shopname>`` 
 * unpack it
 * open index.html in your browser.
 
