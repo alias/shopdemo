@@ -1,21 +1,17 @@
-The MIT License (MIT)
+# shopdemo
+Demo HTML Page set to build your own online shop for PCG
 
-Copyright (c) 2016 alias
+All files are copyright oekobox-online.eu / Bob Schulze
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+They can freely be used and modified as long as they are only used to access to oekobox-online's
+servers or to build own services that do so.
+In any case, the url and the access of this code to oekobox-online must not be hidden.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Several Code Fragments and libraries are used within this framework:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+requirejs / / MIT License
+moment.js /
+jquery /
+modernizr (Custom Build) / http://modernizr.com /  MIT
+lz-strings / Copyright (c) 2013 Pieroxy <pieroxy@pieroxy.net> / WTFPL, Version 2
+imgcache.js / Copyright 2012-2015 Christophe BENOIT / Apache 2
