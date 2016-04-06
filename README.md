@@ -11,7 +11,7 @@ How to build the complete url to `client.js`:
 
 ``https://oekobox-online.eu/v3/shop/<shopname>api/client.js``
 
-> You need to know `shopname` of course ;-)
+> You need to know `<shopname>` of course ;-)
 
 **Alternativly,** 
 * download a full functional pages set from ``https://oekobox-online.eu/v3/demo/<shopname>`` 
