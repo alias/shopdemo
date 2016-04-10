@@ -13,8 +13,8 @@ h1 {
 .hints li {
     margin-left: 20px;
 }
-div {
-    Xpadding: 5px;
+input[type="text"], input[type="email"] {
+    width: 200px;
 }
 a {
     text-decoration: none;
@@ -23,6 +23,10 @@ a {
     margin-right: 5px;
     border-bottom: 1px solid #D0BFA6;
     border-left: 4px solid #D0BFA6;
+}
+.testinghelp {
+    font-size: smaller;
+    color: gray;
 }
 div#pagecontent > div, #oo-navi > ul {
     margin-top: 20px;
@@ -73,6 +77,11 @@ div#pagecontent > div, #oo-navi > ul {
 .header > div {
     display: inline-block;
 }
+
+/* status component */
+#oo-status .oo-status-auth-logoutlink {
+    display: none; /* we dont want the user to logout, so better dont show this that prominent. Another logout is in profile */
+}
 #oo-status div {
     display: inline-block;
 }
@@ -111,7 +120,7 @@ button {
     background-color: lightsalmon;
 }
 
-.oo-navi-active, .oo-date-active {
+.oo-navi-active, .oo-date-active, .oo-profile-tab-selected {
     background-color: chartreuse;
 }
 
@@ -318,12 +327,50 @@ input#oo-profile-zip, input#oo-profile-number { width: 60px;}
 input#oo-profile-city, input#oo-profile-street  { width: 200px;}
 .oo-profile-address-zc-label, .oo-profile-address-sn-label { width: 80px; display: inline-block;}
 
+#oo-profile-tab li {
+    float: left;
+    list-style: none;
+}
+#oo-profile .oo-state-located form button {
+    float: right;
+}
+#oo-profile label {
+    width: 10em;
+}
+#oo-profile .oo-profile-field-news label {
+    width: 20em;
+}
+#oo-profile-tab LI {                   /* tab controls */
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 4px;
+    margin-right: 20px;
+}
+LI.oo-profile-tab-good {               /* nwant your own? http://www.base64css.com */
+    background-image: url("data:image/gif;base64,R0lGODlhEAAQAMQfAHbDR0twLrPdlpHQaZGYjPn8983muYvSWIPNU3G/RNTtxTZZGn6TbVKCLJPmV4nkTOz35ajld8LmqV16Rn7VR4DLT4zlUExgPHGLXIvOYKTad4DZSGm4PlJnQv///////yH5BAEAAB8ALAAAAAAQABAAAAWE4Cd+Xml6Y0pORMswE6p6mGFIUR41skgbh+ABgag4eL4OkFisDAwZxwLl6QiGzQHEM3AEqFZmJbNVICxfkjWjgAwUHkECYJmqBQNJYSuf18ECAABafQkJD3ZVGhyChoYcHH8+FwcJkJccD2kjHpQPFKAbmh4FMxcNqKhTPSknJiqwsSMhADs=");
+}
+.oo-profile-tab-bad {
+    background-image: url("data:image/gif;base64,R0lGODlhEAAPAMQfAP3shv/12vvcS+vCc/vgXt6yPOvFeuuiJ+uaFOvLivraQuvJhfzhY+upN+ueHPvdUuvAbvzfWvveVv70zuu+aeu3Wbx8EuuwR/3vof7xsv3umP7yv/ziZv/24////////yH5BAEAAB8ALAAAAAAQAA8AAAVz4CeOn+eRKOklyZmqSdct7ustHcd1Ro16htyO4hsBhRxGoFIsDXIFC2NyKXqeuighsmn4PJAcIxqRZA61q5ixlTwEGLQI3GGwo2+BxnE62tt5CgoAfEABARMTGxkZGBoAkHwlFBUXDQcOCJqbaSaenyYiIQA7");
+}
+#oo-profile .oo-profile-located-payment > div {
+    height: 50px;
+}
+.oo-profile-field-pay-sepa > DIV, .oo-profile-field-pay-paypal > DIV {
+    margin-left: 50px;
+}
+#oo-profile fieldset > A {
+    display: none;
+}
+#oo-profile-tab UL {
+    padding-left:0;
+}
+
 /* logon component */
 
 #oo-logon {
     float: left; /* just to keep the border around */
 }
-#oo-logon .oo-status-anon > div {
+#oo-logon .oo-state-anon > div {
     float: left;
     margin: 20px;
 }
@@ -363,10 +410,13 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     cursor: not-allowed !important;
     pointer-events: none;
 }
-.ui-disabled, .oo-css-disabled {
+.ui-disabled, .oo-disabled {
     opacity: .3;
     cursor: default !important;
     pointer-events: none;
+}
+.oo-required {
+    /* if you dont want to rely on the required form attribute */
 }
 /*
 .ui-hidden {
@@ -381,4 +431,12 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     display: block;
     visibility: hidden;
     height: 0px;
+}
+
+/* common */
+input:required {
+    border-left: 1px solid red;
+}
+input:invalid {
+    background-color: #fcebcf;
 }

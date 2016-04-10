@@ -23,5 +23,7 @@ How to build the complete url to `client.js`:
 * just go to  ``https://oekobox-online.eu/v3/shop/<shopname>/demo/index.html`` 
 
 ---
-More Info on [Ökobox-Online](http://oekobox-online.de/developer.jsp)
+More Info on [Ökobox-Online](https://oekobox-online.de/news?a=js)
+
+[This info in GERMAN](https://oekobox-online.de/news?p=DemoSeiten)
 

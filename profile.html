@@ -4,6 +4,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="app.css" rel="stylesheet" type="text/css"/>
+        <script>
+            function loadTestData() {
+                var data = [
+                    ["firstname", "Lattika"], ["name", "O'Broccoli"],
+                    ["email", "latty@broccoli-family.in"], ["email1", "latty@broccoli-family.in"],
+                    ["passwd", "supermaggy"], ["passwd1", "supermaggy"],
+                    ["phone", "0049 351 27359579"], ["place", "look for a cool dry place on the roof please"],
+                    ["IBAN", "DE12500105170648489890"]
+                ];
+                for (var i = 0; i < data.length; i++) {
+                    document.getElementById("oo-profile-" + data[i][0]).value = data[i][1];
+                }
+                return false;
+            }
+        </script>
     </head>
     <body>
         <div class="header">
@@ -15,8 +30,8 @@
         <h1>NoDesignButTaste Inc.</h1>
         <div id="oo-flash" ></div>
         <div id="pagecontent">
-            <div id="oo-profile" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html"></div>
-
+            <div id="oo-profile" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html" data-oo-cart-page="cart.html"></div>
+            <a class="oo-state-located testinghelp" href="#" onclick="loadTestData();" id="">Formular mit Testdaten füllen</a>
             <!--
             <div class="hints">
                 Diese Profil-Komponente
