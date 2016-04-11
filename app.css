@@ -1,3 +1,8 @@
+/*
+C) oekobox-online.eu 2016. Free for use with oekobox-online services .
+NoDesign Test Pages. You'll find the component-related styles below the generic selectors.
+See https://oekobox-online.de/news?a=js.CSSDocu for more information.
+*/
 Body {
     font-family: "Arial", "sans-serif";
     margin: 10px; padding: 0;
@@ -13,9 +18,7 @@ h1 {
 .hints li {
     margin-left: 20px;
 }
-input[type="text"], input[type="email"] {
-    width: 200px;
-}
+
 a {
     text-decoration: none;
     padding-left: 2px;
@@ -28,45 +31,10 @@ a {
     font-size: smaller;
     color: gray;
 }
-div#pagecontent > div, #oo-navi > ul {
+div#pagecontent > div {
     margin-top: 20px;
     padding-left: 5px;
 }
-#oo-navi LI {
-    display: inline-block;
-}
-#oo-navi .oo-navi-2nd-pane {
-    display: none; /* initially */
-    position: absolute;
-    z-index: 1000; /* to be atop anything rendered later */
-    background-color: ivory;
-    padding: 20px;
-}
-#oo-shop-sl-pane {
-
-}
-/* all "small" boxes within the selection */
-#oo-shop-sl-pane > DIV {
-    display: inline-block;
-    position: relative;
-    border-bottom: 1px solid #D0BFA6;
-    border-left: 4px solid #D0BFA6;
-    background-color: #fcebcf;
-    overflow: hidden;
-    text-align: center;
-    margin: 5px;
-}
-#oo-shop-sl-pane > DIV.oo-shop-item {
-    width: 200px;
-    height: 200px;
-
-}
-.oo-shop-singleitem .oo-item-img {
-    width: 200px;
-    height: 200px;
-    display: inline-block;
-}
-
 .hints {
     font-style: italic;
     padding: 30px;
@@ -77,8 +45,43 @@ div#pagecontent > div, #oo-navi > ul {
 .header > div {
     display: inline-block;
 }
+label {
+    display: inline-block;
+    width: 8em;
+}
+input[type="text"], input[type="email"] {
+    width: 200px;
+}
+button {
+    background-color:  #D0BFA6;
+    border-style: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+input:required {
+    border-left: 1px solid red;
+}
+input:invalid {
+    background-color: #fcebcf;
+}
 
-/* status component */
+
+/****** Navigation Component */
+
+#oo-navi LI {
+    display: inline-block;
+}
+#oo-navi > ul {
+    margin-top: 20px;
+    padding-left: 5px;
+}
+#oo-navi .oo-navi-2nd-pane {     /* see also component-shared css below */
+    padding: 20px;
+}
+
+/****** Status Component */
+
 #oo-status .oo-status-auth-logoutlink {
     display: none; /* we dont want the user to logout, so better dont show this that prominent. Another logout is in profile */
 }
@@ -90,28 +93,13 @@ div#pagecontent > div, #oo-navi > ul {
     max-height: 350px;
     right: 0;
 }
-#oo-status .oo-cart-pos-controls, #oo-cart .oo-cart-pos-controls {
-    display: none;  /* initially */
+
+#oo-status .oo-status-cart-preview  {   /* see also shared below */
+    overflow-y: scroll;
+    font-size: smaller;
 }
-#oo-status .oo-cart-pos-controls A , #oo-cart .oo-cart-pos-controls A{
-    margin-right: 2px;
-    padding:2px;
-    border: 0;
-    border-radius: 3px;
-    background-color: #D0BFA6;
-    float: right;
-}
-label {
-    display: inline-block;
-    width: 8em;
-}
-button {
-    background-color:  #D0BFA6;
-    border-style: none;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 5px;
-}
+
+/****** Flash Component */
 
 .oo-flash-msg {
     color: darkgreen;
@@ -120,11 +108,8 @@ button {
     background-color: lightsalmon;
 }
 
-.oo-navi-active, .oo-date-active, .oo-profile-tab-selected {
-    background-color: chartreuse;
-}
+/****** Path Component  */
 
-/** oo-path */
 #oo-path UL {
     margin:0;
 }
@@ -139,11 +124,15 @@ button {
 #oo-date-pane A span + span:before {
    content: ", ";
 }
+
+/****** Ticker Component */
+
 .oo-ticker {
     width: 200px;
 }
 
-/* cart */
+/****** Cart Component */
+
 .oo-cart-pos {
     border: 1px solid silver;
 }
@@ -171,10 +160,29 @@ button {
     text-align: right;
 }
 
-/* shop */
+/****** Shop Component */
 
-/* list item blend helper , see app.js */
-#oo-shop .blend {
+#oo-shop-sl-pane > DIV {     /* all "small" boxes within the selection */
+    display: inline-block;
+    position: relative;
+    border-bottom: 1px solid #D0BFA6;
+    border-left: 4px solid #D0BFA6;
+    background-color: #fcebcf;
+    overflow: hidden;
+    text-align: center;
+    margin: 5px;
+}
+#oo-shop-sl-pane > DIV.oo-shop-item {
+    width: 200px;
+    height: 200px;
+}
+.oo-shop-singleitem .oo-item-img {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+}
+
+#oo-shop .blend {          /* list item blend helper , see app.js */
     top:0;left:0;
     height: 200px;
     width: 200px;
@@ -183,8 +191,7 @@ button {
     background-color: white;
     display: none;  /* initially*/
 }
-/* green triangle indicating that item is in cart */
-#oo-shop .oo-shop-item-loaded {
+#oo-shop .oo-shop-item-loaded {      /* green triangle indicating that item is in cart */
     width: 0;
     height: 0;
     border-style: solid;
@@ -196,8 +203,7 @@ button {
     top: 170px;
     display: none;  /* initially*/
 }
-/* element with an image */
-.oo-item-img {
+.oo-item-img {                         /* element with an image */
     background-size: contain;
 }
 .oo-item-name, .oo-shop-item-price-wrapper , .oo-item-txt, .oo-shop-item-select {
@@ -210,54 +216,51 @@ button {
     font-size: 0.8em;
 }
 
-.oo-shop-item-select, .oo-shop-item-price-wrapper {
+#oo-shop .oo-shop-item-select, #oo-shop .oo-shop-item-price-wrapper {
     position: absolute;
     width: 190px;
     margin: 5px;
 }
-.oo-shop-singleitem .oo-shop-item-select {
+#oo-shop .oo-shop-singleitem .oo-shop-item-select {
     position: relative;
     display: inline-block;
     vertical-align: bottom;
 }
-.oo-shop-item .oo-shop-item-select {
+#oo-shop .oo-shop-item .oo-shop-item-select {
     position: absolute;
     top: 70px;
     display: none; /* initially, see app.js */
 }
-.oo-shop-item-price-wrapper {
+#oo-shop .oo-shop-item-price-wrapper {
     top: 150px;
 }
-.oo-shop-title-head{
+#oo-shop .oo-shop-title-head {
     background-color: #ebd8bc;
 }
-
-/* (list) item selector */
-.select_container .select_value {
+#oo-shop .select_container .select_value {       /* (list) item selector */
     width: 60px;
 }
-.select_container div:first-child {
+#oo-shop .select_container div:first-child {
     float: left;
     width: 100%;
 }
-.select_container div:nth-child(2) {
+#oo-shop .select_container div:nth-child(2) {
     display: inline-block;
     vertical-align: bottom;
 }
-/* added to oo-shop-item ehrn item is already in cart,  */
-.oo-shop-item-incart {
+#oo-shop .oo-shop-item-incart {    /* added to oo-shop-item when item is already in cart,  */
     /* unused here, we use an extra layer .oo-shop-item-loaded */
 }
-.select_base {
+#oo-shop .select_base {
     font-size: 0.8em;
 }
 
-/* title in shop component */
-#oo-shop-title BUTTON {
+#oo-shop-title BUTTON {   /* title in shop component */
     float: right;
 }
 
-/* search */
+/****** Search Component */
+
 #oo-search {
     height: 20px;
 }
@@ -265,11 +268,7 @@ button {
     height: 80px;
     width: 80px;
 }
-#oo-search .oo-search-preview, #oo-status .oo-status-cart-preview {
-    display: none; /* initially */
-    z-index: 1000; /* to be atop anything rendered later */
-    position: absolute;
-    background-color: ivory;
+#oo-search .oo-search-preview {   /* see also shared below */
     overflow-y: scroll;
     font-size: smaller;
 }
@@ -313,7 +312,7 @@ button {
     font-size: smaller;
 }
 
-/* profile component */
+/****** Profile Component */
 
 #oo-profile-anon, #oo-profile-authed {
     display: none;
@@ -365,7 +364,7 @@ LI.oo-profile-tab-good {               /* nwant your own? http://www.base64css.c
     padding-left:0;
 }
 
-/* logon component */
+/****** Logon Component */
 
 #oo-logon {
     float: left; /* just to keep the border around */
@@ -375,6 +374,30 @@ LI.oo-profile-tab-good {               /* nwant your own? http://www.base64css.c
     margin: 20px;
 }
 
+/****** some shared assignments for components */
+
+#oo-status .oo-cart-pos-controls, #oo-cart .oo-cart-pos-controls {
+    display: none;  /* initially */
+}
+.oo-navi-active, .oo-date-active, .oo-profile-tab-selected {
+    background-color: chartreuse;
+}
+#oo-search .oo-search-preview, #oo-status .oo-status-cart-preview, #oo-navi .oo-navi-2nd-pane  {
+    display: none; /* initially */
+    z-index: 1000; /* to be atop anything rendered later */
+    position: absolute;
+    background-color: ivory;
+}
+#oo-status .oo-cart-pos-controls A , #oo-cart .oo-cart-pos-controls A {      /* in-cart controls */
+    margin-right: 2px;
+    padding:2px;
+    border: 0;
+    border-radius: 3px;
+    background-color: #D0BFA6;
+    float: right;
+}
+
+/****** helper stuff */
 
 /** Indicates the components - remove this once you learned about it */
 .oo-component, #oo-search .oo-search-preview, #oo-status .oo-status-cart-preview  {
@@ -398,9 +421,9 @@ LI.oo-profile-tab-good {               /* nwant your own? http://www.base64css.c
 .oo-loading::after {
     content: "(.oo-loading)";
 }
-/* End highighting components */
+/*        End highighting components **/
 
-/* framework */
+/****** oo Framework */
 
 .oo-container {
     display: inline-block;
@@ -424,19 +447,12 @@ LI.oo-profile-tab-good {               /* nwant your own? http://www.base64css.c
 }
 */
 
-/* helper */
-.clearfix:after {
+.oo-clearfix:after {        /* like any clearfix */
     content: ".";
     clear: both;
     display: block;
     visibility: hidden;
-    height: 0px;
+    height: 0;
 }
 
-/* common */
-input:required {
-    border-left: 1px solid red;
-}
-input:invalid {
-    background-color: #fcebcf;
-}
+/*         end oo **/
