@@ -330,7 +330,7 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     float: left;
     list-style: none;
 }
-#oo-profile .oo-state-located form button {
+#oo-profile .oo-state-located form button, #oo-profile .oo-state-auth form button  {
     float: right;
 }
 #oo-profile label {
@@ -345,10 +345,10 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     padding-right: 4px;
     margin-right: 20px;
 }
-LI.oo-profile-tab-good {               /* nwant your own? http://www.base64css.com */
+LI.oo-profile-set-good {               /* nwant your own? http://www.base64css.com */
     background-image: url("data:image/gif;base64,R0lGODlhEAAQAMQfAHbDR0twLrPdlpHQaZGYjPn8983muYvSWIPNU3G/RNTtxTZZGn6TbVKCLJPmV4nkTOz35ajld8LmqV16Rn7VR4DLT4zlUExgPHGLXIvOYKTad4DZSGm4PlJnQv///////yH5BAEAAB8ALAAAAAAQABAAAAWE4Cd+Xml6Y0pORMswE6p6mGFIUR41skgbh+ABgag4eL4OkFisDAwZxwLl6QiGzQHEM3AEqFZmJbNVICxfkjWjgAwUHkECYJmqBQNJYSuf18ECAABafQkJD3ZVGhyChoYcHH8+FwcJkJccD2kjHpQPFKAbmh4FMxcNqKhTPSknJiqwsSMhADs=");
 }
-.oo-profile-tab-bad {
+.oo-profile-set-bad {
     background-image: url("data:image/gif;base64,R0lGODlhEAAPAMQfAP3shv/12vvcS+vCc/vgXt6yPOvFeuuiJ+uaFOvLivraQuvJhfzhY+upN+ueHPvdUuvAbvzfWvveVv70zuu+aeu3Wbx8EuuwR/3vof7xsv3umP7yv/ziZv/24////////yH5BAEAAB8ALAAAAAAQAA8AAAVz4CeOn+eRKOklyZmqSdct7ustHcd1Ro16htyO4hsBhRxGoFIsDXIFC2NyKXqeuighsmn4PJAcIxqRZA61q5ixlTwEGLQI3GGwo2+BxnE62tt5CgoAfEABARMTGxkZGBoAkHwlFBUXDQcOCJqbaSaenyYiIQA7");
 }
 #oo-profile .oo-profile-located-payment > div {
@@ -362,6 +362,9 @@ LI.oo-profile-tab-good {               /* nwant your own? http://www.base64css.c
 }
 #oo-profile-tab UL {
     padding-left:0;
+}
+#oo-profile .oo-profile-logout {
+    float: right;
 }
 
 /****** Logon Component */
@@ -379,7 +382,7 @@ LI.oo-profile-tab-good {               /* nwant your own? http://www.base64css.c
 #oo-status .oo-cart-pos-controls, #oo-cart .oo-cart-pos-controls {
     display: none;  /* initially */
 }
-.oo-navi-active, .oo-date-active, .oo-profile-tab-selected {
+.oo-navi-active, .oo-date-active, .oo-profile-tab-selected, .oo-profile-edit-selected > a {
     background-color: chartreuse;
 }
 #oo-search .oo-search-preview, #oo-status .oo-status-cart-preview, #oo-navi .oo-navi-2nd-pane  {
