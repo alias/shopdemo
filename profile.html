@@ -30,23 +30,40 @@
         <h1>NoDesign@<span class="oo-system-title"></span></h1>
         <div id="oo-flash" ></div>
         <div id="pagecontent">
+            <a href="shop.html" title="Beispiel-Link als alternative zur Navi-Komponente hier" style="margin: 5px; display: inline-block">Weiter Shoppen...</a>
             <div id="oo-profile" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html" data-oo-cart-page="cart.html"></div>
             <a class="oo-state-located testinghelp" href="#" onclick="loadTestData();" id="">Formular mit Testdaten füllen</a>
-            <!--
+
             <div class="hints">
-                Diese Profil-Komponente
+                Hinweise zur Profil-Komponente
                 <ul>
-                    <li>erlaubt das ansehen und einstelle von Kunden-Details</li>
-                    <li>Die Einstellungen werden bei Änderung gespeichert. Einige davon nur lokal.</li>
-                    <li>Name Adrese etc.</li>
-                    <li>Einstellungen des Shops</li>
-                    <li>Vorlieben/Abwahl</li>
-                    <li>Abos</li>
+                    <li>Die Komponente implementiert 1. die Tourauswahl (im Status anon), 2. die Neuanmeldung (im Status located) sowie 3. das Einstellen von Kunden-Daten (im Status auth)
+                        Aktueller Status:
+                        <span class="oo-state-auth">Angemeldeer Kunde</span>
+                        <span class="oo-state-located">Besucher mit Tourzuweisung</span>
+                        <span class="oo-state-anon">unbekannter Besucher</span>
+                    </li>
+                    <li>Nach der Anmeldung muss zu einer anderen Seite verzweigt werden; deshalb ist die Angabe von <i>data-oo-shop-page="shop.html"</i> zwingend.
+                    <li> Die Komponente kann auch auf mehreren Seiten eingebaut werden; typischerweise braucht man sie da nur ein einem bestimmten Status. Dies kann durch
+                    Wrappen in einem div.oo-state-XXX erfolgen. Die data-Attribute zur Konfiguration sollten dann expizit angegeben werden (und nicht zentral vom app.js verwendet werden) </li>
+                    <li>Zur Adressabfrage (bei der Neuanmeldung) wird hier der Computer "befragt" - daher die Abfrage des Browser, ob die aktuelle ausgegeben werden darf. </li>
+                    <li>Die (richtige) Zuordnung zu Neukunden erfordert Einstellungen im PCG (an den Touren) und im Admin-Bereich des Shops (für den Zuordnungs-Algorhitmus). </li>
+                </ul>
+                Noch zu bauen:
+                <ul>
+                    <li>Profil-Abteilungen im auth State (sind dort in englisch angedeutet)</li>
+                    <li>Email Exists-Validierung bei Neukundenanmeldung und Änderung</li>
+                    <li>paypal email backend</li>
+                    <li>einige stärkere Validierungen</li>
+                    <li>Übergabe der Abstellinformationen an den PCG</li>
+                    <li>Lieferadresse (inkl. backend)</li>
+                    <li>Erneute Address-Änderungen im located oder auth state müssen erneut durch die Tourfindung laufen </li>
+                    <li>evtl. Persistenz der Eingaben wenn beim Registrieren abgebrochen wird.</li>
+                    <li>Korrektur Änderungs-Email, mit Zeitversatz</li>
                 </ul>
             </div>
-                -->
-            <div class="oo-ticker" data-oo-ticker-data="Group:123" data-oo-ticker-speed="8" data-oo-shop-page="shop.html"></div>
 
+            <div class="oo-ticker" data-oo-ticker-data="Group:123" data-oo-ticker-speed="8" data-oo-shop-page="shop.html"></div>
         </div>
 
         <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->

@@ -23,19 +23,34 @@
                         <li>Dies ist ein Besispiel-Seiten-Satz, der einen kompletten Shop für den PCG darstellt.</li>
                         <li>Dies könnte die Startseite der WebSite sein. Zur Illustration sind nicht alle Seiten komplett gleich. Diese Seiten können unter
                             <tt>https://oekobox-online.de/v3/demo/&lt;shopname&gt;</tt> (als zip) oder via <a href="https://github.com/alias/shopdemo">GitHub</a>
-                                heruntergeladen werden.</li>
+                                heruntergeladen werden.
+                            <br>
+                            Auf den Seiten (ca. 10) finden sich Hinweise zu den dort wichtigsten Komponenten (insgesamt 12).
+                        </li>
                         <li>Doku der Komponenten und des CSS unter <a href="https://oekobox-online.de/news?a=js">Ökobox-Online</a></li>
-                        <li>Insgesamt wird versucht, hier so wenig wie möglich Code (HTML und CSS) zu verwenden.</li>
+                        <li>Insgesamt wird versucht, hier so wenig wie möglich Code (HTML und CSS) zu verwenden, um dem anpassenden Designer soviel freie Hand wie möglich zulassen.
+                            Dadurch ist der Shop hier nicht so hübsch wie er sein kann ;-)</li>
                         <li>Komponenten sind zur Hervorhebung gestrichelt umrandet.</li>
-                        <li> English beschriftete Links funktionieren nicht.</li>
+                        <li> English beschriftete Links funktionieren nicht, die Funktionalität ist gerade im Aufbau.</li>
 
                     <li>Manche Komponenten können Elemente überall in der Seite Steuern, hier der Warenkorbwert von der Status-Komponente: <span class="oo-status-cart-value">0</span></li>
-                    <li><a href="#" class="oo-system-homeurl">Hier</a> gehts zur eingestellten Startseite des Systems.</li>
+                    <li><a href="#" class="oo-system-homeurl">Hier</a> gehts zur eingestellten Startseite des Systems (also zum bisherigen Shop). Diese Seite wird auch angesteuert,
+                        wenn der Browser nicht mit der Technologie des Shops klarkommt.</li>
                 </ul>
             </div>
 
+            Ticker-Komponente
+            <ul>
+                <li>Dient als Ticker und kann auch als Teaser (also für einen Artikel) konfiguriert werden</li>
+                <li>Aktuell muss die Warengruppe oder Rubrik oder der Artikel als Id angegeben werden , der Dargestellt werden soll. Da wird es noch weitere Optionen geben. </li>
+            </ul>
             <div class="oo-ticker" data-oo-ticker-data="Group:123" data-oo-ticker-speed="2" data-oo-shop-page="shop.html"></div>
 
+            Navigations-Komponente (oben)
+            <ul>
+                <li>Bildet den Navigationsbaum ab, wie er im PCG eingestellt wurde. Sofern diese (neue) Einstellung im PCG noch nicht verwendet wird, wird ein an den
+                bisherigen Shop angelehnter Standard verwendet.</li>
+            </ul>
         </div>
 
         <script src="../../api/client.js"></script>

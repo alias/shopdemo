@@ -17,6 +17,7 @@ h1 {
 }
 .hints li {
     margin-left: 20px;
+    font-size: smaller;
 }
 
 a {
@@ -339,17 +340,32 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
 #oo-profile .oo-profile-field-news label {
     width: 20em;
 }
-#oo-profile-tab LI {                   /* tab controls */
+.oo-profile-set-good A , .oo-profile-set-bad A  {                   /* tab / formset controls */
     background-repeat: no-repeat;
     background-position: right center;
-    padding-right: 4px;
+    padding-right: 16px;
     margin-right: 20px;
 }
-LI.oo-profile-set-good {               /* nwant your own? http://www.base64css.com */
+
+.oo-profile-set-good A {               /* nwant your own? http://www.base64css.com */
     background-image: url("data:image/gif;base64,R0lGODlhEAAQAMQfAHbDR0twLrPdlpHQaZGYjPn8983muYvSWIPNU3G/RNTtxTZZGn6TbVKCLJPmV4nkTOz35ajld8LmqV16Rn7VR4DLT4zlUExgPHGLXIvOYKTad4DZSGm4PlJnQv///////yH5BAEAAB8ALAAAAAAQABAAAAWE4Cd+Xml6Y0pORMswE6p6mGFIUR41skgbh+ABgag4eL4OkFisDAwZxwLl6QiGzQHEM3AEqFZmJbNVICxfkjWjgAwUHkECYJmqBQNJYSuf18ECAABafQkJD3ZVGhyChoYcHH8+FwcJkJccD2kjHpQPFKAbmh4FMxcNqKhTPSknJiqwsSMhADs=");
 }
-.oo-profile-set-bad {
+.oo-profile-set-bad A {
     background-image: url("data:image/gif;base64,R0lGODlhEAAPAMQfAP3shv/12vvcS+vCc/vgXt6yPOvFeuuiJ+uaFOvLivraQuvJhfzhY+upN+ueHPvdUuvAbvzfWvveVv70zuu+aeu3Wbx8EuuwR/3vof7xsv3umP7yv/ziZv/24////////yH5BAEAAB8ALAAAAAAQAA8AAAVz4CeOn+eRKOklyZmqSdct7ustHcd1Ro16htyO4hsBhRxGoFIsDXIFC2NyKXqeuighsmn4PJAcIxqRZA61q5ixlTwEGLQI3GGwo2+BxnE62tt5CgoAfEABARMTGxkZGBoAkHwlFBUXDQcOCJqbaSaenyYiIQA7");
+}
+.oo-profile-edit-hint {                 /* additional dont-forget-to-save- hint */
+    display: none;
+}
+.oo-profile-revert .oo-profile-revertbtn {
+    display: inline-block;
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    background-image: url("data:image/gif;base64,R0lGODlhDwAMAPcAABiMKRiEMRiMMf///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAQALAAAAAAPAAwAQAg5AAkIHBig4MCDAgMgJEhQgMKFBB5CPCgxIUSHBSsaFOhwYseEFTl6JJgxpEWGEAN8PDkRIoCNBwMCADs=");
+}
+#oo-profile .oo-state-auth .oo-profile-set-good .oo-profile-edit-hint {
+   display: inline;
 }
 #oo-profile .oo-profile-located-payment > div {
     height: 50px;
