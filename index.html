@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="app.css" rel="stylesheet" type="text/css"/>
+        <title>StartPage</title>
     </head>
     <body>
         <div class="header">
@@ -37,20 +38,22 @@
                     <li><a href="#" class="oo-system-homeurl">Hier</a> gehts zur eingestellten Startseite des Systems (also zum bisherigen Shop). Diese Seite wird auch angesteuert,
                         wenn der Browser nicht mit der Technologie des Shops klarkommt.</li>
                 </ul>
+
+                Ticker-Komponente (unten)
+                <ul>
+                    <li>Dient als Ticker und kann auch als Teaser (also für einen Artikel) konfiguriert werden</li>
+                    <li>Aktuell muss die Warengruppe oder Rubrik oder der Artikel als Id angegeben werden , der Dargestellt werden soll. Da wird es noch weitere Optionen geben. </li>
+                </ul>
+
+
+                Navigations-Komponente (oben)
+                <ul>
+                    <li>Bildet den Navigationsbaum ab, wie er im PCG eingestellt wurde. Sofern diese (neue) Einstellung im PCG noch nicht verwendet wird, wird ein an den
+                    bisherigen Shop angelehnter Standard verwendet.</li>
+                </ul>
+
             </div>
-
-            Ticker-Komponente
-            <ul>
-                <li>Dient als Ticker und kann auch als Teaser (also für einen Artikel) konfiguriert werden</li>
-                <li>Aktuell muss die Warengruppe oder Rubrik oder der Artikel als Id angegeben werden , der Dargestellt werden soll. Da wird es noch weitere Optionen geben. </li>
-            </ul>
             <div class="oo-ticker" data-oo-ticker-data="Group:123" data-oo-ticker-speed="2" data-oo-shop-page="shop.html"></div>
-
-            Navigations-Komponente (oben)
-            <ul>
-                <li>Bildet den Navigationsbaum ab, wie er im PCG eingestellt wurde. Sofern diese (neue) Einstellung im PCG noch nicht verwendet wird, wird ein an den
-                bisherigen Shop angelehnter Standard verwendet.</li>
-            </ul>
         </div>
 
         <script src="../../api/client.js"></script>

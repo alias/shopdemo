@@ -15,6 +15,11 @@ h1 {
     padding: 5px;
     background-color: #D0BFA6;
 }
+h2 a {
+    font-size: small;
+    font-weight: normal;
+    border: none;
+}
 .hints li {
     margin-left: 20px;
     font-size: smaller;
@@ -34,7 +39,6 @@ a {
 }
 div#pagecontent > div {
     margin-top: 20px;
-    padding-left: 5px;
 }
 .hints {
     font-style: italic;
@@ -67,6 +71,24 @@ input:invalid {
     background-color: #fcebcf;
 }
 
+#nd-left {
+    float: left;
+    width: 24%;
+}
+#nd-right {
+    float: right;
+    width: 75%;
+}
+.nd-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
+}
 
 /****** Navigation Component */
 
@@ -90,7 +112,7 @@ input:invalid {
     display: inline-block;
 }
 #oo-status .oo-status-cart-preview {
-    width: 350px;
+    max-width: 350px;
     max-height: 350px;
     right: 0;
 }
@@ -99,7 +121,14 @@ input:invalid {
     overflow-y: scroll;
     font-size: smaller;
 }
+#oo-status .oo-status-cart-preview A, #oo-status .oo-status-auth-preview A {
+    display: block;
+    margin: 4px;
+}
 
+#oo-status .oo-cart-pos-abo-suppressed .oo-cart-pos-controls {
+    display: none !important;                                                 /* only allow supression in status cart */
+}
 /****** Flash Component */
 
 .oo-flash-msg {
@@ -161,9 +190,42 @@ input:invalid {
     text-align: right;
 }
 
+.oo-cart-pos Td{                  /* see also shared */
+    position: relative;
+}
+.oo-cart-pos-controls {
+    position:absolute;
+    right:5px;
+    top: 5px;
+}
+
+#oo-cart .oo-cart-pos-abodates {
+    font-size: small;
+}
+#oo-cart .oo-cart-pos-name {
+    font-weight: bold;
+}
+
+#oo-cart .oo-cart-pos-abo-undue {
+    background-color: rgba(145, 134, 136, 0.18);
+}
+#oo-cart .oo-cart-pos-abo-deleted {
+    text-decoration: line-through   ;
+}
+#oo-cart .oo-cart-pos-abo-suppressed {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAEElEQVQYlWNgoBLwHVXAAABdEAJpaUVnlQAAAABJRU5ErkJggg==) repeat;
+}
+#oo-cart .oo-cart-pos-abo-due {
+    background-color: rgba(13, 138, 102, 0.18);
+}
+
+#oo-cart .oo-cart-pos-abo-del {      /* overrides */
+    width: 250px;
+}
+
 /****** Shop Component */
 
-#oo-shop-sl-pane > DIV {     /* all "small" boxes within the selection */
+.oo-shop-sl-pane > DIV {     /* all "small" boxes within the selection */
     display: inline-block;
     position: relative;
     border-bottom: 1px solid #D0BFA6;
@@ -173,7 +235,10 @@ input:invalid {
     text-align: center;
     margin: 5px;
 }
-#oo-shop-sl-pane > DIV.oo-shop-item {
+.oo-shop-sl-pane .oo-shop-item .oo-select-tabs {
+    display: none;   /* hide the subscription option form the item panels */
+}
+.oo-shop-sl-pane > DIV.oo-shop-item {
     width: 200px;
     height: 200px;
 }
@@ -242,12 +307,31 @@ input:invalid {
     width: 60px;
 }
 #oo-shop .select_container div:first-child {
-    float: left;
-    width: 100%;
+
+
 }
-#oo-shop .select_container div:nth-child(2) {
+#oo-shop .oo-select-sub-info {
+    width: 100%;
+    border-radius: 5px;
+}
+#oo-shop .oo-select-sub-info-new, #oo-shop .oo-select-sub-info-ex {
+    display: none; /* initially */
+}
+
+#oo-shop .oo-select-sub-info  BUTTON {      /* overrides agai, todo fixme */
+    display: block;
+    padding: 10px;
+    float: right;
+}
+#oo-shop .oo-select-sub-info .oo-overlay-close {
+    float: right;
+}
+#oo-shop .select_container .select_container-pm {
     display: inline-block;
     vertical-align: bottom;
+}
+#oo-shop .oo-select-sub-dates {
+    display: none; /* initially */
 }
 #oo-shop .oo-shop-item-incart {    /* added to oo-shop-item when item is already in cart,  */
     /* unused here, we use an extra layer .oo-shop-item-loaded */
@@ -256,10 +340,29 @@ input:invalid {
     font-size: 0.8em;
 }
 
-#oo-shop-title BUTTON {   /* title in shop component */
+.oo-shop-title .oo-shop-title-controls {   /* title in shop component */
     float: right;
 }
 
+DIV.oo-shop-sl-pane-itemstart {     /* inserted before the first item in the list */
+    display: block;
+}
+
+.oo-shop-item-select .oo-select-tabs BUTTON {
+    padding: 1px;
+    display: none;  /* initially */
+}
+/* example to use icons instead of text
+.oo-select-sub-2 {
+    width: 20px;
+    height: 20px;
+    color: transparent;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("data:image/gif;base64,R0lGODlhDwAMAPcAABiMKRiEMRiMMf///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAQALAAAAAAPAAwAQAg5AAkIHBig4MCDAgMgJEhQgMKFBB5CPCgxIUSHBSsaFOhwYseEFTl6JJgxpEWGEAN8PDkRIoCNBwMCADs=");
+}
+*/
 /****** Search Component */
 
 #oo-search {
@@ -296,10 +399,6 @@ input:invalid {
     bottom: 0;
     width: 100%;
 }
-.oo-search-preview-close, .oo-status-cart-preview-close {
-    color: red;
-    float: right;
-}
 .oo-search-preview-items-plus {
     position: absolute;
     bottom: 0;
@@ -311,6 +410,9 @@ input:invalid {
 .oo-search-preview-hint, .oo-status-cart-hint {     /*todo make it a framework thing */
     margin-top: 5px;
     font-size: smaller;
+}
+#oo-search .oo-search-suggestion, #oo-search .oo-search-navigation {
+    cursor: pointer;
 }
 
 /****** Profile Component */
@@ -347,7 +449,7 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     margin-right: 20px;
 }
 
-.oo-profile-set-good A {               /* nwant your own? http://www.base64css.com */
+.oo-profile-set-good A {               /* want your own? http://www.base64css.com */
     background-image: url("data:image/gif;base64,R0lGODlhEAAQAMQfAHbDR0twLrPdlpHQaZGYjPn8983muYvSWIPNU3G/RNTtxTZZGn6TbVKCLJPmV4nkTOz35ajld8LmqV16Rn7VR4DLT4zlUExgPHGLXIvOYKTad4DZSGm4PlJnQv///////yH5BAEAAB8ALAAAAAAQABAAAAWE4Cd+Xml6Y0pORMswE6p6mGFIUR41skgbh+ABgag4eL4OkFisDAwZxwLl6QiGzQHEM3AEqFZmJbNVICxfkjWjgAwUHkECYJmqBQNJYSuf18ECAABafQkJD3ZVGhyChoYcHH8+FwcJkJccD2kjHpQPFKAbmh4FMxcNqKhTPSknJiqwsSMhADs=");
 }
 .oo-profile-set-bad A {
@@ -382,6 +484,69 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
 #oo-profile .oo-profile-logout {
     float: right;
 }
+#oo-profile-edit-sub-pane .oo-profile-edit-sub IMG {
+    float: left;
+}
+#oo-profile-edit-sub-pane .oo-profile-edit-sub {
+    clear: both;
+}
+
+#oo-profile .oo-profile-edit-sub-editnote    {
+    padding: 10px;
+    float: right;
+}
+#oo-profile .oo-profile-edit-sub {
+    padding: 5px;
+    margin: 5px;
+}
+
+#oo-profile form .oo-profile-edit-pause  BUTTON {
+    float: none;
+}
+#oo-profile .oo-profile-edit-pause-new input {
+    width: 6em;
+}
+#oo-profile .oo-profile-edit-pause-new label, #oo-profile .oo-profile-edit-pause-new input {
+    width: inherit;
+}
+/* jquery UI datepicker */
+.ui-datepicker-calendar TD a {
+    padding: 0;
+}
+.ui-datepicker-next {
+    float: right;
+}
+.ui-datepicker-prev, .ui-datepicker-next {
+    cursor: pointer;
+}
+.ui-datepicker-current-day {
+    background-color: silver;
+}
+.ui-datepicker-today {
+    background-color: chartreuse;
+}
+.oo-profile-pause-cal-order {
+    border: 2px solid #3b9c4a;
+    border-radius: 15px;
+}
+.oo-profile-pause-cal-pause {
+    color: red;
+    text-decoration: line-through;
+}
+.oo-profile-pause-cal-selected {
+    border: 2px dashed #3b9c4a;
+    border-radius: 15px;
+}
+
+/****** SubNavi Component */
+
+#oo-subnavi UL {
+    padding: 0;
+}
+#oo-subnavi LI {
+    list-style: none;
+    padding: 3px;
+}
 
 /****** Logon Component */
 
@@ -392,16 +557,60 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     float: left;
     margin: 20px;
 }
+#oo-logon .oo-logon-forgot-pane {      /* forgot password logic */
+    max-width: 300px;
+    padding: 10px;
+    display: none;                     /* initially*/
+}
+#oo-logon .oo-logon-forgot-pane input {
+    display: block;
+}
+#oo-logon .oo-logon-forgot-pane button {
+    float: right;
+}
 
 /****** some shared assignments for components */
 
+.oo-sub-mark-undue {
+    background-color: rgba(145, 134, 136, 0.18);
+}
+#oo-cart .oo-cart-pos-abo-new {
+    background-color: rgba(13, 138, 102, 0.07);
+}
+.oo-sub-mark-due {
+    background-color: rgba(13, 138, 102, 0.18);
+}
+
+#oo-cart .oo-cart-pos-abo-deleted, #oo-status .oo-cart-pos-abo-deleted, #oo-profile .oo-sub-abo-deleted {
+    text-decoration: line-through ;
+    color: gray;
+}
+
+#oo-cart .oo-cart-sure, #oo-profile .oo-profile-edit-sub-delete-sure, .oo-cart-pos-abo-del {
+    display: none;  /* initially */
+    width: 150px;
+    text-align: center;
+}
+
+.oo-overlay-close {
+    color: red;
+    float: right;
+    cursor: pointer;
+}
+/*
+.oo-search-preview-close, .oo-status-cart-preview-close, .oo-cart-sure-close, .oo-status-auth-preview-close, .oo-select-sub-info-close {
+    color: red;
+    float: right;
+    cursor: pointer;
+} */
 #oo-status .oo-cart-pos-controls, #oo-cart .oo-cart-pos-controls {
     display: none;  /* initially */
 }
-.oo-navi-active, .oo-date-active, .oo-profile-tab-selected, .oo-profile-edit-selected > a {
+.oo-navi-active, .oo-date-active, .oo-profile-tab-selected, .oo-profile-edit-selected > a , .oo-subnavi-active {
     background-color: chartreuse;
 }
-#oo-search .oo-search-preview, #oo-status .oo-status-cart-preview, #oo-navi .oo-navi-2nd-pane  {
+#oo-search .oo-search-preview, #oo-status .oo-status-cart-preview, #oo-status .oo-status-auth-preview,
+    #oo-navi .oo-navi-2nd-pane, #oo-cart .oo-cart-sure, .oo-select-sub-info , #oo-profile .oo-profile-edit-sub-delete-sure, #oo-cart .oo-cart-pos-abo-del , /* unprefixed */ .ui-datepicker {
     display: none; /* initially */
     z-index: 1000; /* to be atop anything rendered later */
     position: absolute;
@@ -409,7 +618,7 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
 }
 #oo-status .oo-cart-pos-controls A , #oo-cart .oo-cart-pos-controls A {      /* in-cart controls */
     margin-right: 2px;
-    padding:2px;
+    padding:5px;
     border: 0;
     border-radius: 3px;
     background-color: #D0BFA6;
@@ -419,8 +628,11 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
 /****** helper stuff */
 
 /** Indicates the components - remove this once you learned about it */
-.oo-component, #oo-search .oo-search-preview, #oo-status .oo-status-cart-preview  {
+.oo-component, #oo-search .oo-search-preview, #oo-status .oo-status-cart-preview , #oo-status .oo-status-auth-preview, .oo-navi-2nd-pane {
     border: 1px dashed gray;
+}
+.oo-navi-2nd-pane {
+    border-top: none;
 }
 .oo-component::after {
     bottom: 14px;

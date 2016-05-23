@@ -42,7 +42,7 @@ function itemMouseOver() {
 
     // enable selection options
     var $ooShop = $("#oo-shop");
-    $ooShop.on("mouseenter", ".oo-shop-item-type-Item", function () {
+    $ooShop.on("mouseenter", ".oo-shop-data-type-Item", function () {
         $ooShop.find(".oo-shop-item-select").fadeOut();
         $ooShop.find(".blend").hide();
         $(this).find(".oo-shop-item-select").fadeIn();

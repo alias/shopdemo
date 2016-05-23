@@ -31,6 +31,7 @@
         <div id="oo-flash" ></div>
         <div id="pagecontent">
             <a href="shop.html" title="Beispiel-Link als alternative zur Navi-Komponente hier" style="margin: 5px; display: inline-block">Weiter Shoppen...</a>
+            <a href="index.html" title="Beispiel-Link als alternative zur Navi-Komponente hier" style="margin: 5px; display: inline-block">zur Startseite...</a>
             <div id="oo-profile" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html" data-oo-cart-page="cart.html"></div>
             <a class="oo-state-located testinghelp" href="#" onclick="loadTestData();" id="">Formular mit Testdaten füllen</a>
 
@@ -39,9 +40,12 @@
                 <ul>
                     <li>Die Komponente implementiert 1. die Tourauswahl (im Status anon), 2. die Neuanmeldung (im Status located) sowie 3. das Einstellen von Kunden-Daten (im Status auth)
                         Aktueller Status:
-                        <span class="oo-state-auth">Angemeldeer Kunde</span>
-                        <span class="oo-state-located">Besucher mit Tourzuweisung</span>
-                        <span class="oo-state-anon">unbekannter Besucher</span>
+                        <b>
+                            <span class="oo-state-subscriber">Angemelder Kunde mit Abo</span>
+                            <span class="oo-state-auth">Angemelder Kunde (Hey! Du hast noch kein Abo!)</span>
+                            <span class="oo-state-located">Besucher mit Tourzuweisung</span>
+                            <span class="oo-state-anon">unbekannter Besucher</span>
+                        </b>
                     </li>
                     <li>Nach der Anmeldung muss zu einer anderen Seite verzweigt werden; deshalb ist die Angabe von <i>data-oo-shop-page="shop.html"</i> zwingend.
                     <li> Die Komponente kann auch auf mehreren Seiten eingebaut werden; typischerweise braucht man sie da nur ein einem bestimmten Status. Dies kann durch
@@ -63,7 +67,7 @@
                 </ul>
             </div>
 
-            <div class="oo-ticker" data-oo-ticker-data="Group:123" data-oo-ticker-speed="8" data-oo-shop-page="shop.html"></div>
+
         </div>
 
         <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->

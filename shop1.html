@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="app.css" rel="stylesheet" type="text/css"/>
-        <title>ShopPage</title>
     </head>
     <body>
         <div class="header">
@@ -14,14 +13,27 @@
             <div><a href="index.html">Start</a></div>
         </div>
 
-        <h2>Shopseite <a href="shop1.html">Alternative</a></h2>
+        <h2>Shopseite 1 <a href="shop.html">Alternative</a></h2>
         <h1>NoDesign@<span class="oo-system-title"></span></h1>
         <div id="oo-flash" ></div>
         <div id="pagecontent">
 
-            <div id="oo-navi" data-oo-shop-page="shop.html"></div>
+            <div id="oo-navi"></div>   <!-- notice: no oo-shop-page, therefore we stay in that page -->
             <div id="oo-path" ></div>
-            <div id="oo-shop"></div>
+
+            <div class="nd-container">
+                <div id="nd-left">
+                    <div id="oo-subnavi"></div>
+                    <div class="oo-subnavi-empty oo-unused">
+                        Teaser hier?
+                        <br>
+                        <samp>.oo-subnavi-empty</samp>Wird angezeigt, wenn die Subnavigation leer ist.
+                    </div>
+                </div>
+                <div id="nd-right">
+                    <div id="oo-shop"></div>
+                </div>
+            </div>
         </div>
 
         <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->
