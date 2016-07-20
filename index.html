@@ -21,12 +21,14 @@
             <div class="hints">
                 Hinweise:
                 <ul>
-                        <li>Dies ist ein Besispiel-Seiten-Satz, der einen kompletten Shop für den PCG darstellt.</li>
+                        <li>Dies ist ein Beispiel-Seiten-Satz, der einen kompletten Shop für den PCG darstellt.</li>
                         <li>Dies könnte die Startseite der WebSite sein. Zur Illustration sind nicht alle Seiten komplett gleich. Diese Seiten können unter
                             <tt>https://oekobox-online.de/v3/demo/&lt;shopname&gt;</tt> (als zip) oder via <a href="https://github.com/alias/shopdemo">GitHub</a>
                                 heruntergeladen werden.
                             <br>
                             Auf den Seiten (ca. 10) finden sich Hinweise zu den dort wichtigsten Komponenten (insgesamt 12).
+                            <br>
+                            <a href="nodesign_component_connections.gif">Hier</a> ist das Zusammenspiel der Komponenten, und <a href="nodesign_page_flow.gif">hier</a> das der Demo-Seiten visualisiert.
                         </li>
                         <li>Doku der Komponenten und des CSS unter <a href="https://oekobox-online.de/news?a=js">Ökobox-Online</a></li>
                         <li>Insgesamt wird versucht, hier so wenig wie möglich Code (HTML und CSS) zu verwenden, um dem anpassenden Designer soviel freie Hand wie möglich zulassen.
@@ -53,7 +55,13 @@
                 </ul>
 
             </div>
-            <div class="oo-ticker" data-oo-ticker-data="Group:123" data-oo-ticker-speed="2" data-oo-shop-page="shop.html"></div>
+            <div id="mytickers">
+                <div id="myticker1" class="oo-ticker" data-oo-ticker-size="3" data-oo-ticker-withcart="true" data-oo-ticker-data="Rubric:105" data-oo-ticker-speed="5" data-oo-shop-page="shop.html"></div>
+                <div id="myticker2" class="oo-ticker" data-oo-ticker-size="2" data-oo-ticker-data="Auto" data-oo-ticker-speed="0" data-oo-ticker-empty=".myticker2-empty" data-oo-shop-page="shop.html"></div>
+                <div class="myticker2-empty">
+                    Ticker2 zeigt keine Daten. Mach was draus...
+                </div>
+            </div>
         </div>
 
         <script src="../../api/client.js"></script>

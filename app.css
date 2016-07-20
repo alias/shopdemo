@@ -1,7 +1,9 @@
 /*
-C) oekobox-online.eu 2016. Free for use with oekobox-online services .
+(c) oekobox-online.eu 2016. Free for use with oekobox-online services .
 NoDesign Test Pages. You'll find the component-related styles below the generic selectors.
 See https://oekobox-online.de/news?a=js.CSSDocu for more information.
+
+CSS follows lightly the BEM style, but with a naming following the components.
 */
 Body {
     font-family: "Arial", "sans-serif";
@@ -90,6 +92,26 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
     padding-top: 20px;
 }
 
+/* example tickers based on server provided template */
+#mytickers {
+    float: left;
+}
+#mytickers > DIV {
+    display: inline-block;
+}
+#myticker1 {
+    width: 600px;
+}
+#myticker1 .oo-ticker-wrapper {
+    width: 200px;
+    float: left;
+}
+#myticker2 {
+    width: 500px;
+}
+#myticker2 .oo-item-img, #myticker2 .oo-container{
+    float: left;
+}
 /****** Navigation Component */
 
 #oo-navi LI {
@@ -111,6 +133,9 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
 #oo-status div {
     display: inline-block;
 }
+#oo-status div.oo-status-cart-empty {         /* change this if you want to show an empty cart */
+    display: none;
+}
 #oo-status .oo-status-cart-preview {
     max-width: 350px;
     max-height: 350px;
@@ -129,8 +154,30 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
 #oo-status .oo-cart-pos-abo-suppressed .oo-cart-pos-controls {
     display: none !important;                                                 /* only allow supression in status cart */
 }
+#oo-status tbody.oo-cart-pos-over10 {  }                                      /* added when > 10 positions in list */
+
+#oo-status .oo-cart-delivercost-note {                                        /* finetune cart preview table */
+    display: block;
+}
+#oo-status .oo-cart-delivercost {
+    font-size: smaller;
+}
+#oo-status .oo-cart-delivercost td , #oo-status .oo-cart-sum td {
+    border-top: 1px solid silver;
+}
+#oo-status .oo-status-cart-preview .oo-container, #oo-status .oo-status-cart-preview table  {
+    width: 100%;
+}
+#oo-status .oo-cart-sum td, #oo-status .oo-cart-pos td.oo-e2 {
+    text-align: right;
+}                                                                           /* END finetune cart preview table */
 /****** Flash Component */
 
+.oo-flash-msg, .oo-flash-error {
+    display: inline-block;
+    margin: 10px;
+    font-weight: bold;
+}
 .oo-flash-msg {
     color: darkgreen;
 }
@@ -159,12 +206,45 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
 
 .oo-ticker {
     width: 200px;
+    position: relative;
+}
+.oo-ticker-wrapper {
+    position: relative;
+}
+.oo-ticker .oo-item-img {
+    width: 200px;
+    height: 200px;
 }
 
+.oo-ticker:hover .oo-ticker-controls {      /* shows scrolling buttons */
+    display: inline-block;
+    z-index: 200;
+}
+.oo-ticker .oo-ticker-controls {
+    display: none;   /* initially */
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#oo-ticker-popup {
+    display: none;
+}
+#oo-ticker-popup-wrapper {                                        /* framework */
+    position:absolute;top:50%;left:50%;
+    width: 200px;
+    height:300px;
+    margin-left: -100px;
+    margin-top: -150px;
+    background-color:gray;
+    z-index: 500;
+    display: none; /* initially */
+}
 /****** Cart Component */
 
 .oo-cart-pos {
     border: 1px solid silver;
+    cursor: pointer;
 }
 #oo-cart TD {
     padding: 5px;
@@ -176,9 +256,13 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
 .oo-cart-pos-info {
     clear: left;
 }
-.oo-cart-pos IMG {
+.oo-cart-pos-img {
     vertical-align: top;
     float: left;
+    width: 40px;
+    height: 40px;
+    background:url(data:image/gif;base64,R0lGODlhKAAoAPcAAMbGxv///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAP8ALAAAAAAoACgAAAjUAP8JHEiwoMGDCAsCWMiwocOHECMuFCixosWIFCcm3MjxH8OMHjuKVOgRAMiQI0WaLHkSZcqEK1nKpPgSYUyZGgferOnyZE6dPGkqXPkTaM2dPpEKHakUZ9OeG59qLEqS41OnVqNaJXp1adWoXFUa7JqUKUGyZc1CBdtSJVqdYVNSZTuzI1G5ce2eZZpX61e6c//u3dr24NWuUw/rhdlXMEzGhY2qHdvY6+Szld+OpVxYs+GhbT3bxNxS9OO0pv0mXhuUZOLUbrlenG0xI+3bEFvrDggAOw==);
+    background-size: contain;
 }
 #oo-cart-pane DIV {
     display: inline;
@@ -223,6 +307,37 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
     width: 250px;
 }
 
+#oo-cart .oo-cart-pos-assortment {
+    background-color: rgba(48, 193, 160, 0.97);
+}
+#oo-cart .oo-cart-pos-assorted > TD {
+
+}
+tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matches a open box' positions */
+    background-color: rgba(44, 175, 141, 0.18);
+
+}
+#oo-cart  tr.oo-cart-pos-assortment ~  tr.oo-cart-pos-assorted td {     /* matches a open box' first pos td */
+    padding-left: 20px;
+}
+.oo-cart-pos-assortment-controls {
+    float: right;
+}
+.oo-cart-pos-assortment-open, .oo-cart-pos-assortment-controls-txt, .oo-cart-pos-assortment-total {
+    display: none; /* initially */
+}
+
+.oo-cart-pos-dupinfo {          /* tells than an item is multiple times in cart */
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: smaller;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.oo-cart-pos-dupflash {        /* gimmick: flash upon click on "duplicate" */
+    background-color: red;
+}
+
 /****** Shop Component */
 
 .oo-shop-sl-pane > DIV {     /* all "small" boxes within the selection */
@@ -231,6 +346,7 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
     border-bottom: 1px solid #D0BFA6;
     border-left: 4px solid #D0BFA6;
     background-color: #fcebcf;
+    background-position: center;
     overflow: hidden;
     text-align: center;
     margin: 5px;
@@ -243,9 +359,10 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
     height: 200px;
 }
 .oo-shop-singleitem .oo-item-img {
-    width: 200px;
-    height: 200px;
-    display: inline-block;
+    max-width: 300px;               /* limits size for big images. Note: they get a zoom option if much bigger */
+    width: auto;                    /* retains ratio */
+    height: auto;
+    max-height: 300px;
 }
 
 #oo-shop .blend {          /* list item blend helper , see app.js */
@@ -257,7 +374,7 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
     background-color: white;
     display: none;  /* initially*/
 }
-#oo-shop .oo-shop-item-loaded {      /* green triangle indicating that item is in cart */
+.oo-shop-item-loaded {      /* green triangle indicating that item is in cart */  /* shared with ticker */
     width: 0;
     height: 0;
     border-style: solid;
@@ -269,13 +386,16 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
     top: 170px;
     display: none;  /* initially*/
 }
+.oo-shop-item-incart  .select_container {
+    border: 1px solid #3b9c4a;
+}
 .oo-item-img {                         /* element with an image */
     background-size: contain;
+    background-repeat: no-repeat;
 }
 .oo-item-name, .oo-shop-item-price-wrapper , .oo-item-txt, .oo-shop-item-select {
     background-color: white;
     border-radius: 5px;
-    opacity: 0.8;
     margin: 10px 5px 5px;
 }
 .oo-item-txt {
@@ -292,11 +412,30 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
     display: inline-block;
     vertical-align: bottom;
 }
-#oo-shop .oo-shop-item .oo-shop-item-select {
-    position: absolute;
+
+#oo-shop .oo-shop-item .oo-shop-item-select {                    /* mouse over and amount selection */
+    position: absolute;                                          /* dont like it? http://stackoverflow.com/questions/11600687/hover-and-active-only-when-not-disabled */
     top: 70px;
+    left: 0;
+    z-index: 300;
     display: none; /* initially, see app.js */
 }
+
+#oo-shop .oo-shop-item:hover .oo-shop-item-select {   /* fade in the controls */
+    display: inline-block;
+    animation: nodesign-fadein 0.5s;
+}
+@keyframes nodesign-fadein { from { opacity: 0; } to   { opacity: 1; }   }
+
+#oo-shop .oo-shop-item:hover  .blend {        /* blend a bit the image below */
+    display: inline-block;
+    animation: nodesign-fadeinb 0.5s;
+}
+@keyframes nodesign-fadeinb { from { opacity: 0; } to   { opacity: 0.5; }   }
+
+
+                                                                 /* mouse over and amount selection */
+
 #oo-shop .oo-shop-item-price-wrapper {
     top: 150px;
 }
@@ -330,6 +469,21 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
     display: inline-block;
     vertical-align: bottom;
 }
+/* disable one tags set*/
+.oo-shop-singleitem-info .oo-shop-tags {
+    display: none;
+}
+/* all single item blocks horizontal  */
+.oo-shop-singleitem-info, .oo-shop-singleitem-select , .oo-shop-singleitem-img, .oo-shop-singleitem-container {
+    display: inline-block;
+}
+/* or alternative: img left, info and controls right
+.oo-shop-singleitem-img, .oo-shop-singleitem-container {
+    display: inline-block;
+}
+*/
+
+
 #oo-shop .oo-select-sub-dates {
     display: none; /* initially */
 }
@@ -339,7 +493,9 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
 #oo-shop .select_base {
     font-size: 0.8em;
 }
-
+.oo-shop-item .select_base {      /* cont confuse with too many details in overview */
+    display: none;
+}
 .oo-shop-title .oo-shop-title-controls {   /* title in shop component */
     float: right;
 }
@@ -352,6 +508,22 @@ DIV.oo-shop-sl-pane-itemstart {     /* inserted before the first item in the lis
     padding: 1px;
     display: none;  /* initially */
 }
+
+.oo-item-pricetag .oo-item-price:after, .oo-item-refpricetag .oo-item-refprice:after {  /* shared with ticker */
+    content: "/"
+}
+
+.oo-item-pricetag {
+    color: green;
+}
+.oo-item-association-logo {
+    width: 30px;
+    height: 20px;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 /* example to use icons instead of text
 .oo-select-sub-2 {
     width: 20px;
@@ -363,6 +535,143 @@ DIV.oo-shop-sl-pane-itemstart {     /* inserted before the first item in the lis
     background-image: url("data:image/gif;base64,R0lGODlhDwAMAPcAABiMKRiEMRiMMf///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAQALAAAAAAPAAwAQAg5AAkIHBig4MCDAgMgJEhQgMKFBB5CPCgxIUSHBSsaFOhwYseEFTl6JJgxpEWGEAN8PDkRIoCNBwMCADs=");
 }
 */
+
+.oo-shop-singleitem  .oo-tab-navi {            /* itemdetail tabs */
+    display: flex;
+    padding: 5px;
+}
+.oo-shop-singleitem .oo-tab-content > DIV {      /* revert back */
+    text-align: left;
+    display: none;  /* initially */
+}
+.oo-shop-singleitem .oo-tab-navi > A {
+    cursor: pointer;
+}
+.oo-shop-singleitem .oo-tab-navi > A.oo-tab-active {
+    background-color: chartreuse;
+}
+
+.oo-shop-item-images-content-preview {         /* img tab */
+    background-repeat: no-repeat;
+    max-width: 40px;                           /* max size for the prevuew image */
+    max-height: 40px;
+    text-align: center;
+    padding: 1px;
+    cursor: pointer;
+}
+.oo-shop-item-images-content-img {
+    max-width: 600px;                          /* max size for the displayed image */
+    max-height: 600px;
+    min-width: 300px;                          /* just to demo here, take out for production to get native img size  */
+    min-height: 300px;                          /* just to demo here, take out for production to get native img size  */
+}
+
+.XXoo-shop-item-images-content-pane {            /* make the preview items left side, next to the big img */
+    width: 100px;                              /* matches 2x oo-shop-item-images-content-preview above */
+    float: left;
+}
+.oo-shop-item-images-content > DIV {           /* wrapper */
+    text-align: center;
+}
+.zoomed::after {                          /* zoom indicator on big images  */
+    background: rgba(0, 0, 0, 0) url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAYAAABX5MJvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAd5JREFUeNrMlT1rwlAUhvMhImhEsRQEoRBag2t1Cjo4OmUpgj9D8D+4CeI/cFPcHR0iDiqdpBALgS46qFSKQhBSmwMNtJrozc2XB8Lh3gTuc8953xPyeDwSepAk+aKlZ8LjoE7WPe159RvCF5CAyX7vN2O1Jp/PhxKJBL3ZbNThcKjgQmCBwOHdbvchmUwG9b3lcnkol8sfl2DIE2EafYMk1kwmExyPx4+RSITe7XaqJEkKx3EhfV0qlWQzEArhgkgaqdfr93DgfD5XWJaVcrmcDBnWsF+r1e7sVAKpIovFgoM2FAqF9783hhaJovgE1WAY5g23EkgV0Q6gjfY1cX5DhmpYsSgWyGQy2UM+LTu0CfJgMPjCcYcl1zSbzXWxWIwKghCfTqfB0Wi053k+nM1mw/C+3W5/OqGJqxqpVqvxRqORMvoYBKrpQ16tVqqTEIYgYNVKpRKNxWL0drtVZVk+tFqtlO4cIxC7EEhzBBzS7/dZMxCKsB9X5whYFoYV2DSdToc6nU7Kjjtsg8AYn81mitPtsDzi7c4JR0a82xBYIG5AWAZxC8ISiJsQyCBuQyCBeAFxFcQriIsgXkKYgngNYQjiB8QZiF8Q/0AChL/RO/uL+hUUcQNxExA/AgwAQCThORpp8DAAAAAASUVORK5CYII=") repeat scroll 0 0;
+    content: "";
+    display: block;
+    height: 33px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 33px;
+}
+/*
+All ecoinform Information under .oo-item-ecodata
+Dont blame me. Dieser Scheiss kommt von ecoinform. Jede Warengruppe (bei Ecoinform) kommt anders im
+Struktur und Inhalt daher!
+Ich habe das XML geparst und dabei einige Normalisierungen versucht, daher die HTML-Struktur.
+Siehe http://oekobox-online.de/shopdocu/wiki/API.concepts.TextStructure.
+Der Rest muss mit CSS (hin)gerichtet werden
+*/
+
+ .oo-text-kv h3, .oo-text-kv > p { /* place all in lines */
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.oo-text-kv h3:after { /* alle key:value daten */
+    content: ":";
+    padding-right: 5px;
+}
+
+.oo-text-id-e58 .oo-text-id-xnein h3 { /* einige "NICHT"-Aussagen */
+    text-decoration: line-through;
+    color: gray;
+}
+
+.oo-text-id-e1 .oo-text-id-xnein {
+    color: gray;
+}
+
+.oo-text-id-e58 .oo-text-id-xja h3, .oo-shop-tags h3 { /* ...oder Ja */
+    color: green;
+    display: inline;
+}
+
+.oo-text-id-e58 > DIV  { /* 58 enth. meisst VEGAN usw. */
+    display: inline-block;
+}
+
+.oo-text-id-e58 .oo-text-kv h3:after, .oo-shop-tags .oo-text-kv h3:after{
+    content: "";
+}
+
+/* "positive" allergenes */
+.oo-text-id-e1 .oo-text-id-xja {
+    color: red;
+}
+
+.oo-text-id-e58 .oo-text-id-xja p, .oo-shop-tags .oo-text-id-xja p, .oo-text-id-e58 .oo-text-id-xnein p,
+.oo-text-id-e58 .oo-text-id-xja div, .oo-shop-tags .oo-text-id-xja div, .oo-text-id-e58 .oo-text-id-xnein div {
+    display: none; /* stupid*/
+}
+
+.oo-text-id-e21 > DIV { /* naehrwerte etwas lesbarer als Blocks */
+    display: inline-block;
+    border: 1px solid silver;
+}
+
+.oo-text-id-e21 > DIV H3 {
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    background-color: silver;
+    margin:0;
+}
+
+.oo-text-id-e21 > DIV P {
+    display: block;
+    text-align: right;
+}
+
+.oo-text-id-e21 > DIV H3:after {
+    content: "";
+}
+
+/* suppress what may be not so interesting */
+.oo-text-id-e0, .oo-text-id-eHERKUNFT, .oo-text-id-eURSPRUNG, .oo-text-id-ePDF, .oo-text-id-e3, .oo-text-id-ePDF {
+    display: none;
+}
+
+/* bsp umbenennen eines Textes:
+.oo-item-ecodata >  .oo-text-id-eLMIV_READY h3 {
+     display:  none;
+ }
+ .oo-item-ecodata > .oo-text-id-eLMIV_READY p:before {
+     content: "lmiv";
+ }
+ */
+
 /****** Search Component */
 
 #oo-search {
@@ -387,6 +696,7 @@ DIV.oo-shop-sl-pane-itemstart {     /* inserted before the first item in the lis
     margin: 5px;
     margin-bottom: 15px;
     position: relative;
+    cursor: pointer;
 }
 .oo-search-preview-items-item .oo-item-name {
     position: absolute;
@@ -407,6 +717,9 @@ DIV.oo-shop-sl-pane-itemstart {     /* inserted before the first item in the lis
 .oo-search-preview-items-more {
     float: right;
 }
+.oo-search-preview-items-more:focus {
+    background-color: chartreuse;
+}
 .oo-search-preview-hint, .oo-status-cart-hint {     /*todo make it a framework thing */
     margin-top: 5px;
     font-size: smaller;
@@ -415,6 +728,10 @@ DIV.oo-shop-sl-pane-itemstart {     /* inserted before the first item in the lis
     cursor: pointer;
 }
 
+#oo-search-admin {  /* reachable by admin: in search field */
+    display: none; /* initially */
+    padding: 20px;
+}
 /****** Profile Component */
 
 #oo-profile-anon, #oo-profile-authed {
@@ -578,7 +895,7 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     background-color: rgba(13, 138, 102, 0.07);
 }
 .oo-sub-mark-due {
-    background-color: rgba(13, 138, 102, 0.18);
+    background-color: rgba(56, 174, 189, 0.3);
 }
 
 #oo-cart .oo-cart-pos-abo-deleted, #oo-status .oo-cart-pos-abo-deleted, #oo-profile .oo-sub-abo-deleted {

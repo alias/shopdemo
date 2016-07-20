@@ -40,6 +40,8 @@ require(["jquery", "oo"],
 
 function itemMouseOver() {
 
+    /* we dont use this logic anymore, as we have css now. Search for "#oo-shop .oo-shop-item:hover" in app.css
+
     // enable selection options
     var $ooShop = $("#oo-shop");
     $ooShop.on("mouseenter", ".oo-shop-data-type-Item", function () {
@@ -50,5 +52,6 @@ function itemMouseOver() {
     });
     console.log("Added mouse events")
 
+    */
 }
 
