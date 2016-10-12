@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="app.css" rel="stylesheet" type="text/css"/>
+        <title>alt Shop Page</title>
     </head>
     <body>
         <div class="header">
@@ -13,12 +14,14 @@
             <div><a href="index.html">Start</a></div>
         </div>
 
-        <h2>Shopseite 1 <a href="shop.html">Alternative</a></h2>
+        <h2>Shopseite 1 <a href="shop.html">einfach</a></h2>
         <h1>NoDesign@<span class="oo-system-title"></span></h1>
         <div id="oo-flash" ></div>
         <div id="pagecontent">
 
-            <div id="oo-navi"></div>   <!-- notice: no oo-shop-page, therefore we stay in that page -->
+            <div id="oo-navi" data-oo-navi-omit-group="true"></div>   <!-- notice: no oo-shop-page, therefore we stay in that page
+                                                                                   data-oo-navi-omit-group: jumps right into the first subgroup, if there is any -->
+            <div class="oo-navi-head oo-navi-image" title="Example for a global placeholder, see shop component">.</div>
             <div id="oo-path" ></div>
 
             <div class="nd-container">
@@ -31,7 +34,7 @@
                     </div>
                 </div>
                 <div id="nd-right">
-                    <div id="oo-shop"></div>
+                    <div id="oo-shop" data-oo-shop-renderabopointer="false"></div>    <!-- render a AboGroups already when they appear as Pointer, dont dive into Assortments -->
                 </div>
             </div>
         </div>

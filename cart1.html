@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="app.css" rel="stylesheet" type="text/css"/>
-        <title>Cart Page</title>
+        <title>alt. Cart Page</title>
     </head>
     <body>
         <div class="header">
@@ -13,13 +13,21 @@
             <div><a href="index.html">Start</a></div>
         </div>
 
-        <h2>Warenkorb <a href="cart1.html">Alternative</a></h2>
+        <h2>Warenkorb 1 <a href="cart.html">einfach</a></h2>
         <h1>NoDesign@<span class="oo-system-title"></span></h1>
         <div id="oo-flash" ></div>
 
         <div id="pagecontent">
             <div id="oo-navi" data-oo-shop-page="shop.html"></div>
-            <div id="oo-cart" data-oo-shop-page="shop.html" data-oo-date-page="date.html" data-oo-register-page="profile.html"></div>
+
+            <div class="nd-container">
+                <div id="nd-left">
+                    <div id="oo-date" data-oo-shop-page="shop.html" data-oo-cart-page="cart1.html" data-oo-profile-page="profile.html"  ></div>
+                </div>
+                <div id="nd-right">
+                    <!-- with this optional parameter thankyou-page, you may use an alternative page, e.g. without the date selector. That page should have a cart component too. -->
+                    <div id="oo-cart" data-oo-shop-page="shop.html" data-oo-date-page="date.html" data-oo-thankyou-page="cart.html" data-oo-register-page="profile.html"></div>
+                </div>
         </div>
 
         <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->

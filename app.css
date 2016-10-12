@@ -92,6 +92,12 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
     padding-top: 20px;
 }
 
+div.oo-navi-head {                /* example for a header. See shop1.html, you may add a top-level related image that way */
+    height: 30px;
+    background-color: #ffeed4;
+    text-align: center;
+    vertical-align: middle;
+}
 /* example tickers based on server provided template */
 #mytickers {
     float: left;
@@ -277,7 +283,7 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
     background:url(data:image/gif;base64,R0lGODlhKAAoAPcAAMbGxv///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAP8ALAAAAAAoACgAAAjUAP8JHEiwoMGDCAsCWMiwocOHECMuFCixosWIFCcm3MjxH8OMHjuKVOgRAMiQI0WaLHkSZcqEK1nKpPgSYUyZGgferOnyZE6dPGkqXPkTaM2dPpEKHakUZ9OeG59qLEqS41OnVqNaJXp1adWoXFUa7JqUKUGyZc1CBdtSJVqdYVNSZTuzI1G5ce2eZZpX61e6c//u3dr24NWuUw/rhdlXMEzGhY2qHdvY6+Szld+OpVxYs+GhbT3bxNxS9OO0pv0mXhuUZOLUbrlenG0xI+3bEFvrDggAOw==);
     background-size: contain;
 }
-#oo-cart-pane DIV {
+#oo-cart-pane DIV, .oo-cart-pane-extra DIV {   /* cart positions */
     display: inline;
 }
 #oo-cart-pane .oo-cart-pos-info {
@@ -303,8 +309,11 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
     font-weight: bold;
 }
 
-#oo-cart .oo-cart-pos-abo-undue {
+#oo-cart .oo-cart-pos-abo-undue, #oo-cart .oo-cart-pos-problematic {
     background-color: rgba(145, 134, 136, 0.18);
+}
+.oo-cart-pos-abo-undue .oo-cart-pos-total, .oo-cart-pos-problematic  .oo-cart-pos-total {
+    color: gray;                  /* dont show price that prominent, if not part of the order */
 }
 #oo-cart .oo-cart-pos-abo-deleted {
     text-decoration: line-through   ;
@@ -340,13 +349,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     display: none; /* initially */
 }
 
-.oo-cart-pos-dupinfo {          /* tells than an item is multiple times in cart */
-    border: 1px solid gray;
-    border-radius: 5px;
-    font-size: smaller;
-    padding-left: 2px;
-    padding-right: 2px;
-}
+
 .oo-cart-pos-dupflash {        /* gimmick: flash upon click on "duplicate" */
     background-color: red;
 }
@@ -391,12 +394,19 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     background-color: white;
     display: none;  /* initially*/
 }
-/* everything inside oo-shop-item */
-.oo-shop-amount, .oo-shop-sl-pane h3, .oo-shop-sl-pane .oo-item-txt, .oo-shop-item-loaded {
+/* everything inside oo-shop-item (list) */
+.oo-shop-item {      /* a standard placeholder  image */
+    background-image: url("data:image/gif;base64,R0lGODlhZABkAPcAAMbGxvcpMf////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////crNCH5BAEAAP8ALAAAAABkAGQAAAj+AAEIHEiwoMGDCBMqXMiwocOHECNKnMjwn8WLGDNq3Mixo8ePIENmJCiypMmTKE2STMmypcuQK1/KnOkyJs2bOEHazMmzp8WdPoPSBPqTotGjEjUS/QdAqNOPTUcO5Bj1qdWRSqdurHq1K9eiAql2Hcs0a9itZL2a/XqRbVqfbJe6fcszrlalHZHqhShW6lm8femWnGv3L9bAgmEiBks4b+LBi5nePYz2seLKGOU6tqwzsubInAGLbjs58+bQpymTNmwaNOq2nkvDdi1UtsfGfnFjdrpyruvCukfXte1b+OzMtsvSbrn0eOfdjGkXV5kc+u3YrJ2rRtn8usjg0a3+a4dZHfJl45/Fby3P/Tt28K2psmfu3np640WfTh//c6305Tjtpxx6yflmoFUCwnffdvHVdh6DCzbIYE8JvvcfgDftp2CBqeFX13MEZtffcgLKpKGF6g2YYoAgQsghiVdNt6GIKk4oIVxQoehhjTuy6F2I8PF3I4U52vfiijzi2OF4EQo55IdLjogcjQcWyduPLlIZpY05FTdjkFJuCaV6wF1opYO/+ZdihfptWeaaDwZVJZBmYommh2/uWGKJL4GZJ5d7IphmbnXaqSSeaupZX5uIEgrnonCJ+GWhhs7U3aSPxlnTfGHe2GSnlVJHY6h/PpmkmHlx6maigKr0naqiLXp6ZI89dscSpoqaNyWfKeHaqqu2Zqjjr4PxOtSwphpLl6/Jvraqo7k62+iulEp7aqlOKvsWs9laO+1qYJ7qLLegOvkaueLupW5FRmrpbZ+smvoupOHROu+Z9XJ5b6ySubtve9Dq+++Snw5saMEGI2tuwnQiybCsVK4rsbrxPmwprBa/OmrGvWLMMVQef5zqxiIXS3LJ5E2s8sost+zyQgEBADs=");
+}
+.oo-shop-amount, .oo-shop-sl-pane .oo-shop-item h3, .oo-shop-sl-pane .oo-shop-item .oo-item-txt, .oo-shop-item-loaded, .oo-shop-item-count {
     position: absolute;
 }
-.oo-shop-sl-pane h3, .oo-shop-sl-pane .oo-item-txt {
+.oo-shop-sl-pane .oo-shop-item h3, .oo-shop-sl-pane .oo-shop-item .oo-item-txt {
     width: 190px;
+}
+.oo-shop-item-count {
+    top: 157px;
+    right: 10px;
 }
 .oo-shop-amount {       /* attached info for order and assortment content amounts */
     background-color: white;
@@ -408,11 +418,11 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     z-index: 12; /* over text */
     display: none; /* initially */
 }
-.oo-shop-sl-pane h3 {
+.oo-shop-sl-pane .oo-shop-item h3 {
     top: 10px;
     z-index: 10;   /* covers oo-item-text if long */
 }
-.oo-shop-sl-pane .oo-item-txt {
+.oo-shop-sl-pane .oo-shop-item .oo-item-txt {
     top: 35px;
 }
 .oo-shop-item-loaded {      /* green triangle indicating that item is in cart */  /* shared with ticker */
@@ -426,14 +436,18 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     top: 170px;
     display: none;  /* initially*/
 }
+.oo-shop-abo-loaded {
+    border: 1px solid #3b9c4a;
+}
 .oo-shop-item-incart  .select_container {
     border: 1px solid #3b9c4a;
+    border-radius: 5px;
 }
 .oo-item-img {                         /* element with an image */
     background-size: contain;
     background-repeat: no-repeat;
 }
-.oo-item-name, .oo-shop-item-price-wrapper , .oo-item-txt, .oo-shop-item-select {
+.oo-item-name, .oo-shop-item-price-wrapper , .oo-item-txt, .oo-shop-item-select , .oo-shop-abobox-detail-variant {
     background-color: white;
     border-radius: 5px;
     margin: 10px 5px 5px;
@@ -453,7 +467,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     vertical-align: bottom;
 }
 
-#oo-shop .oo-shop-item .oo-shop-item-select {                    /* mouse over and amount selection */
+#oo-shop .oo-shop-item .oo-shop-item-select, #oo-shop .oo-shop-item .oo-shop-ass-select {                    /* mouse over and amount selection */
     position: absolute;                                          /* dont like it? http://stackoverflow.com/questions/11600687/hover-and-active-only-when-not-disabled */
     top: 70px;
     left: 0;
@@ -461,7 +475,34 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     display: none; /* initially, see app.js */
 }
 
-#oo-shop .oo-shop-item:hover .oo-shop-item-select {   /* fade in the controls */
+
+.oo-shop-favorite-off {
+    background-image: url("data:image/gif;base64,R0lGODlhEAAQAPcAAKWlpa2trbW1tb29vcbGxs7OztbW1t7e3ufn5+/v7/f39////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAP8ALAAAAAAQABAAAAhuAP8JHEiwoEGBBQ4eTJhQ4cCECBQQcIjwX8SJBgtohIgAQYIBAwQIeDiw44GTCVKOJGnygAEDBQ6sJDjx5MuYMwsO+AezAIGcBHfCPECAwIEABweYFHDyqMGdMkcGCHAAAYCCIoEC2Eqxq1eBAQEAOw==");
+}
+.oo-shop-favorite-on {
+    background-image: url("data:image/gif;base64,R0lGODlhEAAQAMQfAP/umP/eN//kV//riOuzSuujJ+usOuu3VuvKgf/0uf/yq+ucF//bJf/pfOvOiO/OfP/52//ZGP/UAP/haf/ma//hR//ncevDceu8YP39/OuuQP/rp//pdP/nZf///////yH5BAEAAB8ALAAAAAAQABAAAAVw4CeOmZeNaPp5jqeqrIe4rxgD0EWjXi97OJ3P5ng4ZoBBQ4E5EAiuWC9p6QgSCYWB9lNaBJUAw7Ll6SjgQIRSTnkwHnFE0ubBxRaJZFLY2Q5KbBODfTwHHhwaWwUFExsLOx5PGj0rHguYkUM8mzU1IQA7");
+}
+.oo-shop-favorite {
+    width: 16px;
+    height: 16px;
+    bottom: 0;
+    left: 50%;
+    position: absolute;
+    background-repeat: no-repeat;
+    margin-left: -8px;
+    z-index: 200;
+    display: none; /* initially */
+}
+.oo-shop-favorite-on {
+    display: inline-block;
+}
+
+#oo-shop .oo-shop-singleitem .oo-shop-favorite {
+    display: inline-block;
+    position: relative;
+    left: 10%;
+}
+#oo-shop .oo-shop-item:hover .oo-shop-item-select, #oo-shop .oo-shop-item:hover .oo-shop-favorite {   /* fade in the controls */
     display: inline-block;
     animation: nodesign-fadein 0.5s;
 }
@@ -470,6 +511,10 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 #oo-shop .oo-shop-item:hover  .blend {        /* blend a bit the image below */
     display: inline-block;
     animation: nodesign-fadeinb 0.5s;
+}
+#oo-shop .oo-shop-item:hover.oo-shop-data-type-AssortmentGroup .blend, #oo-shop .oo-shop-item:hover.oo-shop-data-type-AssortmentGroup .oo-shop-item-select {
+    display: none;
+    animation: none;
 }
 @keyframes nodesign-fadeinb { from { opacity: 0; } to   { opacity: 0.5; }   }
 
@@ -509,6 +554,10 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     display: inline-block;
     vertical-align: bottom;
 }
+.oo-shop-singleitem {
+    padding: 10px;
+    padding: 10px;
+}
 /* disable one tags set*/
 .oo-shop-singleitem-info .oo-shop-tags {
     display: none;
@@ -522,8 +571,22 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     display: inline-block;
 }
 */
+.oo-shop-sl-pane > DIV.oo-shop-item.oo-shop-data-type-AssortmentGroup{            /* abogroup display */
+    height: 400px;
+}
 
-
+.oo-shop-sl-pane .oo-shop-abogroup-pane, .oo-shop-sl-pane .oo-shop-abobox-detail-pane {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+.oo-shop-abobox-detail-pane .oo-item-name {
+    background-color: inherit;
+}
+.oo-shop-abobox-detail-info-planned, .oo-shop-abobox-detail-info-unplanned  {
+    font-size: smaller;
+}
+                                                                            /* end abogroup and details */
 #oo-shop .oo-select-sub-dates {
     display: none; /* initially */
 }
@@ -555,6 +618,10 @@ DIV.oo-shop-sl-pane-itemstart {     /* inserted before the first item in the lis
 
 .oo-item-pricetag {
     color: green;
+}
+.oo-item-lastprice {
+    color: red;
+    text-decoration: line-through;
 }
 .oo-item-association-logo {
     width: 30px;
@@ -622,7 +689,11 @@ DIV.oo-shop-sl-pane-itemstart {     /* inserted before the first item in the lis
     right: 0;
     top: 0;
     width: 33px;
+}                                            /* oo-shop-item-preorder: this item can only be preordered */
+.oo-shop-sl-pane .oo-shop-item.oo-shop-item-preorder .select_container {
+   display: none;                            /* dont offer the direct select in list form, too dense */
 }
+
 /*
 All ecoinform Information under .oo-item-ecodata
 Dont blame me. Dieser Scheiss kommt von ecoinform. Jede Warengruppe (bei Ecoinform) kommt anders im
@@ -895,6 +966,14 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     border-radius: 15px;
 }
 
+#oo-profile #oo-profile-edit-favourites button.oo-profile-favourites-droplink  {
+    float: inherit;
+    padding-top: 5px;        /* small style */
+    padding-bottom: 5px;
+}
+#oo-profile .oo-profile-favourites-gone {
+    background-color: silver;
+}
 /****** SubNavi Component */
 
 #oo-subnavi UL {
@@ -926,6 +1005,36 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     float: right;
 }
 
+/****** filter component */
+
+#oo-filter .oo-filter-group {
+    float: left;
+    max-width: 250px;
+}
+#oo-filter .oo-filter-set {
+    display: none;
+}
+#oo-filter .oo-filter-hint {
+    font-size: smaller;
+}
+.oo-filter-group-0 {   /* 0 is a special group: origin */
+    border-color: #D0BFA6 !important;
+}
+.oo-filter-buttons {
+    float: right;
+}
+.oo-filter-group-neg {
+    background-image: url("data:image/gif;base64,R0lGODlhKAAoAPcAAAAAAPcpMf////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////crNCH5BAEAAP8ALAAAAAAoACgAAAiUAAH8G0iwoMGDCBMWFKiwocODDBk+nJhQ4j+LFDNivJix48aBHztCbBhSJMiHJT1STDmRpUGXCmG+NMmRpkyCNxHezFmxJU2dDnkGjfmTJNCiRhciRYlzqU+hP6HarOk0KdWqI5VinZl161WuWFlK7Wq16E6kPKVCFTo259iTPp26fAv26NaQdHvW9Xo179CvfHEGBAA7");
+    background-size: 100% 100%;
+}
+.oo-filter-group-rows LI {
+    list-style-type: none;
+}
+.oo-filter-group-rows {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
 /****** some shared assignments for components */
 
 .oo-sub-mark-undue {
@@ -938,7 +1047,7 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     background-color: rgba(56, 174, 189, 0.3);
 }
 
-#oo-cart .oo-cart-pos-abo-deleted, #oo-status .oo-cart-pos-abo-deleted, #oo-profile .oo-sub-abo-deleted {
+#oo-cart .oo-cart-pos-abo-deleted, #oo-status .oo-cart-pos-abo-deleted, #oo-profile .oo-sub-abo-deleted , #oo-profile .oo-order-state-cancelled {
     text-decoration: line-through ;
     color: gray;
 }
@@ -967,7 +1076,8 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     background-color: chartreuse;
 }
 #oo-search .oo-search-preview, #oo-status .oo-status-cart-preview, #oo-status .oo-status-auth-preview,
-    #oo-navi .oo-navi-2nd-pane, #oo-cart .oo-cart-sure, .oo-select-sub-info , #oo-profile .oo-profile-edit-sub-delete-sure, #oo-cart .oo-cart-pos-abo-del , /* unprefixed */ .ui-datepicker {
+    #oo-navi .oo-navi-2nd-pane, #oo-cart .oo-cart-sure, .oo-select-sub-info , #oo-profile .oo-profile-edit-sub-delete-sure, #oo-cart .oo-cart-pos-abo-del ,
+    /* unprefixed */ .ui-datepicker, #oo-filter-pane {
     display: none; /* initially */
     z-index: 1000; /* to be atop anything rendered later */
     position: absolute;
@@ -980,6 +1090,16 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     border-radius: 3px;
     background-color: #D0BFA6;
     float: right;
+}
+/* label */
+.oo-cart-pos-dupinfo , .oo-cart-pos-problem, .oo-cart-pos-preorder,           /* tells than an item is multiple times in cart */
+#oo-filter .oo-filter-set span
+  {
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: smaller;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 /****** helper stuff */
@@ -1028,6 +1148,9 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
 }
 .oo-required {
     /* if you dont want to rely on the required form attribute */
+}
+.oo-hidden {
+    display: none;
 }
 /*
 .ui-hidden {
