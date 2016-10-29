@@ -6,17 +6,19 @@
         <link href="app.css" rel="stylesheet" type="text/css"/>
         <title>Profile Page</title>
         <script>
+            // helper to fill some text data
             function loadTestData() {
                 var data = [
                     ["firstname", "Lattika"], ["name", "O'Broccoli"],
                     ["email", "latty@broccoli-family.in"], ["emailCHECK", "latty@broccoli-family.in"],
                     ["passwd", "supermaggy"], ["passwdCHECK", "supermaggy"],
-                    ["phone", "0049 351 27359579"], ["place", "look for a cool dry place on the roof please"],
+                    ["phone", "0049 351 27359579"], ["note", "look for a cool dry place on the roof please"],
                     ["IBAN", "DE12500105170648489890"]
                 ];
                 for (var i = 0; i < data.length; i++) {
                     document.getElementById("oo-profile-" + data[i][0]).value = data[i][1];
                 }
+                document.getElementById("oo-profile-pay-1").checked = true;
                 return false;
             }
         </script>
@@ -56,11 +58,10 @@
                 </ul>
                 Noch zu bauen:
                 <ul>
-                    <li>Profil-Abteilungen im auth State (sind dort in englisch angedeutet)</li>
+                    <li>Abwahl</li>
                     <li>Email Exists-Validierung bei Neukundenanmeldung und Änderung</li>
                     <li>paypal email backend</li>
                     <li>einige stärkere Validierungen</li>
-                    <li>Übergabe der Abstellinformationen an den PCG</li>
                     <li>Lieferadresse (inkl. backend)</li>
                     <li>Erneute Address-Änderungen im located oder auth state müssen erneut durch die Tourfindung laufen </li>
                     <li>evtl. Persistenz der Eingaben wenn beim Registrieren abgebrochen wird.</li>

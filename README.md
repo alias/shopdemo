@@ -19,7 +19,6 @@ How to build the complete url to `client.js`:
 * open index.html in your browser.
 
 **Yet even easier:**
-* drop these pages
 * just go to  ``https://oekobox-online.eu/v3/shop/<shopname>/demo/index.html`` 
 
 ---

@@ -93,10 +93,22 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
 }
 
 div.oo-navi-head {                /* example for a header. See shop1.html, you may add a top-level related image that way */
-    height: 30px;
+    height: 200px;
     background-color: #ffeed4;
     text-align: center;
     vertical-align: middle;
+    background-size: cover;
+    padding: 60px;
+    font-size: 30px;
+    color: white;
+    background-position: center;
+}
+
+@media (max-width: 645px) {      /* no space for fancy navigation here*/
+    #nd-left { display: none }
+    #nd-right {
+        width: 100%;
+    }
 }
 /* example tickers based on server provided template */
 #mytickers {
@@ -293,6 +305,10 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
     text-align: right;
 }
 
+TD.oo-cart-delivercost-val {
+    vertical-align: top;
+}
+
 .oo-cart-pos Td{                  /* see also shared */
     position: relative;
 }
@@ -318,7 +334,7 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
 #oo-cart .oo-cart-pos-abo-deleted {
     text-decoration: line-through   ;
 }
-#oo-cart .oo-cart-pos-abo-suppressed {
+#oo-cart .oo-cart-pos-abo-suppressed, #oo-status .oo-cart-pos-abo-suppressed  {
     background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAEElEQVQYlWNgoBLwHVXAAABdEAJpaUVnlQAAAABJRU5ErkJggg==) repeat;
 }
 #oo-cart .oo-cart-pos-abo-due {
@@ -356,7 +372,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 
 /****** Shop Component */
 
-.oo-shop-sl-pane > DIV {     /* all "small" boxes within the selection */
+.oo-shop-sl-pane .oo-shop-item {     /* all "small" boxes within the selection */
     display: inline-block;
     position: relative;
     border-bottom: 1px solid #D0BFA6;
@@ -469,9 +485,10 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 
 #oo-shop .oo-shop-item .oo-shop-item-select, #oo-shop .oo-shop-item .oo-shop-ass-select {                    /* mouse over and amount selection */
     position: absolute;                                          /* dont like it? http://stackoverflow.com/questions/11600687/hover-and-active-only-when-not-disabled */
-    top: 70px;
+    top: 60px;
     left: 0;
     z-index: 300;
+    border: 1px solid silver;
     display: none; /* initially, see app.js */
 }
 
@@ -585,6 +602,10 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 }
 .oo-shop-abobox-detail-info-planned, .oo-shop-abobox-detail-info-unplanned  {
     font-size: smaller;
+}
+.oo-shop-abo-discount {
+    color: red;
+    font-weight: bold;
 }
                                                                             /* end abogroup and details */
 #oo-shop .oo-select-sub-dates {
@@ -783,6 +804,17 @@ Der Rest muss mit CSS (hin)gerichtet werden
  }
  */
 
+@media (max-width: 490px) {
+    .oo-shop-sl-pane > DIV.oo-shop-item {
+        width: 92%;
+    }
+
+    #oo-shop .oo-shop-item .oo-shop-item-select, #oo-shop .oo-shop-item .oo-shop-ass-select , #oo-shop .blend {
+        right: 0;
+        left: auto;
+    }
+}
+
 /****** Search Component */
 
 #oo-search {
@@ -900,7 +932,7 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
 #oo-profile .oo-profile-located-payment > div {
     height: 50px;
 }
-.oo-profile-field-pay-sepa > DIV, .oo-profile-field-pay-paypal > DIV {
+.oo-profile-field-pay-sepa > DIV, .oo-profile-field-pay-paypal > DIV, .oo-profile-field-daddress > DIV {
     margin-left: 50px;
 }
 #oo-profile fieldset > A {
@@ -965,6 +997,17 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     border: 2px dashed #3b9c4a;
     border-radius: 15px;
 }
+.oo-profile-field-place label {
+    vertical-align: top;
+}
+.oo-profile-field-place-values {
+    display: inline-block;
+}
+.oo-profile-field-place-values TEXTAREA {
+    width: 100%;
+    max-width: 500px;
+    margin: 0.3em;
+}
 
 #oo-profile #oo-profile-edit-favourites button.oo-profile-favourites-droplink  {
     float: inherit;
@@ -974,6 +1017,7 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
 #oo-profile .oo-profile-favourites-gone {
     background-color: silver;
 }
+/* .oo-profile-field-place  .oo-profile-revertbtn { display: none; }  needed? */
 /****** SubNavi Component */
 
 #oo-subnavi UL {
@@ -984,6 +1028,22 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     padding: 3px;
 }
 
+/****** Loading pseudo Component */
+.oo-loading {
+    position: fixed;
+    z-index: 100;
+    top: 100px;
+    left:18%;
+    width: 60%;
+    height: 40px;
+    margin:20px;
+    background-color: silver;
+    opacity: 0.3    ;
+    text-align: center;
+    font-size: larger;
+    padding: 20px;
+    border-radius: 10px;
+}
 /****** Logon Component */
 
 #oo-logon {
@@ -1102,34 +1162,7 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     padding-right: 2px;
 }
 
-/****** helper stuff */
-
-/** Indicates the components - remove this once you learned about it */
-.oo-component, #oo-search .oo-search-preview, #oo-status .oo-status-cart-preview , #oo-status .oo-status-auth-preview, .oo-navi-2nd-pane {
-    border: 1px dashed gray;
-}
-.oo-navi-2nd-pane {
-    border-top: none;
-}
-.oo-component::after {
-    bottom: 14px;
-    color: silver;
-    content: "(#" attr(id) ") ";
-    float: right;
-    font-size: 8px;
-    padding: 3px;
-    position: relative;
-}
-#oo-status::after , .oo-ticker::after, .oo-loading::after{
-    bottom: 0;
-}
-.oo-ticker::after {
-    content: "(.oo-ticker " attr(data-oo-ticker-data) ")";
-}
-.oo-loading::after {
-    content: "(.oo-loading)";
-}
-/*        End highighting components **/
+/*        End highlighting components **/
 
 /****** oo Framework */
 
@@ -1137,9 +1170,7 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     display: inline-block;
 }
 .oo-unused {
-    opacity: .2;
-    cursor: not-allowed !important;
-    pointer-events: none;
+    display:none;
 }
 .ui-disabled, .oo-disabled {
     opacity: .3;
