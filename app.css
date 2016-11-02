@@ -93,7 +93,7 @@ div#pagecontent > div#nd-left, div#pagecontent > div#nd-right {
 }
 
 div.oo-navi-head {                /* example for a header. See shop1.html, you may add a top-level related image that way */
-    height: 200px;
+    height: 100px;
     background-color: #ffeed4;
     text-align: center;
     vertical-align: middle;
@@ -292,13 +292,11 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
     float: left;
     width: 40px;
     height: 40px;
-    background:url(data:image/gif;base64,R0lGODlhKAAoAPcAAMbGxv///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAP8ALAAAAAAoACgAAAjUAP8JHEiwoMGDCAsCWMiwocOHECMuFCixosWIFCcm3MjxH8OMHjuKVOgRAMiQI0WaLHkSZcqEK1nKpPgSYUyZGgferOnyZE6dPGkqXPkTaM2dPpEKHakUZ9OeG59qLEqS41OnVqNaJXp1adWoXFUa7JqUKUGyZc1CBdtSJVqdYVNSZTuzI1G5ce2eZZpX61e6c//u3dr24NWuUw/rhdlXMEzGhY2qHdvY6+Szld+OpVxYs+GhbT3bxNxS9OO0pv0mXhuUZOLUbrlenG0xI+3bEFvrDggAOw==);
-    background-size: contain;
 }
 #oo-cart-pane DIV, .oo-cart-pane-extra DIV {   /* cart positions */
     display: inline;
 }
-#oo-cart-pane .oo-cart-pos-info {
+#Xoo-cart-pane .oo-cart-pos-info {
     display: inline-block;
 }
 #oo-cart-sum, #oo-cart-vat-pane, #oo-cart-pane .oo-cart-pos-total, .oo-cart-delivercost TD {
@@ -463,7 +461,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     background-size: contain;
     background-repeat: no-repeat;
 }
-.oo-item-name, .oo-shop-item-price-wrapper , .oo-item-txt, .oo-shop-item-select , .oo-shop-abobox-detail-variant {
+.oo-shop-item .oo-item-name, .oo-shop-item-price-wrapper , .oo-item-txt, .oo-shop-item-select , .oo-shop-abobox-detail-variant, .oo-shop-item-select {
     background-color: white;
     border-radius: 5px;
     margin: 10px 5px 5px;
@@ -472,7 +470,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     font-size: 0.8em;
 }
 
-#oo-shop .oo-shop-item-select, #oo-shop .oo-shop-item-price-wrapper {
+#oo-shop .oo-shop-item .oo-shop-item-select, #oo-shop .oo-shop-item-price-wrapper {
     position: absolute;
     width: 190px;
     margin: 5px;
@@ -483,13 +481,19 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     vertical-align: bottom;
 }
 
-#oo-shop .oo-shop-item .oo-shop-item-select, #oo-shop .oo-shop-item .oo-shop-ass-select {                    /* mouse over and amount selection */
+#oo-shop .oo-shop-item .oo-shop-item-select, #oo-shop .oo-shop-item .oo-shop-ass-select , #oo-shop .oo-shop-item-select {                    /* mouse over and amount selection */
     position: absolute;                                          /* dont like it? http://stackoverflow.com/questions/11600687/hover-and-active-only-when-not-disabled */
     top: 60px;
     left: 0;
     z-index: 300;
     border: 1px solid silver;
     display: none; /* initially, see app.js */
+    text-align: center;
+    max-width: 180px;
+}
+#oo-shop .oo-shop-title .oo-shop-item-select,  #oo-shop .oo-shop-singleitem-select .oo-shop-item-select {
+    position: relative;
+    top: 0;
 }
 
 
@@ -614,6 +618,10 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 #oo-shop .oo-shop-item-incart {    /* added to oo-shop-item when item is already in cart,  */
     /* unused here, we use an extra layer .oo-shop-item-loaded */
 }
+.oo-shop-abobox-detail-variant-tpl.oo-shop-item-incart {
+    border: 1px solid green;
+}
+
 #oo-shop .select_base {
     font-size: 0.8em;
 }
@@ -815,6 +823,20 @@ Der Rest muss mit CSS (hin)gerichtet werden
     }
 }
 
+.oo-tab-content .oo-item-img {                 /* small image labels in recipe tab */
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.oo-shop-item-recipe-related-tpl, .oo-shop-item-recipe-addition-tpl, .oo-shop-item-related-related-tpl {
+    border: 1px solid silver;
+    display: inline-block;
+    border-radius: 4px;
+    margin: 3px;
+    vertical-align: middle;
+}
 /****** Search Component */
 
 #oo-search {
@@ -1009,9 +1031,9 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     margin: 0.3em;
 }
 
-#oo-profile #oo-profile-edit-favourites button.oo-profile-favourites-droplink  {
+#oo-profile #oo-profile-edit-favourites button.oo-profile-favourites-droplink, button.oo-shop-item-recipe-related-all  {
     float: inherit;
-    padding-top: 5px;        /* small style */
+    padding-top: 5px;        /* small style todo make own class*/
     padding-bottom: 5px;
 }
 #oo-profile .oo-profile-favourites-gone {
@@ -1026,6 +1048,9 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
 #oo-subnavi LI {
     list-style: none;
     padding: 3px;
+}
+#oo-subnavi .oo-subnavi-cnt {
+    display:none;
 }
 
 /****** Loading pseudo Component */
@@ -1096,6 +1121,10 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
 }
 
 /****** some shared assignments for components */
+.oo-cart-pos-img, .oo-shop-item-recipe-related-tpl .oo-item-img, .oo-shop-item-related-related-tpl .oo-item-img, #oo-search .oo-item-img{    /* missing image (small) */
+    background-image:url(data:image/gif;base64,R0lGODlhKAAoAPcAAMbGxv///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAP8ALAAAAAAoACgAAAjUAP8JHEiwoMGDCAsCWMiwocOHECMuFCixosWIFCcm3MjxH8OMHjuKVOgRAMiQI0WaLHkSZcqEK1nKpPgSYUyZGgferOnyZE6dPGkqXPkTaM2dPpEKHakUZ9OeG59qLEqS41OnVqNaJXp1adWoXFUa7JqUKUGyZc1CBdtSJVqdYVNSZTuzI1G5ce2eZZpX61e6c//u3dr24NWuUw/rhdlXMEzGhY2qHdvY6+Szld+OpVxYs+GhbT3bxNxS9OO0pv0mXhuUZOLUbrlenG0xI+3bEFvrDggAOw==);
+    background-size: contain;
+}
 
 .oo-sub-mark-undue {
     background-color: rgba(145, 134, 136, 0.18);
