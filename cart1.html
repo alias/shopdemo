@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="oo.css" rel="stylesheet" type="text/css"/>
         <link href="app.css" rel="stylesheet" type="text/css"/>
         <title>alt. Cart Page</title>
     </head>
@@ -21,13 +22,19 @@
             <div id="oo-navi" data-oo-shop-page="shop.html"></div>
 
             <div class="nd-container">
-                <div id="nd-left">
-                    <div id="oo-date" data-oo-shop-page="shop.html" data-oo-cart-page="cart1.html" data-oo-profile-page="profile.html"  ></div>
+                <div id="nd-left" >
+                    <div class="oo-state-auth oo-state-located">
+                        <div id="oo-date" data-oo-shop-page="shop.html" data-oo-cart-page="cart1.html" data-oo-profile-page="profile.html"  ></div>
+                    </div>
+                    <div class="oo-state-anon">
+                       Keine Datumsauswahl ohne Anmeldung...vielleicht ein Ticker hier?
+                    </div>
                 </div>
                 <div id="nd-right">
                     <!-- with this optional parameter thankyou-page, you may use an alternative page, e.g. without the date selector. That page should have a cart component too. -->
                     <div id="oo-cart" data-oo-shop-page="shop1.html" data-oo-date-page="date.html" data-oo-thankyou-page="cart.html" data-oo-register-page="profile.html"></div>
                 </div>
+            </div>
         </div>
 
         <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->

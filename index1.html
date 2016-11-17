@@ -1,0 +1,50 @@
+<!DOCTYPE html><!-- (C) oekobox-online.eu 2016. Free for use with oekobox-online services -->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="oo.css" rel="stylesheet" type="text/css"/>
+        <link href="app.css" rel="stylesheet" type="text/css"/>
+        <title>Start Page</title>
+    </head>
+    <body>
+        <div class="header">
+            <div class="oo-loading" style="display: none"></div>
+            <div id="oo-search" data-oo-shop-page="shop.html"></div>
+            <div id="oo-status" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html"  data-oo-profile-page="profile.html" data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
+        </div>
+
+        <h2>Startseite  <a href="index.html">einfach</a></h2></h2>
+        <h1>NoDesign@<span class="oo-system-title"></span></h1>
+        <div id="oo-flash" data-oo-cart-page="cart.html"></div>
+        <div id="pagecontent">
+            <div id="oo-navi" data-oo-shop-page="shop.html"></div>
+            <div class="hints">
+                Diese Seite illustriert:
+                <ul>
+                        <li>Zwei Bereich, die je nach Anmeldezustand eingeblendet werden</li>
+                        <li>Ticker, die als Einzellinks verwendet werden und auf die Shopseite verweisen.</li>
+                        <li>Ticker, die auf eine Navigationsebene verweisen.</li>
+                </ul>
+            </div>
+            <div class="oo-state-auth">
+                <h3>Hier ist DEIN Angebot! (für angemeldete Kunden)</h3>
+                <div id="myticker3" class="oo-ticker" data-oo-ticker-size="2" data-oo-ticker-data="Auto" data-oo-ticker-speed="0" data-oo-ticker-empty=".myticker3-empty" data-oo-shop-page="shop.html"></div>
+            </div>
+            <div class="oo-state-anon oo-state-located">
+                <h3>Links auf Menüpunkte für Greenhorns</h3>
+                <div class="index1-ticker">
+                    <div class="oo-ticker" data-oo-ticker-size="1" data-oo-ticker-data="Navigation:-9" data-oo-ticker-speed="0" data-oo-shop-page="shop.html"></div>
+                    <div class="oo-ticker" data-oo-ticker-size="1" data-oo-ticker-data="Navigation:-10" data-oo-ticker-speed="0" data-oo-shop-page="shop.html"></div>
+                    <div class="oo-ticker" data-oo-ticker-size="1" data-oo-ticker-data="Navigation:-11" data-oo-ticker-speed="0" data-oo-shop-page="shop.html"></div>
+                </div>
+                <br clear="all">
+                <h3>Einfache links mit A Href</h3>
+                <a href="shop.html#Schnellesser">Fast Food</a> |<a href="shop.html#Besseresser">Bessere Esser essen hier</a> | <a href="shop.html#Mottoesser">Mottenesser</a>
+            </div>
+        </div>
+
+        <script src="../../api/client.js"></script>
+
+    </body>
+</html>

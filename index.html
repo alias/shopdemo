@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="oo.css" rel="stylesheet" type="text/css"/>
         <link href="app.css" rel="stylesheet" type="text/css"/>
         <title>Start Page</title>
     </head>
@@ -13,9 +14,9 @@
             <div id="oo-status" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html"  data-oo-profile-page="profile.html" data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
         </div>
 
-        <h2>Startseite</h2>
+        <h2>Startseite  <a href="index1.html">Alternative</a></h2></h2>
         <h1>NoDesign@<span class="oo-system-title"></span></h1>
-        <div id="oo-flash" ></div>
+        <div id="oo-flash" data-oo-cart-page="cart.html" ></div>
         <div id="pagecontent">
             <div id="oo-navi" data-oo-shop-page="shop.html"></div>
             <div class="hints">
@@ -57,8 +58,11 @@
 
             </div>
             <div id="mytickers">
-                <div id="myticker1" class="oo-ticker" data-oo-ticker-size="3" data-oo-ticker-withcart="true" data-oo-ticker-data="Rubric:105" data-oo-ticker-speed="5" data-oo-shop-page="shop.html"></div>
-                <div id="myticker2" class="oo-ticker" data-oo-ticker-size="2" data-oo-ticker-data="Auto" data-oo-ticker-speed="0" data-oo-ticker-empty=".myticker2-empty" data-oo-shop-page="shop.html"></div>
+                <div id="myticker1" class="oo-ticker oo-clearfix" data-oo-ticker-size="3" data-oo-ticker-withcart="true" data-oo-ticker-data="Auto" data-oo-ticker-speed="45" data-oo-ticker-empty=".myticker1-empty" data-oo-shop-page="shop.html"></div>
+                <div id="myticker2" class="oo-ticker oo-clearfix" data-oo-ticker-size="2" data-oo-ticker-data="Auto" data-oo-ticker-speed="20" data-oo-ticker-empty=".myticker2-empty" data-oo-shop-page="shop.html"></div>
+                <div class="myticker1-empty">
+                    Ticker1 zeigt keine Daten. Mach was draus...
+                </div>
                 <div class="myticker2-empty">
                     Ticker2 zeigt keine Daten. Mach was draus...
                 </div>
