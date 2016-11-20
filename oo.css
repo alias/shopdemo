@@ -9,7 +9,7 @@ CSS follows lightly the BEM style, but with a naming following the components.
 */
 
 .oo-testing {
-    display: none !important;
+    display: none ;
 }
 
 /****** Navigation Component */
@@ -68,6 +68,15 @@ CSS follows lightly the BEM style, but with a naming following the components.
 }
 #oo-status .oo-status-auth-date-preview UL {
     padding: 0;
+}
+#oo-status .oo-status-cart .oo-status-cart-count:before {
+    content: "(";
+}
+#oo-status .oo-status-cart .oo-status-cart-count:after {
+    content: ")";
+}
+#oo-status .oo-status-cart.oo-status-cart-modified .oo-status-cart-count {  /* red indicates: "dont forget to send!" */
+    color: red;
 }
 
 /****** Flash Component */
@@ -216,7 +225,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 /****** Shop Component */
 
 .oo-shop-sl-pane .oo-shop-item {     /* all "small" boxes within the selection */
-    display: inline-block;
+    display: inline-flex;           /* inline-block almost works too */
     position: relative;
     border-bottom: 1px solid #D0BFA6;
     border-left: 4px solid #D0BFA6;
@@ -236,8 +245,9 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     width: 200px;
     height: 200px;
     margin: 10px;
+    position: relative;
 }
-.oo-shop-singleitem .oo-item-img {
+.oo-shop-singleitem .oo-item-img , .oo-shop-title-img{
     max-width: 300px;               /* limits size for big images. Note: they get a zoom option if much bigger */
     width: auto;                    /* retains ratio */
     height: auto;
@@ -246,7 +256,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 
 #oo-shop .blend {          /* list item blend helper  */
     top:0;left:0;
-    height: 200px;
+    height: 100%;
     width: 200px;
     position: absolute;
     opacity: 0.5;
@@ -262,7 +272,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     width: 190px;
 }
 .oo-shop-item-count {
-    top: 157px;
+    bottom: 0;
     right: 10px;
 }
 .oo-shop-amount {       /* attached info for order and assortment content amounts */
@@ -300,7 +310,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 .oo-shop-item-incart  .oo-select-container {
     border-radius: 5px;
 }
-.oo-item-img {                         /* element with an image */
+.oo-item-img, .oo-cart-pos-img, .oo-shop-title-img {                         /* element with an image */
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -327,7 +337,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 #oo-shop .oo-shop-item .oo-shop-item-select, #oo-shop .oo-shop-item .oo-shop-ass-select , #oo-shop .oo-shop-item-select {                    /* mouse over and amount selection */
     position: absolute;                                          /* dont like it? http://stackoverflow.com/questions/11600687/hover-and-active-only-when-not-disabled */
     top: 60px;
-    left: 0;
+    left: 4px;
     z-index: 300;
     border: 1px solid silver;
     display: none; /* initially, see app.js */
@@ -379,6 +389,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 
 #oo-shop .oo-shop-item-price-wrapper {
     top: 150px;
+    left: 0;
 }
 #oo-shop .oo-shop-title-head {
     background-color: #ebd8bc;
@@ -430,6 +441,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 .oo-shop-sl-pane .oo-shop-abogroup-pane, .oo-shop-sl-pane .oo-shop-abobox-detail-pane {
     position: absolute;
     bottom: 20px;
+    left: 0;
     width: 100%;
 }
 .oo-shop-abobox-detail-pane .oo-item-name {
@@ -853,13 +865,16 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     margin: 0.3em;
 }
 
-#oo-profile #oo-profile-edit-favourites button.oo-profile-favourites-droplink, button.oo-shop-item-recipe-related-all  {
+#oo-profile #oo-profile-edit-favourites button.oo-profile-favourites-droplink, button.oo-shop-item-recipe-related-all, button.oo-profile-passwd-new-off  {
     float: inherit;
     padding-top: 5px;        /* small style todo make own class*/
     padding-bottom: 5px;
 }
 #oo-profile .oo-profile-favourites-gone {
     background-color: silver;
+}
+#oo-profile .oo-state-auth button.oo-profile-passwd-new, #oo-profile .oo-state-auth button.oo-profile-passwd-new-off {
+    float: none;
 }
 /* .oo-profile-field-place  .oo-profile-revertbtn { display: none; }  needed? */
 /****** SubNavi Component */
@@ -876,20 +891,18 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
 }
 
 /****** Loading pseudo Component */
-.oo-loading {
-    position: fixed;
-    z-index: 100;
-    top: 100px;
-    left:18%;
-    width: 60%;
-    height: 40px;
-    margin:20px;
+.oo-loading .oo-loading-big{
     background-color: silver;
-    opacity: 0.3    ;
-    text-align: center;
-    font-size: larger;
-    padding: 20px;
-    border-radius: 10px;
+        border-radius: 10px;
+        font-size: larger;
+        height: 90%;
+        left: 10%;
+        opacity: 0.9;
+        position: fixed;
+        text-align: center;
+        top: 5%;
+        width: 80%;
+        z-index: 100;
 }
 /****** Logon Component */
 

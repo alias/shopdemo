@@ -185,6 +185,39 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
 }
 @keyframes nodesign-fadeinb { from { opacity: 0; } to   { opacity: 0.5; }   }
 
+.oo-shop-sl-pane > DIV.oo-shop-data-type-NoItem {
+    height: 80px;
+}
+
+/* overriding the amount indicator */
+#oo-status .oo-status-cart .oo-status-cart-count:before {
+    content: "";
+}
+#oo-status .oo-status-cart .oo-status-cart-count:after {
+    content: "";
+}
+
+#oo-status .oo-status-cart-link {
+    position:relative;
+}
+#oo-status .oo-status-cart .oo-status-cart-count {
+    background: gray radial-gradient(circle at 5px -9px , gray, gray) repeat scroll 0 0;
+    border-radius: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: smaller;
+    height: 16px;
+    min-width: 16px;
+    padding: 0 3px;
+    text-align: center;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+}
+#oo-status .oo-status-cart.oo-status-cart-modified .oo-status-cart-count {
+    background: red radial-gradient(circle at 5px -9px , red, red) repeat scroll 0 0;
+    color: white;
+}
 /****** Search Component */
 
 /****** Profile Component */
