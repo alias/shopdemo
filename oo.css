@@ -75,7 +75,7 @@ CSS follows lightly the BEM style, but with a naming following the components.
 #oo-status .oo-status-cart .oo-status-cart-count:after {
     content: ")";
 }
-#oo-status .oo-status-cart.oo-status-cart-modified .oo-status-cart-count {  /* red indicates: "dont forget to send!" */
+.oo-status-cart-modified .oo-status-cart-count {  /* red indicates: "dont forget to send!" */
     color: red;
 }
 
@@ -865,11 +865,14 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     margin: 0.3em;
 }
 
-#oo-profile #oo-profile-edit-favourites button.oo-profile-favourites-droplink, button.oo-shop-item-recipe-related-all, button.oo-profile-passwd-new-off  {
-    float: inherit;
-    padding-top: 5px;        /* small style todo make own class*/
+button.oo-style-minoraction {      /* secondary action button */
+    padding-top: 5px;
     padding-bottom: 5px;
 }
+#oo-profile #oo-profile-edit-favourites button.oo-profile-favourites-droplink, button.oo-shop-item-recipe-related-all, button.oo-profile-passwd-new-off {
+    float: inherit;
+}
+
 #oo-profile .oo-profile-favourites-gone {
     background-color: silver;
 }
@@ -1035,6 +1038,7 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
 }
 .oo-unused {
     display:none ;
+    visibility: hidden;
 }
 .ui-disabled, .oo-disabled {
     opacity: .3;

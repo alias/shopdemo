@@ -221,6 +221,12 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
 /****** Search Component */
 
 /****** Profile Component */
+.oo-profile-location {
+    float: right;
+}
+.oo-profile-address > div {
+    clear:both;
+}
 
 
 /****** Loading pseudo Component */
