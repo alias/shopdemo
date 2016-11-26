@@ -6,6 +6,8 @@ See https://oekobox-online.de/news?a=js.CSSDocu for more information.
 This is the core framework CSS. Place your overrides into separate files.
 
 CSS follows lightly the BEM style, but with a naming following the components.
+
+Version VERSION
 */
 
 .oo-testing {
