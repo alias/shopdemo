@@ -137,10 +137,15 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
 
 #oo-navi LI {                 /* make it horizontal */
     display: inline-block;
+    list-style: none;
+}
+#oo-navi LI UL LI {
+    float: left;              /* renderer bug fix */
 }
 #oo-navi > ul {
     margin-top: 20px;
     padding-left: 5px;
+    clear: both;
 }
 #oo-navi .oo-navi-2nd-pane {     /* see also component-shared css below */
     padding: 20px;
@@ -185,8 +190,11 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
 }
 @keyframes nodesign-fadeinb { from { opacity: 0; } to   { opacity: 0.5; }   }
 
-.oo-shop-sl-pane > DIV.oo-shop-data-type-NoItem {
+.oo-shop-sl-pane > DIV.oo-shop-item.oo-shop-data-type-NoItem {
     height: 80px;
+}
+.oo-shop-sl-pane > DIV.oo-shop-item.oo-shop-data-type-AssortmentGroup {
+    height: 400px;
 }
 
 /* overriding the amount indicator */

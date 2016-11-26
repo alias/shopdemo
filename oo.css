@@ -246,6 +246,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     height: 200px;
     margin: 10px;
     position: relative;
+    float: left;
 }
 .oo-shop-singleitem .oo-item-img , .oo-shop-title-img{
     max-width: 300px;               /* limits size for big images. Note: they get a zoom option if much bigger */
@@ -303,7 +304,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     border-width: 0 0 30px 30px;
     border-color: transparent transparent #3b9c4a    transparent;
     z-index: 100;
-    left: 170px;
+    right: 0;
     top: 170px;
     display: none;  /* initially*/
 }
@@ -386,7 +387,11 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
     display: none;
 }
                                                                  /* mouse over and amount selection */
-
+#oo-shop .oo-shop-sl-paging-more {
+    clear: both;
+    float: right;
+    padding: 10px;
+}
 #oo-shop .oo-shop-item-price-wrapper {
     top: 150px;
     left: 0;
@@ -477,6 +482,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 
 DIV.oo-shop-sl-pane-itemstart {     /* inserted before the first item in the list */
     display: block;
+    clear: both;
 }
 
 .oo-shop-item-select .oo-select-tabs BUTTON {
