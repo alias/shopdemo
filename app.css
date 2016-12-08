@@ -151,6 +151,11 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
     padding: 20px;
 }
 
+/****** Subnavi Component */
+.oo-subnavi-data-type-NoItem:after {
+    content: '>>'
+}
+
 /****** Status Component */
 
 /****** Flash Component */
@@ -192,8 +197,12 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
 
 .oo-shop-sl-pane > DIV.oo-shop-item.oo-shop-data-type-NoItem {
     height: 80px;
+    background-position: 0;
 }
-.oo-shop-sl-pane > DIV.oo-shop-item.oo-shop-data-type-AssortmentGroup {
+.oo-shop-sl-pane .oo-shop-item h3 {
+    opacity: 0.8;
+}
+.oo-shop-sl-pane > DIV.oo-shop-item.oo-shop-data-type-AssortmentGroup, .oo-shop-data-type-Pointer-AssortmentGroup {
     height: 400px;
 }
 
@@ -225,6 +234,14 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
 #oo-status .oo-status-cart.oo-status-cart-modified .oo-status-cart-count {
     background: red radial-gradient(circle at 5px -9px , red, red) repeat scroll 0 0;
     color: white;
+}
+/****** Chat Component */
+
+#oo-chat {
+    width: 300px;
+}
+.oo-chat-pane{
+    height: 400px;
 }
 /****** Search Component */
 

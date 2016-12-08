@@ -7,11 +7,77 @@ This is the core framework CSS. Place your overrides into separate files.
 
 CSS follows lightly the BEM style, but with a naming following the components.
 
-Version VERSION
+Version $Revision: 1.21 $
 */
 
 .oo-testing {
     display: none ;
+}
+
+
+/****** Chat Component */
+.oo-chat-pane {
+    border: 1px solid gray;
+}
+
+.oo-chat-pane table {
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    border: none;
+}
+
+.oo-chat-pane table td {
+    vertical-align: bottom;
+}
+
+.oo-chat-conversation {
+    background-color: ghostwhite;
+    height: 100%;
+    position:relative;
+}
+.oo-chat-conversation-inner {
+    position: absolute;
+    overflow-y: auto;
+    max-height: 100%;
+    bottom: 0;
+}
+.oo-chat-sep {
+    font-size: 0.5em;
+    text-align: center;
+    border-bottom: 1px dotted silver;
+    color: silver;
+    margin-bottom: 3px;
+    clear: both;
+}
+.oo-chat-input form {
+    margin: 0;
+}
+.oo-chat-input input[type="text"] {
+    width: 100%;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+.oo-chat-boxy, .oo-chat-user {
+    padding: 4px;
+    display: inline-block;
+    clear: both;
+    border-radius: 5px;
+}
+
+.oo-chat-boxy {
+    background-color: bisque;
+    float: right;
+    text-align: right;
+}
+
+.oo-chat-user {
+    background-color: limegreen;
+    float: left;
+}
+.oo-chat-boxy table td {  /* server responses have some decent html */
+    border-bottom: 1px solid silver;
 }
 
 /****** Navigation Component */
@@ -223,6 +289,9 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 .oo-cart-pos-dupflash {        /* gimmick: flash upon click on "duplicate" */
     background-color: red;
 }
+TR.oo-cart-pos-problem TD.oo-cart-pos-total {
+    visibility: hidden;
+}
 
 /****** Shop Component */
 
@@ -260,7 +329,7 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 #oo-shop .blend {          /* list item blend helper  */
     top:0;left:0;
     height: 100%;
-    width: 200px;
+    width: 100%;
     position: absolute;
     opacity: 0.5;
     background-color: white;
@@ -298,6 +367,9 @@ tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matc
 
 .oo-shop-abo-loaded  /* variant selector */, .oo-shop-item-incart  .oo-select-container {
     border: 1px solid #3b9c4a;
+}
+.oo-shop-item-incart .oo-shop-item-loaded {
+    display: block;
 }
 .oo-shop-item-loaded {      /* green triangle indicating that item is in cart */  /* shared with ticker */
     width: 0;
@@ -739,6 +811,9 @@ Der Rest muss mit CSS (hin)gerichtet werden
     display: none; /* initially */
     padding: 20px;
 }
+#oo-search-preview-items .oo-shop-item-loaded {   /* item area is smaller here */
+    top: 100px;
+}
 /****** Profile Component */
 
 #oo-profile-anon, #oo-profile-authed {
@@ -1028,7 +1103,7 @@ button.oo-style-minoraction {      /* secondary action button */
     float: right;
 }
 /* label */
-.oo-cart-pos-dupinfo , .oo-cart-pos-problem, .oo-cart-pos-preorder,           /* tells than an item is multiple times in cart */
+.oo-cart-pos-dupinfo , span.oo-cart-pos-problem, .oo-cart-pos-preorder,           /* tells than an item is multiple times in cart */
 #oo-filter .oo-filter-set span
   {
     border: 1px solid gray;
@@ -1040,6 +1115,10 @@ button.oo-style-minoraction {      /* secondary action button */
 
 
 /****** oo Framework */
+
+.oo-state-admin {    /* hidden for the public */
+    background-color: pink;
+}
 
 .oo-container {
     display: inline-block;
