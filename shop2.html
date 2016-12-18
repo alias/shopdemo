@@ -1,0 +1,79 @@
+<!DOCTYPE html><!-- (C) oekobox-online.eu 2016. Free for use with oekobox-online services -->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="app.css" rel="stylesheet" type="text/css"/>
+        <style type="text/css">
+            /* overrides some stuff in app.css */
+            #shop2 #oo-navi Li {
+                display: block;                              /* vertically */
+                float: none;
+            }
+            #shop2 #oo-navi .oo-navi-2nd-pane {               /* place it next to the parent */
+                margin-left: 50px;
+                position:relative;
+            }
+            #shop2 #oo-navi .oo-navi-pane LI.oo-active .oo-navi-2nd-pane {   /* make sure, the navi is open when startong the page */
+                display: block;
+            }
+            #shop2 #oo-subnavi {
+                margin-top: 20px;
+            }
+
+            #shop2 #oo-navi .oo-navi-1st-pane.oo-active {        /* correct the green active marker */
+                background-color: inherit;
+            }
+            #shop2 #oo-navi .oo-navi-1st-pane.oo-active > A {
+                width: 100%; display:block;
+                border:0; padding:0;
+                background-color: yellowgreen;                   /* intentionally choose a color to make you notice */
+            }
+
+        </style>
+        <title>Shop Page</title>
+    </head>
+    <body id="shop2">
+        <div class="header">
+            <div class="oo-loading" ></div>
+            <div id="oo-search" data-oo-shop-page="shop.html"></div>
+            <div id="oo-status" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html"  data-oo-profile-page="profile.html"  data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
+            <div><a href="index.html">Start</a></div>
+        </div>
+
+        <h2>Shopseite 2 <a href="shop.html">Einfach</a> <a href="shop1.html">Alternative 1</a> <a href="shop3.html">Alternative 3</a> </h2>
+        <h1>NoDesign@<span class="oo-system-title"></span></h1>
+        <div id="oo-flash" data-oo-cart-page="cart.html"></div>
+        <div id="pagecontent">
+
+            <div id="oo-path" ></div>
+                <div class="nd-container">
+                    <div id="nd-left">
+                        Navi-Level 1+2+3<br>
+                        <div id="oo-navi" data-oo-shop-page="shop2.html" data-oo-navi-omit-group="true" data-oo-navi-numlevels="3" data-oo-autoclose="false" data-oo-hover="false" ></div>
+                        Navi-Level 3<br>
+                        <div id="oo-subnavi" data-oo-subnavi-onlysubnavi="true" data-oo-subnavi-level="3"></div>
+                        <div class="oo-subnavi-empty oo-unused">
+                            Probier doch mal ...was anderes!
+                        </div>
+                    </div>
+                    <div id="nd-right">
+                        <div id="oo-shop" data-oo-shop-renderabopointer="false" data-oo-shop-onlysubnavi="true" data-oo-item-image-pi-size="200"></div>    <!-- render a AboGroups already when they appear as Pointer, dont dive into Assortments -->
+                    </div>
+                </div>
+
+                <div class="hints">
+                    <ul>
+                        <li>Das Haupmenü ist hier links. Die Konfiguration stellt drei Navigationsebenen dar. Per
+                            CSS (im Header) ist diese Navigation horizontal angeordnet</li>
+                        <li>oo-navi-omit-group="true" vermeidet die Darstellung des gleichen Navigations-Zieles in Navigations- und Shop-Komponente.</li>
+                        <li>Die SubMenu-Komponente zeigt ausschliesslich den Navigationslevel 3 an, sofern er existiert.</li>
+                        <li>Shop-Komponente zeigt nur Untermenues, nicht die Artikel der Untergruppe selber (Man muss allerdings per Path in diese Navigationsebene springen, wegen dem "omit")</li>
+                    </ul>
+                </div>
+        </div>
+
+        <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->
+        <script src="../../api/client.js" data-main="app.js"></script>   <!-- app.js illustrates custom css effects - the mouse over on items -->
+    </body>
+</html>

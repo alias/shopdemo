@@ -6,9 +6,10 @@
         <link href="app.css" rel="stylesheet" type="text/css"/>
         <title>alt. Cart Page</title>
     </head>
-    <body>
+    <body id="cart1">
         <div class="header">
             <div class="oo-loading" style="display: none" ></div>
+            <div id="oo-search" data-oo-shop-page="shop.html"></div>
             <div id="oo-status" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html"  data-oo-profile-page="profile.html" data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
             <div><a href="index.html">Start</a></div>
         </div>
@@ -23,7 +24,8 @@
             <div class="nd-container">
                 <div id="nd-left" >
                     <div class="oo-state-auth oo-state-located">
-                        <div id="oo-date" data-oo-shop-page="shop.html" data-oo-cart-page="cart1.html" data-oo-profile-page="profile.html"  ></div>
+                        <div id="oo-date" data-oo-shop-page="cart1.html" data-oo-cart-page="cart1.html" data-oo-profile-page="profile.html"  ></div>
+                        <div id="oo-profile" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html" data-oo-cart-page="cart.html"></div>
                     </div>
                     <div class="oo-state-anon">
                        Keine Datumsauswahl ohne Anmeldung...vielleicht ein Ticker hier?
@@ -33,6 +35,17 @@
                     <!-- with this optional parameter thankyou-page, you may use an alternative page, e.g. without the date selector. That page should have a cart component too. -->
                     <div id="oo-cart" data-oo-shop-page="shop1.html" data-oo-date-page="date.html" data-oo-thankyou-page="cart.html" data-oo-register-page="profile.html"></div>
                 </div>
+            </div>
+
+            <div class="hints">
+                <ul>
+                    <li>Diese Version hat zusätzlich die Terminwahl und die Profilangaben links eingeblendet.</li>
+                    <li>Date-Komponente links verbleibt auf der Seite (shop-page-Konfiguration zeigt auch auf diese Seite). Die Interaktion bei Datumswechsel sollte der dann erscheinende arenkorb link ausgeblendet werden.
+                        </li>
+                    <li>Per CSS kann eingestellt werden, was die Date-Komponente anzeigt. Bei immer gleichen Lieferkosten können diese z.B. ausgeblendet werden.</li>
+                    <li>die linke seite </li>
+                    <li>Die Datumskomponente ist per CSS angepasst (siehe app.css)</li>
+                </ul>
             </div>
         </div>
 

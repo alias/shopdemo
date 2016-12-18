@@ -4,9 +4,56 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="app.css" rel="stylesheet" type="text/css"/>
+        <style type="text/css">
+            /* alternative shop1.html; oo-navi-3rdlevel must be "true" , overrides stuff above*/
+
+            #shop1 #oo-navi UL.oo-navi-2nd-pane LI {           /* all LI's below shall be blocks */
+                display: block;
+            }
+            #shop1 #oo-navi LI UL LI.oo-navi-3rd-tpl {
+                float: none;                                  /* make it vertical again */
+            }
+            #shop1 #oo-navi .oo-navi-2nd-pane {               /* we are absolute; start very left to have space for the mega menu */
+                left: 0;
+            }
+            #shop1 #oo-navi LI.oo-navi-2nd-tpl {              /* just for debugging */
+                border: 1px dotted silver;
+                display: block;
+            }
+            #shop1 #oo-navi .oo-navi-2nd-name {
+                font-weight: bold;
+            }
+            LI.XXXoo-navi-1st-id-2 .oo-navi-2nd-pane {   /* tip: use this to keep that level open while designing it */
+                display: block !important;
+            }
+            /* limit the iner height */
+            #nd-left {
+                height: 50vh;
+                overflow-y: scroll;
+            }
+            #nd-right {
+                height: 50vh;
+                overflow-y: scroll;
+            }
+
+            #oo-shop .Xoo-shop-data-type-NoItem {   /* dont show the submenues here */
+                display: none !important;
+            }
+
+            #oo-subnavi .oo-subnavi-1st-pane.oo-active {        /* correct the active logic */
+                background-color: inherit;
+            }
+            #oo-subnavi .oo-subnavi-1st-pane.oo-active > A > .oo-subnavi-name {
+                background-color: #00A786;
+                display: inline-block;
+                width: 100%;
+            }
+
+
+        </style>
         <title>alt Shop Page</title>
     </head>
-    <body>
+    <body id="shop1">
         <div class="header">
             <div class="oo-loading" style="display: none" ></div>
             <div id="oo-search" data-oo-shop-page="shop.html"></div>
@@ -14,19 +61,19 @@
             <div><a href="index.html">Start</a></div>
         </div>
 
-        <h2>Shopseite 1 <a href="shop.html">einfach</a></h2>
+        <h2>Shopseite 1 <a href="shop.html">Einfach</a> <a href="shop2.html">Alternative 2</a> <a href="shop3.html">Alternative 3</a></h2>
         <h1>NoDesign@<span class="oo-system-title"></span></h1>
         <div id="oo-flash" ></div>
         <div id="pagecontent">
 
-            <div id="oo-navi" data-oo-navi-omit-group="true" data-oo-navi-headlevel="2"></div>   <!-- notice: no oo-shop-page, therefore we stay in that page
+            <div id="oo-navi" data-oo-navi-omit-group="true" data-oo-navi-headlevel="2" data-oo-navi-numlevels="3"></div>   <!-- notice: no oo-shop-page, therefore we stay in that page
                                                                                    data-oo-navi-omit-group: jumps right into the first subgroup, if there is any -->
-            <div class="oo-navi-head oo-navi-image" title="Example for a global placeholder, see shop component">.</div>
-            <div id="oo-path" ></div>
+            <div class="oo-navi-head oo-navi-image" title="Example for a global placeholder, see navi component">.</div>
+            <div id="oo-path" data-oo-path-omit-group="true"></div>
 
             <div class="nd-container">
                 <div id="nd-left">
-                    <div id="oo-subnavi"></div>
+                    <div id="oo-subnavi" data-oo-subnavi-level="2" ></div>
                     <div class="oo-subnavi-empty oo-unused">
                         Teaser hier?
                         <br>
@@ -34,8 +81,21 @@
                     </div>
                 </div>
                 <div id="nd-right">
-                    <div id="oo-shop" data-oo-shop-renderabopointer="false"></div>    <!-- render a AboGroups already when they appear as Pointer, dont dive into Assortments -->
+                    <div id="oo-shop" data-oo-shop-renderabopointer="false" data-xoo-shop-onlysubnavi="true" data-oo-item-image-pi-size="200" data-oo-shop-omit-group="true"></div>    <!-- render a AboGroups already when they appear as Pointer, dont dive into Assortments -->
                 </div>
+            </div>
+
+            <div class="hints">
+                <ul>
+                    <li>Links mit SubMenu-Komponente. Diese ist fix auf den Level 2 eingestellt. </li>
+                    <li>Shop-Komponente zeigt <b>keine</b> Untermenues, diese sind per CSS ausgeblendet</li>
+                    <li>Die Aktiv-Anzeige in der Subnavigation muss per CSS korrigiert werden, da  der Ober- und Unterpunkt aktiv ist</li>
+                    <li>navi und path sind so eingestellt, das ein Klick auf das obere Menü automatisch in das erste Untermenü springt. Dadurch wird an dieser
+                        Ebene nie etwas angezeigt. </li>
+                    <li>Stage-Bild im oberen Teil der Seite wird von der Navigation gesteuert.</li>
+                    <li>Hinweise zur Bildgröße sind in der <a href="https://oekobox-online.de/news?a=js.components.shop.attr_pi">API Doku zu finden</a>.</li>
+                    <li>Die Hauptnavigation hat die Option "oo-navi-3rdlevel" eingeschaltet. Dazu muss die Navigation gut im PCG eingestellt werden.</li>
+                </ul>
             </div>
         </div>
 

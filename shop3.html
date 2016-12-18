@@ -1,0 +1,56 @@
+<!DOCTYPE html><!-- (C) oekobox-online.eu 2016. Free for use with oekobox-online services -->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="app.css" rel="stylesheet" type="text/css"/>
+
+        <title>alt Shop Page</title>
+    </head>
+    <body id="shop1">
+        <div class="header">
+            <div class="oo-loading" style="display: none" ></div>
+            <div id="oo-search" data-oo-shop-page="shop.html"></div>
+            <div id="oo-status" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html"  data-oo-profile-page="profile.html"  data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
+            <div><a href="index.html">Start</a></div>
+        </div>
+
+        <h2>Shopseite 3 <a href="shop.html">Einfach</a> <a href="shop1.html">Alternative 1</a> <a href="shop2.html">Alternative 2</a></h2>
+        <h1>NoDesign@<span class="oo-system-title"></span></h1>
+        <div id="oo-flash" ></div>
+        <div id="pagecontent">
+
+            <div id="oo-navi" data-oo-navi-omit-group="true" data-oo-navi-headlevel="2" ></div>   <!-- notice: no oo-shop-page, therefore we stay in that page
+                                                                                   data-oo-navi-omit-group: jumps right into the first subgroup, if there is any -->
+            <div class="oo-navi-head oo-navi-image" title="Example for a global placeholder, see navi component">.</div>
+            <div id="oo-path" ></div>
+
+            <div class="nd-container">
+                <div id="nd-left">
+                    <div id="oo-subnavi" ></div>
+                    <div class="oo-subnavi-empty oo-unused">
+                        Teaser hier?
+                        <br>
+                        <samp>.oo-subnavi-empty</samp>Wird angezeigt, wenn die Subnavigation leer ist.
+                    </div>
+                </div>
+                <div id="nd-right">
+                    <div id="oo-shop" data-oo-shop-renderabopointer="false" data-Xoo-shop-onlysubnavi="true" data-oo-item-image-pi-size="200"></div>    <!-- render a AboGroups already when they appear as Pointer, dont dive into Assortments -->
+                </div>
+            </div>
+
+            <div class="hints">
+                <ul>
+                    <li>Links mit SubMenu-Komponente</li>
+                    <li>Shop-Komponente zeigt nur Untermenues, nicht die Artikel der Untergruppe selber</li>
+                    <li>Stage-Bild im oberen Teil der Seite wird von der Navigation gesteuert.</li>
+                    <li>Hinweise zur Bildgröße sind in der <a href="https://oekobox-online.de/news?a=js.components.shop.attr_pi">API Doku zu finden</a>.</li>
+                    <li>Die Hauptnavigation hat die Option "oo-navi-3rdlevel" eingeschaltet. Dazu muss die Navigation gut im PCG eingestellt werden.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->
+        <script src="../../api/client.js" data-main="app.js"></script>   <!-- app.js illustrates custom css effects - the mouse over on items -->
+    </body>
+</html>

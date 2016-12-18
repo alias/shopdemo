@@ -38,6 +38,7 @@ div#pagecontent > div {
 .hints {
     font-style: italic;
     padding: 30px;
+    clear: both;
 }
 .header {
     float: right;
@@ -151,6 +152,9 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
     padding: 20px;
 }
 
+
+
+
 /****** Subnavi Component */
 .oo-subnavi-data-type-NoItem:after {
     content: '>>'
@@ -178,8 +182,39 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
 
 /****** Ticker Component */
 
-/****** Cart Component */
+/****** Cart Page */
 
+#cart1 .oo-date-dcnote {      /* addresses cart component on cart1.html */
+    display: none;            /* we dont need shipping in this example */
+}
+#cart1 .oo-profile-nocore {      /* we dont want all options in this page */
+    line-height:0;               /* display: none; will not work, thats used internally. This css set is an alternative */
+    overflow: hidden;
+    padding: 0;
+    margin:0;
+    border:0;
+}
+#cart1 .oo-date-msg {            /* finetune embedded date component */
+    display: inline;
+}
+#cart1 .oo-date-pane-txt {
+    display:none;
+}
+#cart1 .oo-date-itemcount:after, #cart1 .oo-date-abocount:after {        /* put a nice icon here ? */
+    content: inherit;
+}
+#cart1 .oo-date-abocount , #cart1 .oo-date-itemcount {
+    border-radius: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: 1px solid;
+}
+#cart1 .oo-date-abocount {        /* a nice icon here ? */
+    border-color:silver;
+}
+#cart1 .oo-date-itemcount {
+    border-color: green;
+}
 /****** Shop Component */
 
 #oo-shop .oo-shop-item:hover .oo-shop-item-select, #oo-shop .oo-shop-item:hover .oo-shop-favorite {   /* fade in the controls */
@@ -268,3 +303,4 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
 
 
 /*         end oo **/
+
