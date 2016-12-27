@@ -5,6 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="app.css" rel="stylesheet" type="text/css"/>
         <title>Start Page</title>
+        <style type="text/css">
+            #myticker3 , #myticker3 .oo-ticker-item,  #myticker3 .oo-item-img , #myticker3 .oo-ticker-controls{
+                width: 100%;
+                display: block;
+            }
+            #myticker3 .oo-ticker-details {
+               display:none;
+            }
+            #myticker3 .oo-item-img {
+                background-repeat: repeat-x;
+            }
+            #myticker3 .oo-ticker-next, #myticker3 .oo-ticker-prev {
+                position: absolute;
+                top:20px;
+            }
+            #myticker3 .oo-ticker-prev {
+               left: 0;
+            }
+            #myticker3 .oo-ticker-next {
+               right: 0;
+            }
+
+        </style>
     </head>
     <body>
         <div class="header">
@@ -18,6 +41,10 @@
         <div id="oo-flash" data-oo-cart-page="cart.html" ></div>
         <div id="pagecontent">
             <div id="oo-navi" data-oo-shop-page="shop.html"></div>
+
+
+            <div id="myticker3" class="oo-ticker " data-oo-ticker-size="1" data-oo-ticker-data="Rubric:167" data-oo-ticker-speed="200" data-oo-ticker-empty=".myticker2-empty" data-oo-shop-page="shop.html"></div>
+
             <div class="hints">
                 Hinweise:
                 <ul>
@@ -59,7 +86,7 @@
             </div>
             <div id="mytickers">
                 <div id="myticker1" class="oo-ticker oo-clearfix" data-oo-ticker-size="3" data-oo-ticker-withcart="true" data-oo-ticker-data="Auto" data-oo-ticker-speed="45" data-oo-ticker-empty=".myticker1-empty" data-oo-shop-page="shop.html"></div>
-                <div id="myticker2" class="oo-ticker oo-clearfix" data-oo-ticker-size="2" data-oo-ticker-data="Auto" data-oo-ticker-speed="20" data-oo-ticker-empty=".myticker2-empty" data-oo-shop-page="shop.html"></div>
+                <div id="myticker2" class="oo-ticker oo-clearfix" data-oo-ticker-size="1" data-oo-ticker-data="Rubric:167" data-oo-ticker-speed="20" data-oo-ticker-empty=".myticker2-empty" data-oo-shop-page="shop.html"></div>
                 <div class="myticker1-empty">
                     Ticker1 zeigt keine Daten. Mach was draus...
                 </div>

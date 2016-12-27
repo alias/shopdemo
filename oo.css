@@ -7,7 +7,7 @@ This is the core framework CSS. Place your overrides into separate files.
 
 CSS follows lightly the BEM style, but with a naming following the components.
 
-Version $Revision: 1.27 $
+Version $Revision: 1.34 $
 */
 
 .oo-testing {
@@ -528,9 +528,16 @@ TR.oo-cart-pos-problem TD.oo-cart-pos-total {
 .oo-shop-singleitem {
     padding: 10px;
 }
-/* disable one tags set*/
+/* disable one alternative tags set*/
 .oo-shop-singleitem-info .oo-shop-tags {
     display: none;
+}
+.oo-shop-singleitem-select .oo-shop-tags SPAN { /* and style the other */
+    display: block;
+    margin-bottom: 2px;
+}
+.oo-shop-item .oo-shop-tags SPAN {
+    float: right;
 }
 /* all single item blocks horizontal  */
 .oo-shop-singleitem-info, .oo-shop-singleitem-select , .oo-shop-singleitem-img, .oo-shop-singleitem-container {
@@ -669,94 +676,43 @@ DIV.oo-shop-sl-pane-itemstart {     /* inserted before the first item in the lis
 }
 
 /*
-All ecoinform Information under .oo-item-ecodata
-Dont blame me. Dieser Scheiss kommt von ecoinform. Jede Warengruppe (bei Ecoinform) kommt anders im
-Struktur und Inhalt daher!
-Ich habe das XML geparst und dabei einige Normalisierungen versucht, daher die HTML-Struktur.
-Siehe http://oekobox-online.de/shopdocu/wiki/API.concepts.TextStructure.
-Der Rest muss mit CSS (hin)gerichtet werden
+Alt logik: Siehe http://oekobox-online.de/shopdocu/wiki/API.concepts.TextStructure.
+Aktuell wird nur das Produkt-Datenblatt dargestellt
 */
 
- .oo-text-kv h3, .oo-text-kv > p { /* place all in lines */
-    display: inline-block;
-    padding: 0;
-    margin: 0;
+/** extra ecoinform embedded info */
+#oo-ecoinform #tabangaben {
+   /* inhaltsstoffe */
+   border: 1px solid #d2d2d2;
 }
-
-.oo-text-kv h3:after { /* alle key:value daten */
-    content: ":";
-    padding-right: 5px;
+#oo-ecoinform .tabangaben_head  {
+   /* inhaltsstoffe section header */
+   font-size: 13px;
+   font-weight: bold;
 }
-
-.oo-text-id-e58 .oo-text-id-xnein h3 { /* einige "NICHT"-Aussagen */
-    text-decoration: line-through;
-    color: gray;
+#oo-ecoinform .tabangaben  {
+   /* inhaltsstoffe small infoblock */
+   border: 1px solid #d2d2d2;
+   margin: 2px;
 }
-
-.oo-text-id-e1 .oo-text-id-xnein {
-    color: gray;
+#oo-ecoinform .tabangaben TH {
+   background-color: #d2d2d2;
 }
-
-.oo-text-id-e58 .oo-text-id-xja h3, .oo-shop-tags h3 { /* ...oder Ja */
-    color: green;
-    display: inline;
+#oo-ecoinform .nixdrin {
+   /* class added if its  assumed to be NOT contained */
+   opacity: 0.5;
 }
-
-.oo-text-id-e58 > DIV  { /* 58 enth. meisst VEGAN usw. */
-    display: inline-block;
+#oo-ecoinform #oekoinform_prodimage {
+   float: right;
 }
-
-.oo-text-id-e58 .oo-text-kv h3:after, .oo-shop-tags .oo-text-kv h3:after{
-    content: "";
+#oo-ecoinform  h3 + p, #oo-ecoinform  .oekoinform_fussnote {
+    margin-left: 20px;
 }
+/* end eco */
 
-/* "positive" allergenes */
-.oo-text-id-e1 .oo-text-id-xja {
-    color: red;
+#oo-shop .oo-shop-item-nutrition-content .lnames TD {
+   background-color: silver;
 }
-
-.oo-text-id-e58 .oo-text-id-xja p, .oo-shop-tags .oo-text-id-xja p, .oo-text-id-e58 .oo-text-id-xnein p,
-.oo-text-id-e58 .oo-text-id-xja div, .oo-shop-tags .oo-text-id-xja div, .oo-text-id-e58 .oo-text-id-xnein div {
-    display: none; /* stupid*/
-}
-
-.oo-text-id-e21 > DIV { /* naehrwerte etwas lesbarer als Blocks */
-    display: inline-block;
-    border: 1px solid silver;
-}
-
-.oo-text-id-e21 > DIV H3 {
-    display: block;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1em;
-    background-color: silver;
-    margin:0;
-}
-
-.oo-text-id-e21 > DIV P {
-    display: block;
-    text-align: right;
-}
-
-.oo-text-id-e21 > DIV H3:after {
-    content: "";
-}
-
-/* suppress what may be not so interesting */
-.oo-text-id-e0, .oo-text-id-eHERKUNFT, .oo-text-id-eURSPRUNG, .oo-text-id-ePDF, .oo-text-id-e3, .oo-text-id-ePDF {
-    display: none;
-}
-
-/* bsp umbenennen eines Textes:
-.oo-item-ecodata >  .oo-text-id-eLMIV_READY h3 {
-     display:  none;
- }
- .oo-item-ecodata > .oo-text-id-eLMIV_READY p:before {
-     content: "lmiv";
- }
- */
-
 @media (max-width: 490px) {
     .oo-shop-sl-pane > DIV.oo-shop-item {
         width: 92%;
@@ -766,6 +722,13 @@ Der Rest muss mit CSS (hin)gerichtet werden
         right: 0;
         left: auto;
     }
+}
+
+#oo-shop .oo-tab-content {
+    padding: 10px;
+}
+#oo-shop .oo-shop-item-allergy-content-label.oo-shop-item-allergy-lmv {
+    font-weight: bold;
 }
 
 #oo-shop .oo-tab-content .oo-item-img {                 /* small image labels in recipe tab */
@@ -1103,26 +1066,34 @@ button.oo-style-minoraction {      /* secondary action button */
     text-align: center;
 }
 
+/* overlays are popup-like layers */
+.oo-overlay, .oo-ham-on {
+    background-color: ivory;
+}
+.oo-overlay , /* unprefixed */ .ui-datepicker {
+    z-index: 1000; /* to be atop anything rendered later */
+    position: absolute;
+}
 .oo-overlay-close {
     color: red;
     float: right;
     cursor: pointer;
 }
+#oo-search .oo-search-preview, #oo-status .oo-status-cart-preview, #oo-status .oo-status-auth-preview, #oo-status .oo-status-auth-date-preview,
+    #oo-navi .oo-navi-2nd-pane, #oo-cart .oo-cart-sure, .oo-select-sub-info , #oo-profile .oo-profile-edit-sub-delete-sure, #oo-cart .oo-cart-pos-abo-del ,
+    /* unprefixed */ .ui-datepicker, #oo-filter-pane {          /* these are oo-overlay, but here for specifity reasons */
+    display: none; /* initially */
+}
 
 #oo-status .oo-cart-pos-controls, #oo-cart .oo-cart-pos-controls {
     display: none;  /* initially */
 }
+
+/* genereic action indicator */
 .oo-active, .oo-profile-tab-selected, .oo-profile-edit-selected > a, .oo-shop-singleitem .oo-tab-navi > A.oo-tab-active, .oo-search-preview-items-more:focus  {
     background-color: chartreuse;
 }
-#oo-search .oo-search-preview, #oo-status .oo-status-cart-preview, #oo-status .oo-status-auth-preview, #oo-status .oo-status-auth-date-preview,
-    #oo-navi .oo-navi-2nd-pane, #oo-cart .oo-cart-sure, .oo-select-sub-info , #oo-profile .oo-profile-edit-sub-delete-sure, #oo-cart .oo-cart-pos-abo-del ,
-    /* unprefixed */ .ui-datepicker, #oo-filter-pane {
-    display: none; /* initially */
-    z-index: 1000; /* to be atop anything rendered later */
-    position: absolute;
-    background-color: ivory;
-}
+
 #oo-status .oo-cart-pos-controls A , #oo-cart .oo-cart-pos-controls A {      /* in-cart controls */
     margin-right: 2px;
     padding:5px;
@@ -1131,10 +1102,9 @@ button.oo-style-minoraction {      /* secondary action button */
     background-color: #D0BFA6;
     float: right;
 }
-/* label */
-.oo-cart-pos-dupinfo , span.oo-cart-pos-problem, .oo-cart-pos-preorder,           /* tells than an item is multiple times in cart */
-#oo-filter .oo-filter-set span
-  {
+
+/* labels */
+.oo-label {
     border: 1px solid gray;
     border-radius: 5px;
     font-size: smaller;
@@ -1142,8 +1112,33 @@ button.oo-style-minoraction {      /* secondary action button */
     padding-right: 2px;
 }
 
+#oo-filter .oo-filter-set span {
+    cursor: grabbing;     /* shall indicate deletability */
+}
 
 /****** oo Framework */
+
+/* hamburger slide */
+@keyframes oo-leftslidein {
+  from { left: -100%; opacity: 0; }      /* -100% may not always be enough, therefore also opacity. */
+  to { left: 0; opacity: 1; }
+}
+@keyframes oo-leftslideoff {
+  from { left: 0; opacity: 1; }
+  to { left: -100%; opacity: 0;}
+}
+.oo-ham-on, .oo-ham-off {
+    animation-duration: 0.5s;
+}
+.oo-ham-on {                             /* assigned to hamburger'ed elements */
+    animation-name: oo-leftslidein;
+    z-index: 100;
+}
+.oo-ham-off {
+    animation-name: oo-leftslideoff;
+    left: -100%;
+    opacity: 0;
+}
 
 .oo-icon {             /* https://www.iconfinder.com/iconsets/pink_moustache */
     width: 30px;
@@ -1186,7 +1181,7 @@ button.oo-style-minoraction {      /* secondary action button */
    width: 35px;
    animation:  elastic-rotation 1.33s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite;
    background-repeat: no-repeat;
-   background-position: center center;
+    background-position: center center;
    XXbackground-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9Il94MzhfU0VMRUNUX0xvZ28iIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMzEuOSAxNi4zIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAzMS45IDE2LjMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIGQ9Ik0yOS41LDIuNGMxLjYsMS42LDIuNCwzLjUsMi40LDUuOHMtMC44LDQuMi0yLjQsNS44Yy0xLjYsMS42LTMuNSwyLjQtNS44LDIuNGMtMS4zLDAtMi41LTAuNC0zLjgtMS4xYy0xLjItMC43LTIuMS0xLjQtMi42LTJjLTAuNS0wLjYtMC44LTEtMC45LTEuMmMtMC40LTAuNi0wLjMtMS4xLDAuMi0xLjRjMC42LTAuNCwxLjEtMC4zLDEuNSwwLjJjMCwwLjEsMC4yLDAuNCwwLjcsMC45YzAuNCwwLjUsMS4xLDEuMSwyLjEsMS42YzAuOSwwLjYsMS45LDAuOSwyLjgsMC45YzEuNywwLDMuMS0wLjYsNC4zLTEuOGMxLjItMS4yLDEuOC0yLjYsMS44LTQuM3MtMC42LTMuMS0xLjgtNC4zYy0xLjItMS4yLTIuNi0xLjgtNC4zLTEuOGMtMC44LDAtMS43LDAuNC0yLjYsMS4yUzE5LjUsNC43LDE5LDUuNGMtMC41LDAuNy0xLjIsMS44LTIuMiwzLjNjLTAuOCwxLjItMS40LDIuMi0xLjksMi44Yy0wLjUsMC42LTEuMSwxLjQtMS44LDIuM2MtMC44LDAuOS0xLjUsMS41LTIuMywxLjljLTAuOCwwLjQtMS42LDAuNi0yLjYsMC42Yy0yLjMsMC00LjItMC44LTUuOC0yLjRTMCwxMC40LDAsOC4yQzAsNS45LDAuOCw0LDIuNCwyLjRTNS45LDAsOC4yLDBDMTEsMCwxMy4zLDEuNywxNSw1LjJjMC4yLDAuNywwLjEsMS4xLTAuNiwxLjRDMTMuOCw2LjgsMTMuMyw2LjYsMTMsNkwxMi41LDVjLTAuMy0wLjctMC45LTEuMy0xLjctMnMtMS43LTEtMi42LTFDNi42LDIuMSw1LjEsMi43LDQsMy45UzIuMiw2LjUsMi4yLDguMnMwLjYsMy4xLDEuOCw0LjNzMi42LDEuOCw0LjMsMS44YzAuOCwwLDEuNy0wLjQsMi42LTEuMnMxLjYtMS41LDIuMS0yLjFjMC41LTAuNywxLjItMS44LDIuMi0zLjNjMC44LTEuMiwxLjQtMi4yLDEuOS0yLjhzMS4xLTEuNCwxLjgtMi4zczEuNS0xLjUsMi4zLTEuOUMyMS45LDAuMiwyMi43LDAsMjMuNiwwQzI1LjksMCwyNy45LDAuOCwyOS41LDIuNHoiLz48L2c+PC9zdmc+);
    background-image:  url('data:image/gif;base64,R0lGODlhPABOAPcAAACEOQCMOQh7OQiEOQiMORB7ORCEOQB7QgCEQgCMQgh7QgiEQgiMQhB7QhCEQhCMQgCESgCMSgCUSgh7SgiESgiMSgiUShB7ShCEShCMShCUShh7ShiEShiMSiGMSgCMUgiEUgiMUgiUUgiUWhCEUhCMUhCMWhCUUhiEUhiMUhiMWhiUWhiUYxicWhicYyGEUiGEWiWMWiGUUimQWiGUWimUWiGUYymUYyGcWimcWiGcYymcYymcaymccymlYymlazGMYzGUXjmQYzmUazGcYzGcazGcczGlYzGlazmcYzmcazmla0KUa0Kca0Kla0qlazGtczmUczmcczmlc0KUc0Kcc0Klc0Ktc0qcc0qlc0Kle0Kte0qce0qle0qlhFKcc06pe1alf1qlhEq1hFKtf1SyflqthFq1hGOtiGO1hFq9jGutjGu1hGO9hGS4j2u1lHOvjmu9jG26lnO9jHO9lH+xmHu5mHDDmXvBmHvGnHvGpXvOnHvOpYS9nIS9pYS9rYTGnITGpYTGrYTOpYTOrYTWpYTWrYy9nIy9pYy9rYzGpYzGrYzOpYzOrYzOtYzWpZS9nJS9rZTGpZTGrZTGtZTOpZTOrZTOtZTWrZTWtZzGrZzOrZzOtZzWtZzWvZzWxpzevaXOraXOtaXOvaXWraXWtaXWvaXeta3Ota3WvbLWw63evbXevaXexq3exq3nxrXexrXezrXnxrXnzrXvzr3Wxr3evb3exr3ezr3nxr3nzr3n1r3vxr3v1sbWzsbezsbe1sbnxsbnzsbn1sbvzsbv1sbv3s7exs7ezs7e1s7e3s7nzs7n1s7n3s7v1s7v3s733tbn1tbn3tbvztbv1tbv3tbv59b33tb/597n1t7n3t7n597v3t7v597v79733t735973797/7+fn5+fv3ufv5+fv7+f33uf35+f37+f/5+f/7+f/9+/v7+/35+/37+/39+//7+//9+////f37/f39/f/7/f/9/f////37//39//3////7///9////////yH5BAEAAP8ALAAAAAA8AE4AAAj+AP0JHEiwoMGB+wTe84cPn8B+9Q5KnEixIkV9/vQ19JfQosePBDv6W+iv3rx7/TA6dAiypUuG2rj4eSdQ5MuJTm6swTUQH8aEDfv124evH0N89EpggEAKX0J98zZirInvnsN9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');
 }

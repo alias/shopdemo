@@ -6,6 +6,33 @@
         <link href="app.css" rel="stylesheet" type="text/css"/>
 
         <title>alt Shop Page</title>
+        <style type="text/css">
+
+            /* dont ever show an title image */
+            #oo-shop.oo-shop-entity-SubGroup .oo-shop-title IMG, #oo-shop.oo-shop-entity-Rubric .oo-shop-title IMG , #oo-shop.oo-shop-entity-Group .oo-shop-title IMG , #oo-shop.oo-shop-entity-AssortmentContainer .oo-shop-title IMG  {
+                display: none !important;
+            }
+            /* es sei denn es geht um AboTypen */
+            #oo-shop.oo-shop-entity-Assortment .oo-shop-title IMG {
+                display: block !important;
+            }
+            /* alle NoItems ausgeschaltet.... */
+            #oo-shop .oo-shop-data-type-NoItem {
+                display: none !important;
+            }
+            /* es sei denn, wir sind in der obersten ebene                 oder es handelt sich um AboTypGruppen               */
+            #oo-shop.oo-shop-entity-Navigation .oo-shop-data-type-NoItem, #oo-shop.oo-shop-entity-AssortmentContainer .oo-shop-data-type-NoItem {
+                display: block !important;
+            }
+            /* fix active indicator */
+            .oo-subnavi-1st-pane.oo-active {
+                background-color: inherit;
+            }
+            .oo-subnavi-1st-pane.oo-active > A {
+                background-color: chartreuse;
+            }
+
+        </style>
     </head>
     <body id="shop1">
         <div class="header">
@@ -17,17 +44,19 @@
 
         <h2>Shopseite 3 <a href="shop.html">Einfach</a> <a href="shop1.html">Alternative 1</a> <a href="shop2.html">Alternative 2</a></h2>
         <h1>NoDesign@<span class="oo-system-title"></span></h1>
-        <div id="oo-flash" ></div>
+        <div id="oo-flash" data-oo-cart-page="cart.html" ></div>
         <div id="pagecontent">
 
-            <div id="oo-navi" data-oo-navi-omit-group="true" data-oo-navi-headlevel="2" ></div>   <!-- notice: no oo-shop-page, therefore we stay in that page
-                                                                                   data-oo-navi-omit-group: jumps right into the first subgroup, if there is any -->
+            <!-- data-oo-navi-omit-group="false": wir wollen das nicht immer. Deshalb steuerung via CSS -->
+            <div id="oo-navi" data-oo-navi-omit-group="false" data-oo-navi-headlevel="2" ></div>
             <div class="oo-navi-head oo-navi-image" title="Example for a global placeholder, see navi component">.</div>
-            <div id="oo-path" ></div>
+            <!-- wir wollen NICHT auf die erste TL Navi - damit kommen wir dann aber auch immer zu einer Untergruppe, sofern eine da ist -->
+            <div id="oo-path" data-oo-path-omit-group="true" ></div>
 
             <div class="nd-container">
                 <div id="nd-left">
-                    <div id="oo-subnavi" ></div>
+                    <!-- es gibt kein omit: das wäre auch bei abocontainern hinderlich -->
+                    <div id="oo-subnavi" data-oo-subnavi-level="2"></div>
                     <div class="oo-subnavi-empty oo-unused">
                         Teaser hier?
                         <br>
@@ -35,7 +64,9 @@
                     </div>
                 </div>
                 <div id="nd-right">
-                    <div id="oo-shop" data-oo-shop-renderabopointer="false" data-Xoo-shop-onlysubnavi="true" data-oo-item-image-pi-size="200"></div>    <!-- render a AboGroups already when they appear as Pointer, dont dive into Assortments -->
+                    <!-- data-oo-shop-onlyitems: kann nicht verwendet werden: in der obersten Ebene sollen die Unterpubnkte angezeigt werden, sonst nicht. -->
+                    <div id="oo-shop" data-oo-shop-renderabopointer="false"
+                         data-oo-item-image-pi-size="200" data-oo-shop-omit-group="true"></div>
                 </div>
             </div>
 

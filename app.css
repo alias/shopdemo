@@ -98,13 +98,6 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
     background-position: center;
 }
 
-@media (max-width: 645px) {      /* no space for fancy navigation here*/
-    #nd-left { display: none }
-    #nd-right {
-        width: 100%;
-    }
-}
-
 /* example tickers based on server provided template */
 
 #myticker1 {
@@ -156,8 +149,11 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
 
 
 /****** Subnavi Component */
-.oo-subnavi-data-type-NoItem:after {
-    content: '>>'
+.oo-subnavi-data-type-NoItem {
+    font-weight: bold;
+}
+.oo-subnavi-2nd-pane, .oo-subnavi-3rd-pane {
+    margin-left: 40px;
 }
 
 /****** Status Component */
@@ -239,6 +235,28 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
 }
 .oo-shop-sl-pane > DIV.oo-shop-item.oo-shop-data-type-AssortmentGroup, .oo-shop-data-type-Pointer-AssortmentGroup {
     height: 400px;
+}
+
+/* tags */
+.oo-shop-singleitem-select .oo-shop-tags SPAN { /* and style the other */
+    display: block;
+    border: 1px solid green;
+    text-align: center;
+    margin-left: 10px;
+    margin-bottom: 2px;
+}
+
+.oo-shop-item .oo-shop-tags SPAN {
+    color: green;
+    border: 1px solid green;
+    background-color: floralwhite;
+    padding: 1px;
+    float: right;
+    clear: both;
+}
+
+#oo-shop .oo-shop-item-allergy-content {
+    line-height: 2em;
 }
 
 /* overriding the amount indicator */
