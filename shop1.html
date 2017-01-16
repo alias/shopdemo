@@ -93,12 +93,12 @@
         <div id="pagecontent">
 
             <div id="navi-wrapper"> <!-- we need this wrapper for the hamburger to work -->
-                <div id="oo-navi" data-oo-navi-omit-group="true" data-oo-navi-ham="#mham" data-oo-navi-headlevel="2" data-oo-navi-numlevels="3"></div>   <!-- notice: no oo-shop-page, therefore we stay in that page
+                <div id="oo-navi" data-oo-navi-ham="#mham" data-oo-navi-headlevel="2" data-oo-navi-numlevels="3"></div>   <!-- notice: no oo-shop-page, therefore we stay in that page
                                                                                    data-oo-navi-omit-group: jumps right into the first subgroup, if there is any -->
             </div>
             <button id="mham" type="button">Main Menu Hamburger</button>
             <div class="oo-navi-head oo-navi-image" title="Example for a global placeholder, see navi component">.</div>
-            <div id="oo-path" data-oo-path-omit-group="true"></div>
+            <div id="oo-path" ></div>
 
             <div class="nd-container">
                 <div id="nd-left">      <!-- this is also the wrapper for the hamburger logic -->
@@ -113,7 +113,7 @@
                     <div style="text-align: right">
                         <button id="sham" type="button" >Submenu Hamburger</button>
                     </div>
-                    <div id="oo-shop" data-oo-shop-renderabopointer="false" data-xoo-shop-onlysubnavi="true" data-oo-item-image-pi-size="200" data-oo-shop-omit-group="true"></div>    <!-- render a AboGroups already when they appear as Pointer, dont dive into Assortments -->
+                    <div id="oo-shop" data-oo-shop-renderabopointer="false" data-oo-item-image-pi-size="200" ></div>    <!-- render a AboGroups already when they appear as Pointer, dont dive into Assortments -->
                 </div>
             </div>
 

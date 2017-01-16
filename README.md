@@ -9,7 +9,7 @@ Demo HTML Page set to build your own online shop for PCG.
 
 How to build the complete url to `client.js`:
 
-``https://oekobox-online.eu/v3/shop/<shopname>api/client.js``
+``https://oekobox-online.eu/v3/shop/<shopname>/api/client.js``
 
 > You need to know `<shopname>` of course ;-)
 
