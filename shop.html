@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="app.css" rel="stylesheet" type="text/css"/>
         <style type="text/css">
-            #oo-path, #oo-path UL { /* example to preceed the navigation path */
+            #oo-path, #oo-path UL, #oo-last, #oo-last UL { /* example to preceed the navigation path */
                 display: inline;
                 padding: 0;
             }
@@ -37,9 +37,9 @@
         <div id="pagecontent">
 
             <div id="oo-navi" data-oo-shop-page="shop.html" data-oo-navi-private="false"></div>
-            <a class="mynav" href="index.html">Big Bang</a> <div id="oo-path" ></div>
+            <a class="mynav" href="index.html">Du bist hier:</a> <div id="oo-path" ></div>
             <br>
-            Zuletzt angeklickt: <div id="oo-last" data-oo-shop-page="shop.html"></div>
+            <span class="mynav">Zuletzt angeklickt:</span> <div id="oo-last" data-oo-last-elements="5" data-oo-shop-page="shop.html"></div>
             <div id="oo-filter" ></div>
             <div id="oo-shop" data-oo-item-image-pi-size="0" ></div>
         </div>

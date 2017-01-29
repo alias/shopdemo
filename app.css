@@ -160,17 +160,17 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
 
 /****** Flash Component */
 
-/****** Path Component  */
+/****** Path & Last Component  */
 
-#oo-path UL {                   /* make it horizontal */
+#oo-path UL, #oo-last UL  {                   /* make it horizontal */
     margin:0;
 }
-#oo-path  li  {
+#oo-path  li ,#oo-last  li  {
     display: inline;
     list-style-image: none;
     font-size: smaller;
 }
-#oo-path  li + li:before {
+#oo-path  li + li:before, #oo-last  li + li:before {
     content: '> ';
 }
 

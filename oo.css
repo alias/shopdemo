@@ -7,7 +7,7 @@ This is the core framework CSS. Place your overrides into separate files.
 
 CSS follows lightly the BEM style, but with a naming following the components.
 
-Version $Revision: 1.58 $
+Version $Revision: 1.60 $
 */
 
 .oo-testing {
@@ -1256,3 +1256,8 @@ button.oo-style-minoraction {      /* secondary action button */
 }
 
 /*         end oo **/
+
+/* hacks */
+.oo-shop-singleitem.oo-shop-item-incart .oo-select-incart {
+    top: 110px !important;
+}
