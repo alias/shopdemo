@@ -211,6 +211,16 @@ div.oo-navi-head {                /* example for a header. See shop1.html, you m
 #cart1 .oo-date-itemcount {
     border-color: green;
 }
+
+tbody.oo-cart-pane-extra .oo-cart-pane-extra-td, .oo-cart-info-osh {                           /* separate headline */
+    border-bottom: 1px solid gray;
+}
+.oo-cart-denyreasons {
+    color: red;
+}
+#oo-cart A.oo-cart-pos-rm {
+    margin-right: 10px;
+}
 /****** Shop Component */
 
 #oo-shop .oo-shop-item:hover .oo-shop-item-select, #oo-shop .oo-shop-item:hover .oo-shop-favorite {   /* fade in the controls */

@@ -14,10 +14,18 @@
             }
         </style>
         <title>Shop Page</title>
+        <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->
+        <script src="../../api/client.js" data-main="app.js"></script>   <!-- app.js illustrates custom css effects - the mouse over on items -->
     </head>
     <body>
         <div class="header">
-            <div class="oo-loading" ></div>
+            <!-- example for a loader. After all scripts are loaded, visibility is controlled automatically. The big one kicks in after 1.5 secs (except first time)-->
+            <div class="oo-loading" >
+                loading...
+                <div class="oo-loading-big">
+                    loading... <img src=""/>
+                </div>
+            </div>
             <div id="oo-search" data-oo-shop-page="shop.html"></div>
             <div id="oo-status" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html"  data-oo-profile-page="profile.html"  data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
             <div><a href="index.html">Start</a></div>
@@ -30,11 +38,11 @@
 
             <div id="oo-navi" data-oo-shop-page="shop.html" data-oo-navi-private="false"></div>
             <a class="mynav" href="index.html">Big Bang</a> <div id="oo-path" ></div>
+            <br>
+            Zuletzt angeklickt: <div id="oo-last" data-oo-shop-page="shop.html"></div>
             <div id="oo-filter" ></div>
             <div id="oo-shop" data-oo-item-image-pi-size="0" ></div>
         </div>
 
-        <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->
-        <script src="../../api/client.js" data-main="app.js"></script>   <!-- app.js illustrates custom css effects - the mouse over on items -->
     </body>
 </html>
