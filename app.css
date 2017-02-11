@@ -265,6 +265,11 @@ tbody.oo-cart-pane-extra .oo-cart-pane-extra-td, .oo-cart-info-osh {            
     top: 170px;
 }
 
+.oo-shop-sl-pane .oo-shop-item {
+    border-bottom: 1px solid #D0BFA6;
+    border-left: 4px solid #D0BFA6;
+    background-color: #fcebcf;
+}
 /* tags */
 .oo-shop-singleitem-select .oo-shop-tags SPAN { /* and style the other */
     display: block;

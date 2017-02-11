@@ -7,7 +7,7 @@ This is the core framework CSS. Place your overrides into separate files.
 
 CSS follows lightly the BEM style, but with a naming following the components.
 
-Version $Revision: 1.60 $
+Version $Revision: 1.69 $
 */
 
 .oo-testing {
@@ -200,6 +200,16 @@ Version $Revision: 1.60 $
 .oo-date-abocount:after {
     content: ' Abos'
 }
+#oo-date-pane LI {
+    list-style: none;
+    padding: 10px;
+}
+#oo-date-pane LI .oo-date-tour-txt {
+    display: block;
+}
+.oo-date-msg {
+    margin-left: 20px;
+}
 
 /****** Ticker Component */
 
@@ -287,7 +297,7 @@ TD.oo-cart-delivercost-val {
     font-weight: bold;
 }
 
-#oo-cart .oo-cart-pos-abo-del {      /* overrides */
+#oo-cart .oo-cart-pos-abo-del, #oo-cart .oo-cart-pos-abo-amt {      /* overrides */
     width: 250px;
 }
 
@@ -324,9 +334,6 @@ TR.oo-cart-pos-problem TD.oo-cart-pos-total {
 .oo-shop-sl-pane .oo-shop-item {     /* all "small" boxes within the selection */
     display: inline-flex;           /* inline-block almost works too */
     position: relative;
-    border-bottom: 1px solid #D0BFA6;
-    border-left: 4px solid #D0BFA6;
-    background-color: #fcebcf;
     background-position: center;
     text-align: center;
     margin: 5px;
@@ -757,7 +764,9 @@ Aktuell wird nur das Produkt-Datenblatt dargestellt
     display: inline-block;
     vertical-align: middle;
 }
-
+.oo-shop-link {
+    cursor: pointer;
+}
 #oo-shop .oo-tab-content .oo-shop-link {
     border: 1px solid silver;
     display: inline-block;
@@ -847,7 +856,7 @@ input#oo-profile-city, input#oo-profile-street  { width: 200px;}
     float: left;
     list-style: none;
 }
-#oo-profile .oo-state-located form button, #oo-profile .oo-state-auth form button  {
+#oo-profile .oo-state-located form button, #oo-profile .oo-state-auth form button, .oo-profile-located-registererr  {
     float: right;
 }
 #oo-profile label {
@@ -996,18 +1005,20 @@ button.oo-style-minoraction {      /* secondary action button */
 
 /****** Loading pseudo Component */
 .oo-loading .oo-loading-big{
-    background-color: silver;
+    background-color: #eef5f2;
     border-radius: 10px;
-    font-size: larger;
-    height: 90%;
-    left: 5%;
-    opacity: 0.3;
+    height: 80%;
+    left: 2%;
+    opacity: 0.95;
     position: fixed;
     text-align: center;
-    top: 5%;
-    width: 90%;
+    top: 2%;
+    width: 96%;
     z-index: 5000;
     pointer-events: none;
+    padding-top: 10%;
+    font-size: 40px;
+    color: gray;
 }
 /****** Logon Component */
 
@@ -1086,14 +1097,18 @@ button.oo-style-minoraction {      /* secondary action button */
     text-decoration: line-through ;
     color: gray;
 }
+.oo-sub-changed .oo-cart-pos-amount {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
 .oo-hint {
     font-size: small;
 }
 
-#oo-cart .oo-cart-sure, #oo-profile .oo-profile-edit-sub-delete-sure, .oo-cart-pos-abo-del {
+#oo-cart .oo-cart-sure, #oo-profile .oo-profile-edit-sub-delete-sure, #oo-cart-pane DIV.oo-cart-pos-abo-del, #oo-cart-pane DIV.oo-cart-pos-abo-amt {
     display: none;  /* initially */
-    width: 150px;
     text-align: center;
+    min-width: 150px;
 }
 
 /* overlays are popup-like layers */
@@ -1110,7 +1125,7 @@ button.oo-style-minoraction {      /* secondary action button */
     cursor: pointer;
 }
 #oo-search .oo-search-preview, #oo-status .oo-status-cart-preview, #oo-status .oo-status-auth-preview, #oo-status .oo-status-auth-date-preview,
-    #oo-navi .oo-navi-2nd-pane, #oo-cart .oo-cart-sure, .oo-select-sub-info , #oo-profile .oo-profile-edit-sub-delete-sure, #oo-cart .oo-cart-pos-abo-del ,
+    #oo-navi .oo-navi-2nd-pane, #oo-cart .oo-cart-sure, .oo-select-sub-info , #oo-profile .oo-profile-edit-sub-delete-sure,
     /* unprefixed */ .ui-datepicker, #oo-filter-pane {          /* these are oo-overlay, but here for specifity reasons */
     display: none; /* initially */
 }
@@ -1150,6 +1165,10 @@ button.oo-style-minoraction {      /* secondary action button */
 }
 
 /****** oo Framework */
+
+.oo-error {                 /* see also flash */
+    background-color: lightsalmon;
+}
 
 #oo-cookie {
     background-color: white;
@@ -1211,6 +1230,17 @@ button.oo-style-minoraction {      /* secondary action button */
     cursor: default !important;
     pointer-events: none;
 }
+.oo-running {
+    background-color: #00CC66;
+    pointer-events: none;
+    opacity: .7;
+}
+button.oo-running {
+    padding-right: 18px;
+    background-image: url('data:image/gif;base64,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');
+    background-repeat: no-repeat;
+    background-position: right;
+}
 
 /*
 .oo-disabled-animation {    scss: size=35      https://codepen.io/schliflo/pen/xwbVPz
@@ -1257,7 +1287,8 @@ button.oo-style-minoraction {      /* secondary action button */
 
 /*         end oo **/
 
-/* hacks */
+/* hacks
 .oo-shop-singleitem.oo-shop-item-incart .oo-select-incart {
     top: 110px !important;
 }
+*/
