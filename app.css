@@ -63,9 +63,11 @@ button {
 input:required {
     border-left: 1px solid red;
 }
-input:invalid {
-    background-color: #fcebcf;
-}
+
+:invalid {                         /* Disable default type-based check: https://developer.mozilla.org/de/docs/Web/CSS/:invalid */
+  box-shadow: none;  }
+:-moz-submit-invalid { box-shadow: none; }
+:-moz-ui-invalid { box-shadow: none; }
 
 #nd-left {
     float: left;
@@ -221,6 +223,7 @@ tbody.oo-cart-pane-extra .oo-cart-pane-extra-td, .oo-cart-info-osh {            
 #oo-cart A.oo-cart-pos-rm {
     margin-right: 10px;
 }
+
 /****** Shop Component */
 
 #oo-shop .oo-shop-item:hover .oo-shop-item-select, #oo-shop .oo-shop-item:hover .oo-shop-favorite {   /* fade in the controls */
@@ -270,6 +273,11 @@ tbody.oo-cart-pane-extra .oo-cart-pane-extra-td, .oo-cart-info-osh {            
     border-left: 4px solid #D0BFA6;
     background-color: #fcebcf;
 }
+
+.oo-cart-pos-abodates .oo-text {               /* no text info about abos */
+    display: none;
+}
+
 /* tags */
 .oo-shop-singleitem-select .oo-shop-tags SPAN { /* and style the other */
     display: block;
