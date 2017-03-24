@@ -274,6 +274,12 @@ tbody.oo-cart-pane-extra .oo-cart-pane-extra-td, .oo-cart-info-osh {            
     background-color: #fcebcf;
 }
 
+.oo-item-regiotag:before {
+    content: "Regional!";
+    color: red;
+    font-size: smaller;
+}
+
 .oo-cart-pos-abodates .oo-text {               /* no text info about abos */
     display: none;
 }

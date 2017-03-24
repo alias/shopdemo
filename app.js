@@ -1,6 +1,15 @@
 /* (C) oekobox-online.eu 2016. Free for use with oekobox-online services */
 /* we use requirejs to load all dependencies */
-require(["jquery", "oo"],
+
+/* Example to add more js code , see the accordeon code below and in  shop.html
+requirejs.config({
+    paths: {
+        "acc" : "../../s7/js/jquery-ui_acc.min"
+    }
+});
+*/
+
+require(["jquery", "oo" /*, "acc" */ ],
     function ($, oo) {
         // code here executed BEFORE framework initialization (if called with ?noinit)
         console.log("Sample for manual app initialization");
@@ -11,6 +20,12 @@ require(["jquery", "oo"],
             console.log("Sample Event Handler")
         });
 
+        /* see above: use the library code here
+        $("#accordion").accordion({
+          active: 2
+        });
+        */
+        
         // alternative way to configure components - in one place
         /*
         oo.configureComponents({

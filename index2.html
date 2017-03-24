@@ -1,0 +1,56 @@
+<!DOCTYPE html><!-- (C) oekobox-online.eu 2016. Free for use with oekobox-online services -->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="app.css" rel="stylesheet" type="text/css"/>
+        <title>Start Page</title>
+        <style type="text/css">
+
+        </style>
+        <script src="../../api/client.js" async></script>
+               <!-- Anpassen wenn lokal!! Auf allen Seiten die Komponenten verwenden. z.B.
+                    https://oekobox-online.eu/v3/shop/tagwerk/api/client.js  oder
+                    script src="http://oekobox-online.eu/v3/shop/bosshamerschhof/api/client.js"></script>
+               -->
+               <!--<script src="http://localhost:8081/v3/shop/hofmahlitzsch/api/client.js"></script>-->
+
+               <!-- System Id: <span class="oo-system-id">id</span> -->
+    </head>
+    <body>
+        <div class="header">
+            <div class="oo-loading" >
+               loading...<div class="oo-loading-big">loading... </div>
+            </div>
+            <div id="oo-search" data-oo-shop-page="shop.html"></div>
+            <div id="oo-status" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html"  data-oo-profile-page="profile.html" data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
+        </div>
+
+        <h2>Startseite 2  <a href="index.html">einfach</a> <a href="index1.html">Alternative 1</a></h2>
+        <h1>NoDesign@<span class="oo-system-title"></span></h1>
+        <div id="oo-flash" data-oo-cart-page="cart.html" ></div>
+        <div id="pagecontent">
+            <div id="oo-navi" data-oo-shop-page="shop.html"></div>
+
+
+            <h3>Inhalte aus dem Content-Bereich</h3>
+            <div class="hints">
+                Hinweise:
+                <ul>
+                    <li>Content wird im Admin-Bereich des Shops gepflegt</li>
+                    <li>In dieser Seite sind drei Beispiele zur Konfiguration; wahrscheinlich funktionieren nicht alle mit dem aktuelem System, da die Namen oder Id's der Beiträge nicht stimmen.</li>
+                    <li>Ein Beitrag ist wiki-formatiert.</li>
+                </ul>
+
+            </div>
+            <div id="mycontents">
+                <div class="oo-content" data-oo-content="article:24" data-oo-content-format="wiki" ></div>
+                <div class="oo-content" data-oo-content="article:18" ></div>
+                <div class="oo-content" data-oo-content="auto" ></div>
+                <div class="oo-content" data-oo-content="http://bs.local:8081/v3/shop/bosshamerschhof/article/Rezept+Gnocchi-Pfanne+mit+Rosenkohl #articleprint" ></div>
+            </div>
+        </div>
+
+
+    </body>
+</html>
