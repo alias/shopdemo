@@ -20,12 +20,7 @@
     <body>
         <div class="header">
             <!-- example for a loader. After all scripts are loaded, visibility is controlled automatically. The big one kicks in after 1.5 secs (except first time)-->
-            <div class="oo-loading" >
-                loading...
-                <div class="oo-loading-big">
-                    loading... <img src=""/>
-                </div>
-            </div>
+            <img class="oo-loading"  src="loading.gif"/>
             <div id="oo-search" data-oo-shop-page="shop.html"></div>
             <div id="oo-status" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html"  data-oo-profile-page="profile.html"  data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
             <div><a href="index.html">Start</a></div>
@@ -33,10 +28,11 @@
 
         <h2>Shopseite <a href="shop1.html">Alternative 1</a> <a href="shop2.html">Alternative 2</a> <a href="shop3.html">Alternative 3</a></h2>
         <h1>NoDesign@<span class="oo-system-title"></span></h1>
+        <div id="oo-loadingbar"></div>
         <div id="oo-flash" data-oo-cart-page="cart.html"></div>
         <div id="pagecontent">
 
-            <div id="oo-navi" data-oo-shop-page="shop.html" data-oo-navi-private="false"></div>
+            <div id="oo-navi" data-oo-shop-page="shop.html" data-oo-navi-private="false">navigation loading...</div>
             <a class="mynav" href="index.html">Du bist hier:</a> <div id="oo-path" ></div>
             <br>
             <span class="mynav">Zuletzt angeklickt:</span> <div id="oo-last" data-oo-last-elements="5" data-oo-shop-page="shop.html"></div>

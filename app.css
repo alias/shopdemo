@@ -350,6 +350,10 @@ tbody.oo-cart-pane-extra .oo-cart-pane-extra-td, .oo-cart-info-osh {            
     height: 400px;
 }
 /****** Search Component */
+/****** Mail Component */
+.oo-mail-unsent TEXTAREA {
+    display: block;
+}
 
 /****** Profile Component */
 .oo-profile-location {

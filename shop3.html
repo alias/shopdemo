@@ -36,7 +36,11 @@
     </head>
     <body id="shop1">
         <div class="header">
-            <div class="oo-loading" style="display: none" ></div>
+            <div class="oo-loading-init">loading initially... </div>
+            <div class="oo-loading-long" style="display: none;">loading long... </div>
+            <div class="oo-loading" data-oo-loading-long="200">
+               loading component...
+            </div>
             <div id="oo-search" data-oo-shop-page="shop.html"></div>
             <div id="oo-status" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html"  data-oo-profile-page="profile.html"  data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
             <div><a href="index.html">Start</a></div>
@@ -51,7 +55,7 @@
             <div id="oo-navi" data-oo-navi-omit-group="false" data-oo-navi-headlevel="2" ></div>
             <div class="oo-navi-head oo-navi-image" title="Example for a global placeholder, see navi component">.</div>
             <!-- wir wollen NICHT auf die erste TL Navi - damit kommen wir dann aber auch immer zu einer Untergruppe, sofern eine da ist -->
-            <div id="oo-path" data-oo-path-omit-group="true" ></div>
+            <div id="oo-path" data-oo-path-omit-group="true" ></div>   <span class="oo-loading-small">loading small </span>
 
             <div class="nd-container">
                 <div id="nd-left">
@@ -77,6 +81,7 @@
                     <li>Stage-Bild im oberen Teil der Seite wird von der Navigation gesteuert.</li>
                     <li>Hinweise zur Bildgröße sind in der <a href="https://oekobox-online.de/news?a=js.components.shop.attr_pi">API Doku zu finden</a>.</li>
                     <li>Die Hauptnavigation hat die Option "oo-navi-3rdlevel" eingeschaltet. Dazu muss die Navigation gut im PCG eingestellt werden.</li>
+                    <li>Funktionen der loading-Komponente</li>
                 </ul>
             </div>
         </div>
