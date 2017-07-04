@@ -274,10 +274,19 @@ tbody.oo-cart-pane-extra .oo-cart-pane-extra-td, .oo-cart-info-osh {            
     background-color: #fcebcf;
 }
 
+/* regio info is in cart as well as in item display */
 .oo-item-regiotag:before {
     content: "Regional!";
     color: red;
     font-size: smaller;
+}
+.oo-cart-pos.oo-item-regio TD:first-child:before {
+    content: "Regional!";
+    color: red;
+    font-size: smaller;
+    position: absolute;
+    bottom: 0;
+    right:0;
 }
 
 .oo-cart-pos-abodates .oo-text {               /* no text info about abos */
@@ -350,6 +359,14 @@ tbody.oo-cart-pane-extra .oo-cart-pane-extra-td, .oo-cart-info-osh {            
     height: 400px;
 }
 /****** Search Component */
+.oo-search-btn {
+    background-image: url(../oo_icons.svg#oo-search);
+    background-size: 1.4em 1.4em;
+    width: 1.4em;
+    height: 1.4em;
+    background-position: 0px 1px;
+    display: inline-block;
+}
 /****** Mail Component */
 .oo-mail-unsent TEXTAREA {
     display: block;
