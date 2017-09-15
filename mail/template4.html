@@ -1,0 +1,158 @@
+<html xmlns:oo="http://oekobox-online.de/xsd">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        body {
+            margin: 0;
+            font-family: Georgia, Sans-Serif, serif;
+        }
+
+        #body {
+            width: 100%;
+        }
+
+        #header {
+            width: 100%;
+            float: left; /* prevents collapsing and keeps bgcolor */
+            background-color: #E7F2D9;
+        }
+
+        #header a, #header a:visited {
+            color: #8ABD40;
+            text-decoration: none;
+        }
+
+        #header_navi {
+            color: #8ABD40;
+            max-width: 600px;
+            float: right;
+            margin: 5px;
+        }
+
+        #headline {
+            float: left;
+            vertical-align: top;
+            width: 100%;
+            margin: 10px;
+        }
+
+        #headline_title {
+            display: inline-block;
+            float: right;
+            margin: 20px;
+        }
+
+        #headline_img {
+            display: inline-block;
+            float: left;
+        }
+
+        #main_text {
+            margin: 10px;
+        }
+
+        #main img {
+            width: 100%;
+        }
+
+        #trailer {
+            display: table;
+            background-color: #86BD40;
+            color: white;
+            width: 100%;
+        }
+
+        #trailer_adr {
+            display: table;
+        }
+
+        #trailer_legal {
+            padding: 10px;
+        }
+
+        #trailer_left, #trailer_middle, #trailer_right {
+            max-width: 30%;
+            display: table-cell;
+            padding: 10px;
+            vertical-align: top;
+        }
+        .wikitt {
+            color: red;
+            font: inherit;
+        }
+        /* ticker */
+        #ticker {
+            background-color: #E7F2D9;
+        }
+        .oo-item-table IMG { max-height: 150px; }
+        .oo-item-table { float: left; width: 300px;}
+        .oo-item-table A {text-decoration: none; color: #86BD40;}
+        
+    </style>
+</head>
+<body>
+<div id="body">
+    <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+        Neues von Deinem Bio-Lieferbetrieb!
+    </div>
+    <div id="header">
+        <oo:read>
+            <a class="oo-readonline" href="<oo:read_link/>">Nicht gut lesbar? Hier Online Lesen!</a>
+        </oo:read>
+        <div id="header_navi">
+
+            <a style="color: #8ABD40; text-decoration: none" href="https://www.bosshammersch-hof.de/warenkorb.html">Aktuelle Bestellung</a> |
+            <a href="https://www.bosshammersch-hof.de/profil.html">Mein Profil</a> |
+            <a href="https://www.bosshammersch-hof.de">bosshammersch-hof.de</a>
+        </div>
+    </div>
+    <div id="headline">
+        <div id="headline_img">
+            <a href="https://www.bosshammersch-hof.de"><img border="0"
+                    src="http://www.bosshammersch-hof.de/new/Kundenbrief/kubri_bossh-Logo2013-4c.jpg"
+                    height="100" /></a>
+        </div>
+        <div id="headline_title">
+            Kundennummer: %Kundennummer%<br>
+            Kundenbrief, %Datum.lang% (KW %Woche%)
+        </div>
+    </div>
+    <div id="main">
+        <div id="main_text">
+            <oo:message/>
+        </div>
+    </div>
+    <div id="ticker">
+        <div id="ticker_headline">Aktuell im Angebot:</div>
+        ​​​​​​​%Ticker.19.html2%
+        <br clear="all"/>
+    </div>
+    <div id="trailer">
+        <div id="trailer_legal">
+            <oo:unsubscribe>
+                Wenn Sie in Zukunft keine Info-Mails von uns bekommen möchten, klicken Sie bitte
+                <a href="<oo:unsubscribe_link/>" target="_blank">hier</a>,
+                um sich abzumelden
+            </oo:unsubscribe>
+        </div>
+        <div id="trailer_adr">
+            <div id="trailer_left">
+                Ökokiste Bosshammersch Hof <br>
+                Dr. Karl-Heinz Firsching <br>
+                Marburger Ring 46 | 35274 Großseelheim<br>
+                Tel.: 06422 8976-20 | Fax: 06422 8976-29 <br>
+            </div>
+            <div id="trailer_middle">
+                ÖKO-DE-037 <br>
+                Steuer-Nr.: 031 817 30230 | USt-IdNr.: DE227209609<br>
+                www.bosshammersch-hof.de | Info@bosshammersch-hof.de <br>
+            </div>
+            <div id="trailer_right">
+                <img src="https://www.bosshammersch-hof.de/files/bosshammerschhof/09_system/oekokiste-20_j-rz_242.jpg"
+                     height="53" width="53">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

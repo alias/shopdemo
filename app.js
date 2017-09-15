@@ -16,6 +16,7 @@ require(["jquery", "oo" /*, "acc" */ ],
 
         itemMouseOver();  // set up event handlers
 
+        // note: try to avoid basing your code on events
         $('#oo-shop').on('oo-shop-changed', function () {
             console.log("Sample Event Handler")
         });
