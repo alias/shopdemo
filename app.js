@@ -30,14 +30,14 @@ require(["jquery", "oo" /*, "acc" */ ],
         // alternative way to configure components - in one place
         /*
         oo.configureComponents({
-            "shop-page": "shop.html",      // shared from many
-            "cart-page": "cart.html",
-            "logon-page": "logon.html",
-            "profile-page": "profile.html",
-            "date-page": "date.html",
-            "loggedon-page": "shop.html",   // logon component
-            "loggedout-page": "index.html",
-            "register-page": "profile.html"
+            "oo-shop-page": "shop.html",      // shared from many
+            "oo-cart-page": "cart.html",
+            "oo-logon-page": "logon.html",
+            "oo-profile-page": "profile.html",
+            "oo-date-page": "date.html",
+            "oo-loggedon-page": "shop.html",   // logon component
+            "oo-loggedout-page": "index.html",
+            "oo-register-page": "profile.html"
         });
         */
 

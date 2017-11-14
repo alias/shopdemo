@@ -352,11 +352,17 @@ tbody.oo-cart-pane-extra .oo-cart-pane-extra-td, .oo-cart-info-osh {            
 }
 /****** Chat Component */
 
+/* place chat */
 #oo-chat {
-    width: 300px;
+   z-index: 2000;
+   position: fixed;
+   bottom: 10px;
+   right: 10px;
 }
-.oo-chat-pane{
-    height: 400px;
+#oo-chat .oo-chat-offline {
+    background-color: white;
+    color: silver;
+    text-align: center;
 }
 /****** Search Component */
 .oo-search-btn {

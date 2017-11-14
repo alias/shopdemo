@@ -12,10 +12,11 @@
                     ["firstname", "Lattika"], ["name", "O'Broccoli"],
                     ["email", "latty@broccoli-family.in"], ["emailCHECK", "latty@broccoli-family.in"],
                     ["passwd", "supermaggy"], ["passwdCHECK", "supermaggy"],
-                    ["phone", "0049 351 27359579"], ["note", "look for a cool dry place on the roof please"],
+                    ["phone", "0049 351 27359579"], ["placenote", "look for a cool dry place on the roof please"],
                     ["IBAN", "DE12500105170648489890"]
                 ];
                 for (var i = 0; i < data.length; i++) {
+                    //console.log(data[i][0])
                     document.getElementById("oo-profile-" + data[i][0]).value = data[i][1];
                 }
                 document.getElementById("oo-profile-pay-1").checked = true;
@@ -39,7 +40,7 @@
         <div id="pagecontent">
             <a href="shop.html" title="Beispiel-Link als alternative zur Navi-Komponente hier" style="margin: 5px; display: inline-block">Weiter Shoppen...</a>
             <a href="index.html" title="Beispiel-Link als alternative zur Navi-Komponente hier" style="margin: 5px; display: inline-block">zur Startseite...</a>
-            <div id="oo-profile" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html" data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
+            <div id="oo-profile" data-oo-profile-tabs="true" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html" data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
 
             <div class="hints">
                 Hinweise zur Profil-Komponente
@@ -64,17 +65,15 @@
                 <ul>
                     <li>Abwahl</li>
                     <li>Email Exists-Validierung bei Neukundenanmeldung und Änderung</li>
-                    <li>paypal email backend</li>
                     <li>einige stärkere Validierungen</li>
                     <li>Lieferadresse (inkl. backend)</li>
                     <li>Erneute Address-Änderungen im located oder auth state müssen erneut durch die Tourfindung laufen </li>
-                    <li>evtl. Persistenz der Eingaben wenn beim Registrieren abgebrochen wird.</li>
                     <li>Korrektur Änderungs-Email, mit Zeitversatz</li>
                 </ul>
             </div>
 
 
         </div>
-
+        <div id="oo-chat"></div>
     </body>
 </html>
