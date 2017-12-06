@@ -14,23 +14,16 @@ require(["jquery", "oo" /*, "acc" */ ],
         // code here executed BEFORE framework initialization (if called with ?noinit)
         console.log("Sample for manual app initialization");
 
-        itemMouseOver();  // set up event handlers
-
-        // note: try to avoid basing your code on events
-        $('#oo-shop').on('oo-shop-changed', function () {
-            console.log("Sample Event Handler")
-        });
-
         /* see above: use the library code here
         $("#accordion").accordion({
           active: 2
         });
         */
         
-        // alternative way to configure components - in one place
+        // alternative way to configure components - in one place. See the reference for possible values.
         /*
         oo.configureComponents({
-            "oo-shop-page": "shop.html",      // shared from many
+            "oo-shop-page": "shop.html",      // shared from many , if a map is used, thats the default
             "oo-cart-page": "cart.html",
             "oo-logon-page": "logon.html",
             "oo-profile-page": "profile.html",
@@ -41,7 +34,20 @@ require(["jquery", "oo" /*, "acc" */ ],
         });
         */
 
-        /* call initWeb() yourself, if  the script was called with ?noinit . shopid is already set for you.
+        /*
+        // example configuration for shop-page mapping: define a navigationLevel-to-page mapping here. Whenever
+        // the components want to display another navigation level, the'll check this map first.
+        oo.configureComponents({
+            "oo-shop-page": "shop.html"        // default shop page if no mapping fires
+        });
+        oo.configureShopPageMap({              // mappings
+            // entity:entityid, target path - first match ist taken
+            'Group:66': "shop1.html",
+            'Group:68': "shop2.html"
+        });
+        */
+
+        /* call initWeb() yourself, ONLY if the script was called with ?noinit . shopid is already set for you.
         function appInit() {
         // oo.ui.addFlash("hola hola!")              // code executed AFTER framework initialization
         // oo.ui.addFlashError("hola hola!")
@@ -54,20 +60,4 @@ require(["jquery", "oo" /*, "acc" */ ],
     }
 );
 
-function itemMouseOver() {
-
-    /* we dont use this logic anymore, as we have css now. Search for "#oo-shop .oo-shop-item:hover" in app.css
-
-    // enable selection options
-    var $ooShop = $("#oo-shop");
-    $ooShop.on("mouseenter", ".oo-shop-data-type-Item", function () {
-        $ooShop.find(".oo-shop-item-select").fadeOut();
-        $ooShop.find(".blend").hide();
-        $(this).find(".oo-shop-item-select").fadeIn();
-        $(this).find(".blend").show();
-    });
-    console.log("Added mouse events")
-
-    */
-}
 
