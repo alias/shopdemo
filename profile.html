@@ -12,25 +12,25 @@
                     ["firstname", "Lattika"], ["name", "O'Broccoli"],
                     ["email", "latty@broccoli-family.in"], ["emailCHECK", "latty@broccoli-family.in"],
                     ["passwd", "supermaggy"], ["passwdCHECK", "supermaggy"],
+                    ["dzip", "85354"], ["dcity", "Freising"],["dstreet", "Ganzenmüllerstr 14a"],
                     ["phone", "0049 351 27359579"], ["placenote", "look for a cool dry place on the roof please"],
                     ["IBAN", "DE12500105170648489890"]
                 ];
                 for (var i = 0; i < data.length; i++) {
-                    //console.log(data[i][0])
-                    document.getElementById("oo-profile-" + data[i][0]).value = data[i][1];
+                    try {
+                        document.getElementById("oo-profile-" + data[i][0]).value = data[i][1];
+                    } catch (ex) {} // some field might not exist, depending on config
                 }
                 document.getElementById("oo-profile-pay-1").checked = true;
                 return false;
             }
         </script>
         <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->
-        <script src="../../api/client.js"></script>
+        <script src="../../api/client.js" data-main="app.js"></script>
     </head>
     <body>
         <div class="header">
-            <div class="oo-loading" >
-               loading...<div class="oo-loading-big">loading... </div>
-            </div>
+           
             <div id="oo-status" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html" data-oo-profile-page="profile.html" data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
         </div>
 
@@ -40,7 +40,7 @@
         <div id="pagecontent">
             <a href="shop.html" title="Beispiel-Link als alternative zur Navi-Komponente hier" style="margin: 5px; display: inline-block">Weiter Shoppen...</a>
             <a href="index.html" title="Beispiel-Link als alternative zur Navi-Komponente hier" style="margin: 5px; display: inline-block">zur Startseite...</a>
-            <div id="oo-profile" data-oo-profile-tabs="true" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html" data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
+            <div id="oo-profile" data-oo-profile-tabs-strict="true" data-oo-profile-tabs="true" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html" data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
 
             <div class="hints">
                 Hinweise zur Profil-Komponente

@@ -8,22 +8,25 @@
     </head>
     <body>
         <div class="header">
-            <div class="oo-loading" >
-               loading...<div class="oo-loading-big">loading... </div>
-            </div>
             <div><a href="index.html">Start</a></div>
         </div>
-        <h2>Anmelde/Abmeldeseite <a href="logon1.html">Alternative 1</a> </h2>
+        <h2>Anmelde/Abmeldeseite <a href="logon.html">einfach</a></h2>
         <h1>NoDesign@<span class="oo-system-title"></span></h1>
         <div id="oo-flash" ></div>
         <div id="pagecontent">
 
             <div id="oo-navi" data-oo-shop-page="shop.html"></div>
 
-            <div id="oo-logon" data-oo-cart-page="cart.html" data-oo-loggedon-page="shop.html" data-oo-loggedout-page="index.html" data-oo-register-page="profile.html" ></div>
+            <div id="oo-logon" data-oo-logon-mode="email1st" data-oo-skip-locate="true" data-oo-cart-page="cart.html" data-oo-loggedon-page="shop.html" data-oo-loggedout-page="index.html" data-oo-register-page="profile.html" ></div>
 
         </div>
+
+        <br clear="all"/>
+        <ul>
+            <li>Alternative Anmeldung mit initialer Angabe der Email (oo-logon-mode="email1st" und oo-skip-locate="true")</li>
+            <li>keine Loading Komponente</li>
+        </ul>
         <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->
-        <script src="../../api/client.js" data-main="app.js"></script>
+        <script src="../../api/client.js"></script>
     </body>
 </html>
