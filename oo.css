@@ -1,0 +1,1532 @@
+/*
+(c) oekobox-online.eu 2016. Free for use with oekobox-online services .
+NoDesign Test Pages. You'll find the component-related styles below the generic selectors.
+See https://oekobox-online.de/news?a=js.CSSDocu for more information.
+
+This is the core framework CSS. Place your overrides into separate files.
+
+CSS follows lightly the BEM style, but with a naming following the components.
+
+Version $Revision: 1.65 $
+*/
+
+.oo-testing {
+    display: none ;
+}
+
+
+/****** Chat Component */
+#oo-chat {
+    width: 300px;
+    z-index: 2000;
+}
+.oo-chat-pane {
+    border: 1px solid gray;
+    height: 400px;       /* not 100%, unless we preallocate the space */
+    margin-bottom: 30px; /* opens upwards */
+}
+
+.oo-chat-pane table {
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    border: none;
+}
+
+.oo-chat-pane table td {
+    vertical-align: bottom;
+}
+
+.oo-chat-conversation {
+    background-color: ghostwhite;
+    height: 100%;
+    position:relative;
+}
+.oo-chat-conversation-inner {
+    position: absolute;
+    overflow-y: auto;
+    max-height: 100%;
+    bottom: 0;
+    width: 100%;
+}
+.oo-chat-sep {
+    font-size: 0.8em;
+    text-align: center;
+    border-bottom: 1px dotted gray;
+    color: darkgray;
+    margin-bottom: 3px;
+    clear: both;
+}
+.oo-chat-input form {
+    margin: 0;
+}
+.oo-chat-input input[type="text"] {
+    width: 84%;
+    padding: 3px;
+    box-sizing: border-box;
+}
+.oo-chat-input button {
+    width: 10%;
+    height: 22px;
+    vertical-align: middle;
+    padding: inherit;
+}
+.oo-chat-boxy, .oo-chat-user {
+    padding: 4px;
+    display: inline-block;
+    clear: both;
+    border-radius: 5px;
+}
+
+.oo-chat-boxy {
+    background-color: bisque;
+    float: right;
+    text-align: right;
+}
+
+.oo-chat-user {
+    background-color: limegreen;
+    float: left;
+}
+.oo-chat-boxy table td {  /* server responses have some decent html */
+    border-bottom: 1px solid silver;
+}
+#oo-chat .oo-overlay-close {
+    z-index: 1000;
+    position: relative;
+    background-color: white;
+    width: 12px;
+    padding: 2px;
+}
+
+/****** Navigation Component */
+
+.oo-navi-head.oo-navi-image-none {
+    display: none;           /* collapse the banner area if there is no image */
+}
+
+/****** Status Component */
+
+#oo-status .oo-status-auth-logoutlink {
+    display: none; /* we dont want the user to logout, so better dont show this that prominent. Another logout is in profile */
+}
+#oo-status div {
+    display: inline-block;
+}
+#oo-status div.oo-status-cart-empty {         /* change this if you want to show an empty cart */
+    display: none;
+}
+#oo-status  .oo-status-cart-label, #oo-status .oo-status-fav-label  {   /* optional a text */
+    display: none;
+}
+#oo-status .oo-status-cart-preview {
+    max-width: 350px;
+    max-height: 350px;
+    right: 0;
+}
+
+#oo-status .oo-status-cart-preview  {   /* see also shared below */
+    overflow-y: scroll;
+    font-size: smaller;
+}
+#oo-status .oo-status-cart-preview A, #oo-status .oo-status-auth-preview A {
+    display: block;
+    margin: 4px;
+}
+
+#oo-status tbody.oo-cart-pos-over10 {  }                                      /* added when > 10 positions in list */
+
+#oo-status .oo-cart-delivercost-note {                                        /* finetune cart preview table */
+    display: block;
+}
+#oo-status .oo-cart-delivercost {
+    font-size: smaller;
+}
+#oo-status .oo-cart-delivercost td , #oo-status .oo-cart-sum td {
+    border-top: 1px solid silver;
+}
+#oo-status .oo-status-cart-preview .oo-container, #oo-status .oo-status-cart-preview table  {
+    width: 100%;
+}
+#oo-status .oo-cart-sum td, #oo-status .oo-cart-pos td.oo-e2 {
+    text-align: right;
+}                                                                           /* END finetune cart preview table */
+#oo-status .oo-status-auth-date-preview LI {                                /* finetune dates preview */
+    list-style: none;
+    padding: 4px;
+}
+#oo-status .oo-status-auth-date-preview UL {
+    padding: 0;
+}
+#oo-status .oo-status-cart .oo-status-cart-count:before {
+    content: "(";
+}
+#oo-status .oo-status-cart .oo-status-cart-count:after {
+    content: ")";
+}
+.oo-status-cart-modified .oo-status-cart-count {  /* red indicates: "dont forget to send!" */
+    color: red;
+}
+#oo-status .oo-status-fav {
+    width: 20px;
+    height: 100%;
+    background-repeat: no-repeat;
+    min-height: 16px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 10px;
+}
+#oo-status #oo-cookie {      /* see also below*/
+    /* display: none; initially */
+}
+
+#oo-status .oo-status-auth-date-preview .oo-active A {
+    cursor: default;
+}
+/****** Flash Component */
+
+.oo-flash-msg, .oo-flash-error {
+    display: inline-block;
+    margin: 10px;
+    font-weight: bold;
+}
+.oo-flash-msg {
+    color: darkgreen;
+}
+.oo-flash-error {
+    background-color: lightsalmon;
+}
+.oo-flash-error:after {
+    content: "x";
+    position: relative;
+    top: -2px;
+    right: -10px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    background-color: ivory;
+    color: red;
+    cursor: pointer;
+}
+
+/****** Path Component  */
+
+/****** Date Component */
+
+#oo-date-pane A span + span:before {
+   content: ", ";
+}
+
+.oo-date-over {          /* shared with status */
+    color: red;
+}
+#oo-date .oo-date-over {
+    cursor: not-allowed !important;
+    pointer-events: none;
+    background-color: silver;
+}
+#oo-date .oo-active, #oo-date .oo-active A {
+    cursor: default;
+}
+.oo-date-too-late, .oo-date-too-late A {
+    color: red;
+}
+.oo-date-itemcount:after {
+    content: ' Artikel'
+}
+.oo-date-abocount:after {
+    content: ' Abos'
+}
+#oo-date-pane LI {
+    list-style: none;
+    padding: 10px;
+}
+#oo-date-pane LI .oo-date-tour-txt {
+    display: block;
+}
+.oo-date-msg {
+    margin-left: 20px;
+}
+
+/****** Ticker Component */
+
+.oo-ticker {
+    width: 200px;
+    position: relative;
+}
+.oo-ticker-item {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;     /* for inner stuff to be positioned */
+}
+.oo-ticker .oo-item-img {
+    width: 200px;
+    height: 200px;
+}
+
+.oo-ticker:hover .oo-ticker-controls {      /* shows scrolling buttons */
+    display: inline-block;
+    z-index: 200;
+}
+.oo-ticker .oo-ticker-controls {
+    /*  display: none;  initially */
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#oo-ticker-popup {
+    display: none;
+}
+
+/****** Cart Component */
+
+.oo-cart-item-price-wrapper {
+    display: none;  /* test me !*/
+}
+
+.oo-cart-info-ddate-thx-cid-txt {
+    display: none;         /* better not, not good for new custoemrs */
+}
+.oo-cart-pos {
+    border: 1px solid silver;
+    cursor: pointer;
+}
+#oo-cart TD {
+    padding: 5px;
+}
+.oo-cart-pos > div {
+    float: left;
+    display: inline-block;
+}
+.oo-cart-pos-info {
+    clear: left;
+}
+.oo-cart-pos-img {
+    vertical-align: top;
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+#oo-cart-pane DIV, .oo-cart-pane-extra DIV {   /* cart positions */
+    display: inline;
+}
+#Xoo-cart-pane .oo-cart-pos-info {
+    display: inline-block;
+}
+#oo-cart-sum, #oo-cart-vat-pane, #oo-cart-pane .oo-cart-pos-total, .oo-cart-delivercost TD {
+    text-align: right;
+}
+
+TD.oo-cart-delivercost-val {
+    vertical-align: top;
+}
+
+.oo-cart-pos Td{                  /* see also shared */
+    position: relative;
+}
+.oo-cart-pos-controls {
+    position:absolute;
+    right:40px;
+    top: 5px;
+}
+
+#oo-cart tr .oo-icon {                           /* abo icons */
+    background-size: 1.5em 1.5em;                    /* icons are in a svg named matrix   */
+    background-repeat: no-repeat;
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+    opacity: 0.7;
+}
+
+/* we pray for safari 11.1: https://caniuse.com/#feat=svg-fragment */
+.oo-sub-mark-due .oo-sub-period-1 .oo-icon { background-image: url(oo_sub.svg#oo-sub); }
+.oo-sub-mark-due .oo-sub-period-2 .oo-icon { background-image: url(oo_sub.svg#oo-sub2); }
+.oo-sub-mark-due .oo-sub-period-3 .oo-icon { background-image: url(oo_sub.svg#oo-sub3); }
+.oo-sub-mark-due .oo-sub-period-4 .oo-icon { background-image: url(oo_sub.svg#oo-sub4); }
+.oo-sub-mark-due .oo-sub-period-5 .oo-icon { background-image: url(oo_sub.svg#oo-sub5); }
+.oo-sub-mark-due .oo-sub-period-6 .oo-icon { background-image: url(oo_sub.svg#oo-sub6); }
+
+.oo-sub-mark-undue .oo-sub-period-1 .oo-icon { background-image: url(oo_sub.svg#oo-sub-undue); }
+.oo-sub-mark-undue .oo-sub-period-2 .oo-icon { background-image: url(oo_sub.svg#oo-sub2-undue); }
+.oo-sub-mark-undue .oo-sub-period-3 .oo-icon { background-image: url(oo_sub.svg#oo-sub3-undue); }
+.oo-sub-mark-undue .oo-sub-period-4 .oo-icon { background-image: url(oo_sub.svg#oo-sub4-undue); }
+.oo-sub-mark-undue .oo-sub-period-5 .oo-icon { background-image: url(oo_sub.svg#oo-sub5-undue); }
+.oo-sub-mark-undue .oo-sub-period-6 .oo-icon { background-image: url(oo_sub.svg#oo-sub6-undue); }
+
+.oo-sub-deleted .oo-sub-period-1 .oo-icon { background-image: url(oo_sub.svg#oo-sub-del); }
+.oo-sub-deleted .oo-sub-period-2 .oo-icon { background-image: url(oo_sub.svg#oo-sub2-del); }
+.oo-sub-deleted .oo-sub-period-3 .oo-icon { background-image: url(oo_sub.svg#oo-sub3-del); }
+.oo-sub-deleted .oo-sub-period-4 .oo-icon { background-image: url(oo_sub.svg#oo-sub4-del); }
+.oo-sub-deleted .oo-sub-period-5 .oo-icon { background-image: url(oo_sub.svg#oo-sub5-del); }
+.oo-sub-deleted .oo-sub-period-6 .oo-icon { background-image: url(oo_sub.svg#oo-sub6-del); }
+
+.oo-cart-pos-abo-new .oo-sub-period-1 .oo-icon {  background-image: url(oo_sub.svg#oo-sub-add); }
+.oo-cart-pos-abo-new .oo-sub-period-2 .oo-icon {  background-image: url(oo_sub.svg#oo-sub2-add); }
+.oo-cart-pos-abo-new .oo-sub-period-3 .oo-icon {  background-image: url(oo_sub.svg#oo-sub3-add); }
+.oo-cart-pos-abo-new .oo-sub-period-4 .oo-icon {  background-image: url(oo_sub.svg#oo-sub4-add); }
+.oo-cart-pos-abo-new .oo-sub-period-5 .oo-icon {  background-image: url(oo_sub.svg#oo-sub5-add); }
+.oo-cart-pos-abo-new .oo-sub-period-6 .oo-icon {  background-image: url(oo_sub.svg#oo-sub6-add); }
+
+#oo-cart .oo-cart-pos-abodates {
+    font-size: small;
+}
+#oo-cart .oo-cart-pos-name {
+    font-weight: bold;
+}
+
+#oo-cart .oo-cart-pos-abo-del, #oo-cart .oo-cart-pos-abo-amt {      /* overrides */
+    width: 250px;
+}
+
+.oo-cart-pos-assortment {                            /* not more specific to cope with oo-sub-mark-undue below*/
+    background-color: rgba(48, 193, 160, 0.97);
+}
+
+tr.oo-cart-pos-assortment ~ tr.oo-cart-pos-assorted  {                   /* matches a open box' positions */
+    background-color: rgba(44, 175, 141, 0.18);
+}
+
+#oo-cart  tr.oo-cart-pos-assortment ~  tr.oo-cart-pos-assorted td {     /* matches a open box' first pos td */
+    padding-left: 20px;
+}
+.oo-cart-pos-assortment-controls {
+    float: right;
+}
+
+
+.oo-cart-pos-dupflash {        /* gimmick: flash upon click on "duplicate" */
+    background-color: red;
+}
+TR.oo-cart-pos-problem TD.oo-cart-pos-total, TR.oo-sub-mark-undue TD.oo-cart-pos-total  {       /* dont show totals if row is not due */
+    color: silver;
+}
+.oo-cart-pos.oo-cart-pos-noedit-over .oo-cart-pos-noedit-over {        /* and also oo-icon */
+    background-image: url(oo_icons.svg#oo-blocked);
+    background-size: 1em 1em;          
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+}
+
+.oo-cart-buttons-group {
+    display: inline-block;
+    text-align: center;
+}
+.oo-cart-buttons-group div{
+    font-size: smaller;
+}
+/****** Shop Component */
+
+#oo-shop a.oo-shop-item-permalink {             /* wrapper element for SEO, should stay invisible */
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    border: none;
+    color: inherit;
+    width: 100%;
+}
+.oo-shop-sl-pane .oo-shop-item {     /* all "small" boxes within the selection */
+    display: inline-flex;           /* inline-block almost works too */
+    position: relative;
+    background-position: center;
+    text-align: center;
+    margin: 5px;
+    cursor: pointer;
+}
+.oo-shop-sl-pane .oo-shop-item .oo-select-tabs {
+    display: none;   /* hide the subscription option form the item panels INI? */
+}
+.oo-shop-sl-pane {
+    position: relative;
+}
+
+.oo-shop-sl-pane > DIV.oo-shop-item {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    position: relative;
+    float: left;
+}
+.oo-shop-singleitem .oo-item-img , .oo-shop-title-img{
+    max-width: 300px;               /* limits size for big images. Note: they get a zoom option if much bigger */
+    width: auto;                    /* retains ratio */
+    height: auto;
+    max-height: 300px;
+}
+
+#oo-shop .blend {          /* list item blend helper  */
+    top:0;left:0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0.5;
+    background-color: white;
+     display: none;  /* initially jq3 ok*/
+}
+/* everything inside oo-shop-item (list) */
+
+.oo-shop-amount, .oo-shop-sl-pane .oo-shop-item h3, .oo-shop-sl-pane .oo-shop-item .oo-item-txt, .oo-shop-item-loaded, .oo-shop-sub-loaded, .oo-shop-item-count {
+    position: absolute;
+}
+.oo-shop-sl-pane .oo-shop-item h3, .oo-shop-sl-pane .oo-shop-item .oo-item-txt {
+    width: 190px;
+}
+.oo-shop-item-count {
+    bottom: 0;
+    right: 10px;
+    z-index: 11;
+}
+.oo-shop-amount {       /* attached info for order and assortment content amounts */
+    background-color: white;
+    border: 1px solid #D0BFA6;
+    border-radius: 5px;
+    right: -5px;
+    top: -5px;
+    padding: 2px;
+    z-index: 12; /* over text */
+}
+.oo-shop-sl-pane .oo-shop-item h3 {
+    top: 10px;
+    z-index: 10;   /* covers oo-item-text if long */
+}
+.oo-shop-sl-pane .oo-shop-item .oo-item-txt {
+    top: 35px;
+}
+.oo-shop-sl-parentlink, .oo-shop-parentlink, .oo-subnavi-parent {
+    display: none;
+}
+.oo-shop-sl-pane .oo-item-refpricetag {     /* refprice is in detail view anyway */
+    display: none;
+}
+.oo-shop-abo-loaded  /* variant selector */, .oo-shop-item-incart  .oo-select-container {
+    border: 1px solid #3b9c4a;
+}
+.oo-shop-item-incart .oo-shop-item-loaded, .oo-shop-item-insub .oo-shop-sub-loaded {
+    display: block;
+}
+.oo-shop-sub-loaded, .oo-shop-item-loaded  {      /* green triangle indicating that item is in cart */  /* shared with ticker */
+     display: none;   /*initially*/
+}
+.oo-shop-item-incart  .oo-select-container {
+    border-radius: 5px;
+}
+.oo-item-img, .oo-cart-pos-img, .oo-shop-title-img {                         /* element with an image */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.oo-shop-item .oo-item-name, .oo-shop-item-price-wrapper , .oo-item-txt, .oo-shop-item-select , .oo-shop-abobox-detail-variant, .oo-shop-item-select {
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px 5px 5px;
+}
+.oo-item-txt {
+    font-size: smaller;
+}
+
+#oo-shop .oo-shop-item .oo-shop-item-select, #oo-shop .oo-shop-item-price-wrapper {
+    position: absolute;
+    width: 190px;
+    margin: 5px;
+}
+#oo-shop .oo-shop-singleitem .oo-shop-item-select, #oo-shop .oo-shop-title .oo-shop-item-select {
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+#oo-shop .oo-shop-item .oo-shop-item-select, #oo-shop .oo-shop-item .oo-shop-ass-select , #oo-shop .oo-shop-item-select {                    /* mouse over and amount selection */
+    position: absolute;                                          /* dont like it? http://stackoverflow.com/questions/11600687/hover-and-active-only-when-not-disabled */
+    top: 60px;
+    left: 4px;
+    z-index: 40;
+    border: 1px solid silver;
+    /*   display: none; initially, see app.js */
+    text-align: center;
+    max-width: 180px;
+    cursor: default;
+}
+#oo-shop .oo-shop-title .oo-shop-item-select,  #oo-shop .oo-shop-singleitem-select .oo-shop-item-select {
+    position: relative;
+    top: 0;
+}
+
+#oo-shop.oo-shop-entity-AssortmentContainer .oo-shop-ac-hint {
+    display: block;
+}
+.oo-shop-favorite-off {                      /* favourite indicator */
+    background-image: url(oo_icons.svg#oo-nofav);
+      background-size: 1.4em 1.4em;               /* use max line */
+      background-position: -2px -3px;
+}
+.oo-shop-favorite-on {
+    display: inline-block;
+    background-image: url(oo_icons.svg#oo-fav);
+    background-size: 1.39em 1.39em;               /* hack to circumvent webkit caching bug */
+    background-position: -2px -3px;
+}
+.oo-shop-favorite {
+    width: 1.5em;
+    height: 1.5em;
+    bottom: 0;
+    left: 50%;
+    position: absolute;
+    background-repeat: no-repeat;
+    margin-left: -8px;
+    z-index: 90;
+    /* display: none;  initially */
+}
+.oo-status-fav-count {
+    color: white;
+    font-size: 0.8em;
+    vertical-align: top;
+}
+
+.oo-shop-sl-nofav, .oo-shop-sl-nofavnow  {
+    padding-left: 30px;
+    background-repeat: no-repeat;
+}
+
+#oo-shop .oo-shop-singleitem .oo-shop-favorite {
+    display: inline-block;
+    position: relative;
+    left: 10%;
+}
+
+#oo-shop .oo-shop-item .oo-shop-item-select, #oo-shop .oo-shop-item  .blend {         /* blend is defined above */
+    display: none;
+}
+#oo-shop .oo-shop-item:hover .oo-shop-item-select, #oo-shop .oo-shop-item:hover .oo-shop-favorite {   /* fade in the controls */
+    display: inline-block;
+}
+
+#oo-shop .oo-shop-item:hover  .blend {        /* blend a bit the image below */
+    display: inline-block;
+}
+#oo-shop .oo-shop-item:hover.oo-shop-data-type-AssortmentGroup .blend, #oo-shop .oo-shop-item:hover.oo-shop-data-type-AssortmentGroup .oo-shop-item-select , .oo-shop-item .oo-item-id {
+    display: none;
+}
+                                                                 /* mouse over and amount selection */
+#oo-shop .oo-shop-sl-paging-more {
+    clear: both;
+    float: right;
+    padding: 10px;
+}
+#oo-shop .oo-shop-item-price-wrapper {
+    top: 150px;
+    left: 0;
+}
+#oo-shop .oo-shop-title-head {
+    background-color: #ebd8bc;
+}
+#oo-shop .oo-select-container .oo-select-value {       /* (list) item selector */
+    width: 60px;
+}
+#oo-shop .oo-select-container button, .oo-shop-abobox-detail-variant-big .oo-shop-abobox-detail-variant-tpl {
+    cursor: pointer;
+}
+#oo-shop .oo-select-sub-info {
+    width: 100%;
+    border-radius: 5px;
+}
+#oo-shop .oo-select-sub-info-new, #oo-shop .oo-select-sub-info-ex, #oo-shop .oo-select-sub-info-running {
+    /*   display: none; initially */
+}
+
+#oo-shop .oo-select-sub-info  BUTTON {      /* overrides agai, todo fixme */
+    display: block;
+    padding: 10px;
+    float: right;
+}
+#oo-shop .oo-select-sub-info .oo-overlay-close {
+    float: right;
+}
+#oo-shop .oo-select-container .oo-select-container-pm {
+    display: inline-block;
+    vertical-align: bottom;
+}
+.oo-shop-singleitem {
+    padding: 10px;
+}
+/* disable one alternative tags set*/
+.oo-shop-singleitem-info .oo-shop-tags {
+    display: none;
+}
+.oo-shop-singleitem-select .oo-shop-tags SPAN { /* and style the other */
+    display: block;
+    margin-bottom: 2px;
+}
+.oo-shop-item .oo-shop-tags SPAN {
+    float: right;
+}
+.oo-shop-item-sale-n, .oo-shop-item-sale-out {
+    background-image: url(oo_icons.svg#oo-saleout);
+    background-size: 1.4em 1.4em;
+    background-repeat: no-repeat;
+    background-position: -2px -3px;
+    padding-left: 25px;
+    text-align: center;
+    margin-left: 10px;
+}
+.oo-shop-sl-pane-tpl .oo-shop-item-sale-n, .oo-shop-item-sale-out {
+    width: 0;                /* leave only the icon */
+    overflow: hidden;
+}
+/* all single item blocks horizontal  */
+.oo-shop-singleitem-info, .oo-shop-singleitem-select , .oo-shop-singleitem-img, .oo-shop-singleitem-container {
+    display: inline-block;
+}
+/* or alternative: img left, info and controls right
+.oo-shop-singleitem-img, .oo-shop-singleitem-container {
+    display: inline-block;
+}
+*/
+.oo-shop-sl-pane > DIV.oo-shop-item.oo-shop-data-type-AssortmentGroup{            /* abogroup display */
+    height: 400px;
+}
+
+.oo-shop-sl-pane .oo-shop-abogroup-pane, .oo-shop-sl-pane .oo-shop-abobox-detail-pane {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+}
+.oo-shop-abobox-detail-pane .oo-item-name {
+    background-color: inherit;
+}
+.oo-shop-abobox-detail-info-planned, .oo-shop-abobox-detail-info-unplanned  {
+    font-size: smaller;
+}
+.oo-shop-abo-discount {
+    color: red;
+    font-weight: bold;
+}
+                                                                            /* end abogroup and details */
+#oo-shop .oo-select-sub-dates {
+    /*  display: none; initially */
+}
+#oo-shop .oo-shop-item-incart {    /* added to oo-shop-item when item is already in cart,  */
+    /* unused here, we use an extra layer .oo-shop-item-loaded */
+}
+.oo-shop-abobox-detail-variant-tpl.oo-shop-item-incart {
+    border: 1px solid green;
+}
+.oo-shop-abobox-detail-variant-tpl {
+    white-space: nowrap;
+}
+
+#oo-shop .oo-select-base {
+    font-size: 0.8em;
+}
+.oo-shop-item .oo-select-base {      /* cont confuse with too many details in overview */
+    display: none;
+}
+.oo-shop-title .oo-shop-title-controls {   /* title in shop component */
+    float: right;
+}
+
+DIV.oo-shop-sl-pane-itemstart {     /* inserted before the first item in the list */
+    display: block;
+    clear: both;
+}
+
+.oo-shop-item-select .oo-select-tabs BUTTON {
+    padding: 1px;
+    /*   display: none;  initially */
+}
+
+.oo-item-pricetag .oo-item-price:after, .oo-item-refpricetag .oo-item-refprice:after {  /* shared with ticker */
+    content: "/"
+}
+
+.oo-shop-title-btn-all {
+    max-width: 200px;
+    cursor: pointer;
+}
+.oo-item-pricetag {
+    color: green;
+}
+.oo-item-lastprice {
+    color: red;
+    text-decoration: line-through;
+}
+.oo-item-association-logo {
+    width: 30px;
+    height: 20px;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* example to use icons instead of text
+.oo-select-sub-2 {
+    width: 20px;
+    height: 20px;
+    color: transparent;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("data:image/gif;base64,R0lGODlhDwAMAPcAABiMKRiEMRiMMf///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAQALAAAAAAPAAwAQAg5AAkIHBig4MCDAgMgJEhQgMKFBB5CPCgxIUSHBSsaFOhwYseEFTl6JJgxpEWGEAN8PDkRIoCNBwMCADs=");
+}
+*/
+
+.oo-shop-singleitem  .oo-tab-navi {            /* itemdetail tabs */
+    display: flex;
+    padding: 5px;
+}
+.oo-shop-singleitem .oo-tab-content > DIV {      /* revert back */
+    text-align: left;
+    /*  display: none;  initially   */
+}
+.oo-shop-singleitem .oo-tab-navi > A {
+    cursor: pointer;
+}
+
+
+.oo-shop-item-images-content-preview {         /* img tab */
+    background-repeat: no-repeat;
+    max-width: 40px;                           /* max size for the prevuew image */
+    max-height: 40px;
+    text-align: center;
+    padding: 1px;
+    cursor: pointer;
+}
+.oo-shop-item-images-content-img {
+    max-width: 600px;                          /* max size for the displayed image */
+    max-height: 600px;
+    min-width: 300px;                          /* just to demo here, take out for production to get native img size  */
+    min-height: 300px;                          /* just to demo here, take out for production to get native img size  */
+}
+
+.oo-shop-item-images-content > DIV {           /* wrapper */
+    text-align: center;
+}
+.oo-zoomed::after {                          /* zoom indicator on big images  */
+    background: rgba(0, 0, 0, 0) url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAYAAABX5MJvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAd5JREFUeNrMlT1rwlAUhvMhImhEsRQEoRBag2t1Cjo4OmUpgj9D8D+4CeI/cFPcHR0iDiqdpBALgS46qFSKQhBSmwMNtJrozc2XB8Lh3gTuc8953xPyeDwSepAk+aKlZ8LjoE7WPe159RvCF5CAyX7vN2O1Jp/PhxKJBL3ZbNThcKjgQmCBwOHdbvchmUwG9b3lcnkol8sfl2DIE2EafYMk1kwmExyPx4+RSITe7XaqJEkKx3EhfV0qlWQzEArhgkgaqdfr93DgfD5XWJaVcrmcDBnWsF+r1e7sVAKpIovFgoM2FAqF9783hhaJovgE1WAY5g23EkgV0Q6gjfY1cX5DhmpYsSgWyGQy2UM+LTu0CfJgMPjCcYcl1zSbzXWxWIwKghCfTqfB0Wi053k+nM1mw/C+3W5/OqGJqxqpVqvxRqORMvoYBKrpQ16tVqqTEIYgYNVKpRKNxWL0drtVZVk+tFqtlO4cIxC7EEhzBBzS7/dZMxCKsB9X5whYFoYV2DSdToc6nU7Kjjtsg8AYn81mitPtsDzi7c4JR0a82xBYIG5AWAZxC8ISiJsQyCBuQyCBeAFxFcQriIsgXkKYgngNYQjiB8QZiF8Q/0AChL/RO/uL+hUUcQNxExA/AgwAQCThORpp8DAAAAAASUVORK5CYII=") repeat scroll 0 0;
+    content: "";
+    display: block;
+    height: 33px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 33px;
+}                                            /* oo-shop-item-preorder: this item can only be preordered */
+.oo-shop-sl-pane .oo-shop-item.oo-shop-item-preorder .oo-select-container {
+   display: none;                            /* dont offer the direct select in list form, too dense */
+}
+
+.oo-shop-sl-pane .oo-shop-item .oo-item-origintag, .oo-shop-sl-pane .oo-shop-item .oo-item-associationtag {
+    position: absolute;
+    bottom: 0;
+    font-size: smaller;
+}
+.oo-shop-sl-pane .oo-shop-item .oo-item-origintag {
+    left: 0;
+}
+.oo-shop-sl-pane .oo-shop-item .oo-item-associationtag {
+    right: 0;
+}
+.oo-shop-node-inactive {
+    background-color: #c0c0c070;
+    filter: grayscale(100%);
+}
+.oo-shop-sl-pane .oo-shop-item.oo-shop-node-inactive .blend {
+    cursor: initial;
+}
+
+/*
+Alt logik: Siehe http://oekobox-online.de/shopdocu/wiki/API.concepts.TextStructure.
+Aktuell wird nur das Produkt-Datenblatt dargestellt
+*/
+
+/** extra ecoinform embedded info */
+#oo-ecoinform #tabangaben {
+   /* inhaltsstoffe */
+   border: 1px solid #d2d2d2;
+}
+#oo-ecoinform .tabangaben_head  {
+   /* inhaltsstoffe section header */
+   font-size: 13px;
+   font-weight: bold;
+}
+#oo-ecoinform .tabangaben  {
+   /* inhaltsstoffe small infoblock */
+   border: 1px solid #d2d2d2;
+   margin: 2px;
+}
+#oo-ecoinform .tabangaben TH {
+   background-color: #d2d2d2;
+}
+#oo-ecoinform .nixdrin {
+   /* class added if its  assumed to be NOT contained */
+   opacity: 0.5;
+}
+#oo-ecoinform #oekoinform_prodimage {
+   float: right;
+}
+#oo-ecoinform  h3 + p, #oo-ecoinform  .oekoinform_fussnote {
+    margin-left: 20px;
+}
+/* end eco */
+
+#oo-shop .oo-shop-item-nutrition-content .lnames TD {
+   background-color: silver;
+}
+@media (max-width: 490px) {
+    .oo-shop-sl-pane > DIV.oo-shop-item {
+        width: 92%;
+    }
+
+    #oo-shop .oo-shop-item .oo-shop-item-select, #oo-shop .oo-shop-item .oo-shop-ass-select , #oo-shop .blend {
+        right: 0;
+        left: auto;
+    }
+}
+
+#oo-shop .oo-tab-content {
+    padding: 10px;
+}
+#oo-shop .oo-shop-item-allergy-content-label.oo-shop-item-allergy-lmv {
+    font-weight: bold;
+}
+
+#oo-shop .oo-tab-content .oo-item-img {                 /* small image labels in recipe tab */
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.oo-shop-link {
+    cursor: pointer;
+}
+#oo-shop .oo-tab-content .oo-shop-link {
+    border: 1px solid silver;
+    display: inline-block;
+    border-radius: 4px;
+    margin: 3px;
+    vertical-align: middle;
+}
+DIV.oo-shop-item.oo-shop-item-orderstate--1 {                  /* available in order list (shop) */
+    background-color: #f5f5f5;
+}
+#oo-shop .oo-shop-data-type-Assortment .oo-shop-item-select {
+    display: none !important;   /* select click handler not yet impl */
+}
+/****** Search Component */
+
+#oo-search {
+    height: 20px;
+}
+#oo-search .oo-item-img {
+    height: 80px;
+    width: 80px;
+}
+#oo-search .oo-search-preview {   /* see also shared below */
+    overflow-y: scroll;
+    font-size: smaller;
+}
+#oo-search .oo-search-preview {
+    max-width: 400px;
+    max-height: 550px;
+    min-width: 400px;
+}
+.oo-search-preview-items-item {
+    width: 100px;
+    height: 130px;
+    float: left;
+    margin: 5px;
+    margin-bottom: 15px;
+    position: relative;
+    cursor: pointer;
+}
+.oo-search-preview-items-item .oo-item-name {
+    position: absolute;
+    top: 60px;
+    opacity: 0.8;
+    background-color: white;
+}
+.oo-search-preview-items-addbox {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.oo-search-preview-items-plus {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.oo-search-preview-items-more {
+    float: right;
+}
+.oo-search-preview-hint, .oo-status-cart-hint {     /*todo make it a framework thing */
+    margin-top: 5px;
+    font-size: smaller;
+}
+#oo-search .oo-search-suggestion, #oo-search .oo-search-navigation, #oo-search .oo-search-btn {
+    cursor: pointer;
+}
+
+#oo-search-admin {  /* reachable by admin: in search field */
+    /*  display: none; initially */
+    padding: 20px;
+}
+#oo-search-preview-items .oo-shop-item-loaded {   /* item area is smaller here */
+    top: 100px;
+}
+
+/****** Profile Component */
+
+.oo-cart-registration .oo-cart-agbinfo {
+    display: none;        /* extra  */
+}
+#oo-profile-anon, #oo-profile-authed {
+    display: none;
+}
+#oo-profile > div, #oo-profile form > div {
+    margin: 5px;
+    padding: 10px;
+}
+
+input#oo-profile-zip, input#oo-profile-number { width: 60px;}
+input#oo-profile-city, input#oo-profile-street  { width: 200px;}
+.oo-profile-address-zc-label, .oo-profile-address-sn-label { width: 8em; display: inline-block;}
+#oo-profile-locate-zip {
+    width: 5em;
+}
+.oo-profile-address-zc-labelg {
+    display: inline-block;
+}
+
+#oo-profile-tab li {
+    float: left;
+    list-style: none;
+}
+#oo-profile .oo-state-located form button, #oo-profile .oo-state-auth form button, .oo-profile-located-registererr  {
+    float: right;
+}
+#oo-profile label {
+    width: 10em;
+}
+#oo-profile .oo-profile-field-news label {
+    width: 18em;
+}
+.oo-profile-set-good A , .oo-profile-set-bad A  {                   /* tab / formset controls */
+    background: no-repeat right 0;
+    background-size: 1em 1em;
+    padding-right: 1.5em;
+    margin-right: 20px;
+}
+
+.oo-profile-set-good A {               /* want your own? http://www.base64css.com */
+    background-image: url(oo_icons.svg#oo-ok);
+}
+.oo-profile-set-bad A {
+    background-image: url(oo_icons.svg#oo-att);
+}
+.oo-profile-edit-hint {                 /* additional dont-forget-to-save- hint */
+    display: none;
+}
+.oo-profile-revert .oo-profile-revertbtn {
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    vertical-align: middle;
+    background: url(oo_icons.svg#oo-refresh) no-repeat;
+    background-size: 1em 1em;
+}
+
+#oo-profile .oo-state-auth .oo-profile-set-good .oo-profile-edit-hint {
+   display: inline;
+}
+#oo-profile .oo-profile-located-payment > div {
+    height: 50px;
+}
+.oo-profile-field-pay-sepa > DIV, .oo-profile-field-pay-paypal > DIV, .oo-profile-field-daddress > DIV {
+    margin-left: 50px;
+}
+#oo-profile fieldset > A:not([href]) {
+    display: none;
+}
+#oo-profile-tab UL {
+    padding-left:0;
+}
+#oo-profile .oo-profile-logout {
+    float: right;
+}
+#oo-profile-edit-sub-pane .oo-profile-edit-sub IMG {
+    float: left;
+}
+#oo-profile-edit-sub-pane .oo-profile-edit-sub {
+    clear: both;
+}
+
+#oo-profile .oo-profile-edit-sub-editnote    {
+    padding: 10px;
+    float: right;
+}
+#oo-profile .oo-profile-edit-sub {
+    padding: 5px;
+    margin: 5px;
+}
+
+#oo-profile form .oo-profile-edit-pause  BUTTON {
+    float: none;
+}
+#oo-profile .oo-profile-edit-pause-new input {
+    width: 6em;
+}
+#oo-profile .oo-profile-edit-pause-new label, #oo-profile .oo-profile-edit-pause-new input {
+    width: inherit;
+}
+#oo-profile-reg-form .oo-overlay-close {      /* in registration, we dont normally use a close option */
+    display: none;
+}
+#oo-profile .oo-profile-field-email-i-hint {
+    font-size: smaller;
+}
+/* jquery UI datepicker */
+.ui-datepicker-calendar TD a {
+    padding: 0;
+}
+.ui-datepicker-next {
+    float: right;
+}
+.ui-datepicker-prev, .ui-datepicker-next {
+    cursor: pointer;
+}
+.ui-datepicker-current-day {
+    background-color: silver;
+}
+.ui-datepicker-today {
+    background-color: chartreuse;
+}
+.oo-profile-pause-cal-order {
+    border: 2px solid #3b9c4a;
+    border-radius: 15px;
+}
+.oo-profile-pause-cal-ddate {
+    border: 1px solid #3b9c4a;
+    border-radius: 15px;
+}
+.oo-profile-pause-cal-pause {
+    color: red;
+    text-decoration: line-through;
+}
+.oo-profile-pause-cal-selected {
+    border: 2px dashed #3b9c4a;
+    border-radius: 15px;
+}
+.oo-profile-field-place label {
+    vertical-align: top;
+}
+.oo-profile-field-place-values {
+    display: inline-block;
+}
+.oo-profile-field-place-values TEXTAREA {
+    width: 100%;
+    max-width: 500px;
+    margin: 0.3em;
+    vertical-align: middle;
+}
+#oo-profile-IBAN {
+    width: 14em;
+}
+
+
+.oo-style-majoraction {            /* mostly Buttons, but some A's */
+    cursor: pointer;
+}
+
+.oo-style-altaction {              /* even less prominent than minor, may be behind a menu */
+    cursor: pointer;
+}
+button.oo-style-minoraction {      /* secondary action button, mostly A's  */
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#oo-profile #oo-profile-edit-favourites button.oo-profile-favourites-droplink, button.oo-shop-item-recipe-related-all, button.oo-profile-passwd-new-off {
+    float: inherit;
+}
+
+#oo-profile .oo-profile-favourites-gone {
+    background-color: silver;
+}
+#oo-profile .oo-state-auth button.oo-profile-passwd-new, #oo-profile .oo-state-auth button.oo-profile-passwd-new-off {
+    float: none;
+}
+.oo-cberrorX:before {                    /* todo firefox issue !*/
+    border: 2px solid lightsalmon;
+    content: "\00a0";
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+}
+.oo-cberror {
+    border: 2px solid lightsalmon;
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+}
+
+.oo-profile-locate-city-wrapper {
+    display: inline-block;
+}
+#oo-profile-locate-city-suggest {
+    position: absolute;
+}
+.oo-profile-field-ddept {                   /* optional */
+    display: none;
+}
+/* .oo-profile-field-place  .oo-profile-revertbtn { display: none; }  needed? */
+/****** SubNavi Component */
+
+#oo-subnavi UL {
+    padding: 0;
+}
+#oo-subnavi LI {
+    list-style: none;
+    padding: 3px;
+}
+#oo-subnavi .oo-subnavi-cnt {
+    display:none;
+}
+
+/****** Loading pseudo Component */
+.oo-loading-big, .oo-loading-long, .oo-loading-init {
+    background-color: #eef5f2;
+    border-radius: 10px;
+    height: 80%;
+    left: 2%;
+    opacity: 0.95;
+    position: fixed;
+    text-align: center;
+    top: 2%;
+    width: 96%;
+    z-index: 5000;
+    pointer-events: none;
+    padding-top: 10%;
+    font-size: 40px;
+    color: gray;
+}
+/****** Logon Component */
+
+#oo-logon .oo-state-anon > div {
+    float: left;
+    margin: 20px;
+}
+#oo-logon .oo-logon-forgot-pane {      /* forgot password logic */
+    max-width: 300px;
+    padding: 10px;
+    /*    display: none;                     initially*/
+}
+#oo-logon .oo-logon-forgot-pane input {
+    display: block;
+}
+#oo-logon .oo-logon-forgot-pane button {
+    float: right;
+}
+
+/****** filter component */
+
+#oo-filter .oo-filter-group {
+    float: left;
+    max-width: 250px;
+}
+#oo-filter .oo-filter-set {
+    /* display: none; initial */
+}
+#oo-filter .oo-filter-hint {
+    font-size: smaller;
+}
+.oo-filter-group-0 {   /* 0 is a special group: origin */
+    border-color: #D0BFA6 !important;
+}
+.oo-filter-buttons {
+    float: right;
+}
+.oo-filter-group-neg {
+    background-image: url("data:image/gif;base64,R0lGODlhKAAoAPcAAAAAAPcpMf////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////crNCH5BAEAAP8ALAAAAAAoACgAAAiUAAH8G0iwoMGDCBMWFKiwocODDBk+nJhQ4j+LFDNivJix48aBHztCbBhSJMiHJT1STDmRpUGXCmG+NMmRpkyCNxHezFmxJU2dDnkGjfmTJNCiRhciRYlzqU+hP6HarOk0KdWqI5VinZl161WuWFlK7Wq16E6kPKVCFTo259iTPp26fAv26NaQdHvW9Xo179CvfHEGBAA7");
+    background-size: 100% 100%;
+}
+.oo-filter-group-rows LI {
+    list-style-type: none;
+}
+.oo-filter-group-rows {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/****** some shared assignments for components */
+.xoo-missing-img {        /* still in use? (cross)*/
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="10"/></svg>');
+    background-size: contain;
+}
+.oo-missing-img {      /* a standard placeholder  image (rectangles)*/
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="20"/></svg>');
+    min-width: 40px;
+    min-height: 40px;
+}
+
+/* undue stuff less bold */
+.oo-sub-mark-undue {
+    background-color: rgba(145, 134, 136, 0.18);
+}
+.oo-sub-mark-undue .oo-cart-pos-img {            /* reduce inactive positions a bit */
+    height: 26px;     /* to have still a convienient touch size for the controls */
+    filter: grayscale(100%);
+}
+#oo-cart .oo-sub-mark-undue .oo-cart-pos-name {
+    font-weight: normal;
+}
+
+.oo-sub-last {
+    display: none;
+}
+#oo-cart .oo-cart-pos-abo-new {
+    background-color: rgba(13, 138, 102, 0.07);
+}
+.oo-sub-mark-due {
+    background-color: rgba(56, 174, 189, 0.3);
+}
+
+.oo-hint {
+    font-size: small;
+}
+
+#oo-cart .oo-cart-sure, #oo-profile .oo-profile-edit-sub-delete-sure, #oo-cart-pane DIV.oo-cart-pos-abo-del, DIV.oo-cart-pos-last, #oo-cart-pane DIV.oo-cart-pos-abo-amt {
+    /* display: none;   initially */
+    text-align: center;
+    min-width: 150px;
+}
+
+/* overlays are popup-like layers */
+.oo-overlay, .oo-ham-on {
+    background-color: ivory;
+}
+.oo-overlay , /* unprefixed */ .ui-datepicker {
+    z-index: 1000; /* to be atop anything rendered later */
+    position: absolute;
+    animation: fadein 1s;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+.oo-overlay-close {
+    color: red;
+    float: right;
+    cursor: pointer;
+}
+#oo-search .oo-search-preview, #oo-status .oo-status-cart-preview, #oo-status .oo-status-auth-preview, #oo-status .oo-status-auth-date-preview,
+    #oo-navi .oo-navi-2nd-pane, #oo-cart .oo-cart-sure, .oo-select-sub-info , #oo-profile .oo-profile-edit-sub-delete-sure,
+    /* unprefixed */ .ui-datepicker, #oo-filter-pane {          /* these are oo-overlay, but here for specifity reasons */
+    /*    display: none; initially */
+}
+
+/* unprefixed */ .ui-datepicker {
+    display: none;     /* jq3 ok */
+ }
+#oo-status .oo-cart-pos-controls, #oo-cart .oo-cart-pos-controls {
+    /*     display: none; initially */
+}
+
+/* genereic action indicator */
+.oo-active, .oo-profile-tab-selected, .oo-profile-edit-selected > a, .oo-shop-singleitem .oo-tab-navi > A.oo-tab-active, .oo-search-preview-items-more:focus  {
+    background-color: chartreuse;
+}
+
+#oo-status .oo-cart-pos-controls A , #oo-cart .oo-cart-pos-controls A {      /* in-cart controls */
+    margin-right: 6px;
+    padding:5px;
+    border: 0;
+    border-radius: 3px;
+    background-color: #D0BFA6;
+    float: right;
+}
+
+#oo-cart A.oo-cart-pos-rm {
+    margin-left: 10px;
+}
+/* labels */
+.oo-label {
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: smaller;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#oo-filter .oo-filter-set span {
+    cursor: alias;     /* shall indicate deletability */
+}
+.oo-filter-set A:after {
+    content: ":";
+}
+/****** oo Framework */
+
+.oo-suggest {
+    display: inline-block;
+    Xposition: relative;
+}
+.oo-suggest span {
+    display: block;
+}
+.oo-error {                 /* see also flash */
+    color: lightsalmon;
+}
+.oo-warn {
+    
+}
+
+.oo-success {
+    color: green;
+}
+.oo-input-error INPUT {     /* oo-input-error is always on parent element ! */
+    background-color: #fcebcf;
+    box-shadow: 0 0 0.5em red;
+}
+
+#oo-cookie {
+    background-color: white;
+    border-radius: 10px;
+    left: 25%;
+    padding: 20px;
+    position: fixed;
+    top: 10%;
+    width: 40%;
+    z-index: 4000;     /* below loader! */
+}
+/* hamburger slide */
+@keyframes oo-leftslidein {
+  from { left: -100%; opacity: 0; }      /* -100% may not always be enough, therefore also opacity. */
+  to { left: 0; opacity: 1; }
+}
+@keyframes oo-leftslideoff {
+  from { left: 0; opacity: 1; }
+  to { left: -100%; opacity: 0;}
+}
+.oo-ham-on, .oo-ham-off {
+    animation-duration: 0.5s;
+}
+.oo-ham-on {                             /* assigned to hamburger'ed elements */
+    animation-name: oo-leftslidein;
+    z-index: 100;
+}
+.oo-ham-off {
+    animation-name: oo-leftslideoff;
+    left: -100%;
+    opacity: 0;
+}
+
+.oo-icon {             /* https://www.iconfinder.com/iconsets/pink_moustache */
+    width: 30px;
+    height: 30px;
+    Xbackground-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    opacity: 0.2;       /* assuming a black icon */
+    cursor: pointer;
+}
+
+.oo-state-admin {    /* hidden for the public */
+    background-color: pink !important;
+}
+.oo-component {
+    position: relative;
+}
+.oo-container {
+    display: inline-block;
+}
+.oo-unused {
+    display:none ;
+    visibility: hidden;
+}
+.ui-disabled, .oo-disabled, .oo-show-disabled {
+    opacity: .3;
+    cursor: default !important;
+}
+.ui-disabled, .oo-disabled {
+    pointer-events: none;
+}
+.oo-running {
+    background-color: #00CC66;
+    pointer-events: none;
+    opacity: .7;
+}
+button.oo-running {
+    padding-right: 18px;
+    background-image: url('data:image/gif;base64,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');
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+/*
+.oo-disabled-animation {    scss: size=35      https://codepen.io/schliflo/pen/xwbVPz
+   position: absolute;
+   top: 50%;
+   left:50%;
+   margin-left: -17.5px;
+   margin-top: -17.5px;
+   background-size: contain;
+   height: 35px;
+   width: 35px;
+   animation:  elastic-rotation 1.33s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite;
+   background-repeat: no-repeat;
+    background-position: center center;
+   XXbackground-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9Il94MzhfU0VMRUNUX0xvZ28iIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMzEuOSAxNi4zIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAzMS45IDE2LjMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIGQ9Ik0yOS41LDIuNGMxLjYsMS42LDIuNCwzLjUsMi40LDUuOHMtMC44LDQuMi0yLjQsNS44Yy0xLjYsMS42LTMuNSwyLjQtNS44LDIuNGMtMS4zLDAtMi41LTAuNC0zLjgtMS4xYy0xLjItMC43LTIuMS0xLjQtMi42LTJjLTAuNS0wLjYtMC44LTEtMC45LTEuMmMtMC40LTAuNi0wLjMtMS4xLDAuMi0xLjRjMC42LTAuNCwxLjEtMC4zLDEuNSwwLjJjMCwwLjEsMC4yLDAuNCwwLjcsMC45YzAuNCwwLjUsMS4xLDEuMSwyLjEsMS42YzAuOSwwLjYsMS45LDAuOSwyLjgsMC45YzEuNywwLDMuMS0wLjYsNC4zLTEuOGMxLjItMS4yLDEuOC0yLjYsMS44LTQuM3MtMC42LTMuMS0xLjgtNC4zYy0xLjItMS4yLTIuNi0xLjgtNC4zLTEuOGMtMC44LDAtMS43LDAuNC0yLjYsMS4yUzE5LjUsNC43LDE5LDUuNGMtMC41LDAuNy0xLjIsMS44LTIuMiwzLjNjLTAuOCwxLjItMS40LDIuMi0xLjksMi44Yy0wLjUsMC42LTEuMSwxLjQtMS44LDIuM2MtMC44LDAuOS0xLjUsMS41LTIuMywxLjljLTAuOCwwLjQtMS42LDAuNi0yLjYsMC42Yy0yLjMsMC00LjItMC44LTUuOC0yLjRTMCwxMC40LDAsOC4yQzAsNS45LDAuOCw0LDIuNCwyLjRTNS45LDAsOC4yLDBDMTEsMCwxMy4zLDEuNywxNSw1LjJjMC4yLDAuNywwLjEsMS4xLTAuNiwxLjRDMTMuOCw2LjgsMTMuMyw2LjYsMTMsNkwxMi41LDVjLTAuMy0wLjctMC45LTEuMy0xLjctMnMtMS43LTEtMi42LTFDNi42LDIuMSw1LjEsMi43LDQsMy45UzIuMiw2LjUsMi4yLDguMnMwLjYsMy4xLDEuOCw0LjNzMi42LDEuOCw0LjMsMS44YzAuOCwwLDEuNy0wLjQsMi42LTEuMnMxLjYtMS41LDIuMS0yLjFjMC41LTAuNywxLjItMS44LDIuMi0zLjNjMC44LTEuMiwxLjQtMi4yLDEuOS0yLjhzMS4xLTEuNCwxLjgtMi4zczEuNS0xLjUsMi4zLTEuOUMyMS45LDAuMiwyMi43LDAsMjMuNiwwQzI1LjksMCwyNy45LDAuOCwyOS41LDIuNHoiLz48L2c+PC9zdmc+);
+   background-image:  url('data:image/gif;base64,R0lGODlhPABOAPcAAACEOQCMOQh7OQiEOQiMORB7ORCEOQB7QgCEQgCMQgh7QgiEQgiMQhB7QhCEQhCMQgCESgCMSgCUSgh7SgiESgiMSgiUShB7ShCEShCMShCUShh7ShiEShiMSiGMSgCMUgiEUgiMUgiUUgiUWhCEUhCMUhCMWhCUUhiEUhiMUhiMWhiUWhiUYxicWhicYyGEUiGEWiWMWiGUUimQWiGUWimUWiGUYymUYyGcWimcWiGcYymcYymcaymccymlYymlazGMYzGUXjmQYzmUazGcYzGcazGcczGlYzGlazmcYzmcazmla0KUa0Kca0Kla0qlazGtczmUczmcczmlc0KUc0Kcc0Klc0Ktc0qcc0qlc0Kle0Kte0qce0qle0qlhFKcc06pe1alf1qlhEq1hFKtf1SyflqthFq1hGOtiGO1hFq9jGutjGu1hGO9hGS4j2u1lHOvjmu9jG26lnO9jHO9lH+xmHu5mHDDmXvBmHvGnHvGpXvOnHvOpYS9nIS9pYS9rYTGnITGpYTGrYTOpYTOrYTWpYTWrYy9nIy9pYy9rYzGpYzGrYzOpYzOrYzOtYzWpZS9nJS9rZTGpZTGrZTGtZTOpZTOrZTOtZTWrZTWtZzGrZzOrZzOtZzWtZzWvZzWxpzevaXOraXOtaXOvaXWraXWtaXWvaXeta3Ota3WvbLWw63evbXevaXexq3exq3nxrXexrXezrXnxrXnzrXvzr3Wxr3evb3exr3ezr3nxr3nzr3n1r3vxr3v1sbWzsbezsbe1sbnxsbnzsbn1sbvzsbv1sbv3s7exs7ezs7e1s7e3s7nzs7n1s7n3s7v1s7v3s733tbn1tbn3tbvztbv1tbv3tbv59b33tb/597n1t7n3t7n597v3t7v597v79733t735973797/7+fn5+fv3ufv5+fv7+f33uf35+f37+f/5+f/7+f/9+/v7+/35+/37+/39+//7+//9+////f37/f39/f/7/f/9/f////37//39//3////7///9////////yH5BAEAAP8ALAAAAAA8AE4AAAj+AP0JHEiwoMGB+wTe84cPn8B+9Q5KnEixIkV9/vQ19JfQosePBDv6W+iv3rx7/TA6dAiypUuG2rj4eSdQ5MuJTm6swTUQH8aEDfv124evH0N89EpggEAKX0J98zZirInvnsN9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');
+}
+
+@keyframes elastic-rotation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+*/
+
+.oo-required {
+    /* if you dont want to rely on the required form attribute */
+}
+.oo-hidden, .oo-joker {
+    display: none !important;
+}
+/*
+.ui-hidden {
+    display: none;
+}
+*/
+
+.oo-clearfix:after {        /* like any clearfix */
+    content: " ";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+}
+
+/*         end oo **/
+
+/* hacks
+.oo-shop-singleitem.oo-shop-item-incart .oo-select-incart {
+    top: 110px !important;
+}
+*/
+.oo-profile-field-pay-nopay.oo-state-located {visibility: hidden; height: 0;}
+/* DataNATURe information */
+.oo-dnr-label-true {color: green; border: 1px solid green; border-radius: 5px; padding: 2px;}
+.oo-dnr-label-false {color: red; border: 1px solid red; border-radius: 5px; padding: 2px;background-image: url("data:image/gif;base64,R0lGODlhKAAoAPcAAAAAAPcpMf////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////crNCH5BAEAAP8ALAAAAAAoACgAAAiUAAH8G0iwoMGDCBMWFKiwocODDBk+nJhQ4j+LFDNivJix48aBHztCbBhSJMiHJT1STDmRpUGXCmG+NMmRpkyCNxHezFmxJU2dDnkGjfmTJNCiRhciRYlzqU+hP6HarOk0KdWqI5VinZl161WuWFlK7Wq16E6kPKVCFTo259iTPp26fAv26NaQdHvW9Xo179CvfHEGBAA7");}
+#oo-dnr-data h4 {
+    font-style: oblique;
+    border-bottom: 1px solid silver;
+}
+.oo-dnr-nwae-table th {background-color: snow;}
+.oo-dnr-nwae-table tr td {text-align: center;}
+.oo-dnr-trailer {
+    margin-top: 10px;
+    font-size: x-small;
+    color: silver;
+}
+.oo-dnr-producer-phone, .oo-dnr-producer-email {     /* dont show these details to end users */
+    display: none;
+}
