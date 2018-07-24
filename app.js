@@ -1,24 +1,31 @@
 /* (C) oekobox-online.eu 2016. Free for use with oekobox-online services */
 /* we use requirejs to load all dependencies */
 
-/* Example to add more js code , see the accordeon code below and in  shop.html
+/* Example to add more js code , see the accordeon code below and in  shop.html   */
 requirejs.config({
     paths: {
-        "acc" : "../../s7/js/jquery-ui_acc.min"
+        "acc" : "../../s7/js/jquery-ui_acc.min",
+        //"jquery1": "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min"
     }
 });
-*/
 
 require(["jquery", "oo" /*, "acc" */ ],
     function ($, oo) {
         // code here executed BEFORE framework initialization (if called with ?noinit)
-        console.log("Sample for manual app initialization");
+        console.log("Sample for manual app initialization!");
 
         /* see above: use the library code here
         $("#accordion").accordion({
           active: 2
         });
         */
+        oo.configureComponents({
+            // global settings (they have effect on more than one component)
+            "oo-logonmode": "normal",       // normal: ask for tour first, email1st: ask for email first
+            "oo-skip-locate": false,        // if true, never ask for a tour, assign the configure new-customer-tour
+            // component specific settings
+            "oo-profile-tabs-strict": true  // if true, allow forward-stepping upon register only if a form is valid
+        });
         
         // alternative way to configure components - in one place. See the reference for possible values.
         /*

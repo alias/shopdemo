@@ -1,6 +1,8 @@
 <!DOCTYPE html><!-- (C) oekobox-online.eu 2016. Free for use with oekobox-online services -->
 <html>
     <head>
+        <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->
+        <script src="shop.js" data-main="app.js"></script>   <!-- app.js illustrates custom css effects - the mouse over on items -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="app.css" rel="stylesheet" type="text/css"/>
@@ -36,7 +38,7 @@
     <body id="shop2">
         <div class="header">
             <div class="oo-loading" ></div>
-            <div id="oo-search" data-oo-shop-page="shop.html"></div>
+            <div id="oo-search" data-oo-search-onenter="true" data-oo-shop-page="shop2.html"></div>
             <div id="oo-status" data-oo-shop-page="shop.html" data-oo-logon-page="logon.html"  data-oo-profile-page="profile.html"  data-oo-date-page="date.html" data-oo-cart-page="cart.html"></div>
             <div><a href="index.html">Start</a></div>
         </div>
@@ -74,7 +76,5 @@
                 </div>
         </div>
         <div id="oo-chat"></div>
-        <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->
-        <script src="../../api/client.js" data-main="app.js"></script>   <!-- app.js illustrates custom css effects - the mouse over on items -->
     </body>
 </html>

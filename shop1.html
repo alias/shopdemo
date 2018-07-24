@@ -1,6 +1,8 @@
 <!DOCTYPE html><!-- (C) oekobox-online.eu 2016. Free for use with oekobox-online services -->
 <html>
     <head>
+        <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->
+        <script src="shop.js" data-main="app.js"></script>   <!-- app.js illustrates custom css effects - the mouse over on items -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="app.css" rel="stylesheet" type="text/css"/>
@@ -103,7 +105,7 @@
         <div id="pagecontent">
 
             <div id="navi-wrapper"> <!-- we need this wrapper for the hamburger to work -->
-                <div id="oo-navi" data-oo-navi-ham="#mham" data-oo-navi-headlevel="3" data-oo-navi-numlevels="3">
+                <div id="oo-navi" data-oo-navi-ham="#mham" data-oo-navi-headlevel="3" data-oo-qpnav="false" data-oo-navi-numlevels="3">
                     <div style="background-color: silver; text-align: center;">Loading Navigation...</div>
                 </div>   <!-- notice: no oo-shop-page, therefore we stay in that page
                                                                                    data-oo-navi-omit-group: jumps right into the first subgroup, if there is any -->
@@ -116,7 +118,7 @@
             Pfad: <div id="oo-path" data-oo-path-omit-group="true" style="display: inline;" >loading...</div>
             <div class="nd-container">
                 <div id="nd-left">      <!-- this is also the wrapper for the hamburger logic -->
-                    <div id="oo-subnavi" data-oo-subnavi-level="2" data-oo-subnavi-showtop="true" data-oo-subnavi-ham="#sham" >loading...</div>
+                    <div id="oo-subnavi" data-oo-subnavi-level="2" Xdata-oo-subnavi-numlevels=1 Xdata-oo-subnavi-showtop="true" data-oo-subnavi-ham="#sham" >loading...</div>
                     <div class="oo-subnavi-empty oo-unused">
                         Teaser hier?
                         <br>
@@ -148,7 +150,5 @@
             </div>
         </div>
 
-        <!-- replace this call with an url like https://oekobox-online.eu/v3/shop/<shopname>api/client.js -->
-        <script src="../../api/client.js" data-main="app.js"></script>   <!-- app.js illustrates custom css effects - the mouse over on items -->
     </body>
 </html>

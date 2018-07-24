@@ -366,7 +366,7 @@ tbody.oo-cart-pane-extra .oo-cart-pane-extra-td, .oo-cart-info-osh {            
 }
 /****** Search Component */
 .oo-search-btn {
-    background-image: url(../oo_icons.svg#oo-search);
+    background-image: url(oo_icons.svg#oo-search);
     background-size: 1.4em 1.4em;
     width: 1.4em;
     height: 1.4em;
