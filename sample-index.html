@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="de">
+    <head>
+        <!-- Beispiel fuer die Einbettung eines Shops in eine Webseite. -->
+
+        <meta charset="utf-8">
+        <!-- auch diese Seite soll responsive sein, sonst kann der shop im iframe das auch nicht -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <style>
+
+            /* inspired by https://stackoverflow.com/questions/6634582/how-to-resize-iframe-when-parent-window-resizes */
+            /* Positionierung des Containers mit dem Shop, fixed in der Seite */
+            div#responsive-container {
+                position: fixed;
+                top: 100px;         /* platz für eigene Dinge - Angabe in px oder Prozent moeglich */
+                bottom: 25px;     /* dito, die Hoehe des Shop-Frames ergibt sich aus dem Rest */
+                left: 5%;         /* left + right +width müssen 100% ergeben! evtl. css calc verwenden */
+                width: 95%;       /* platz links oder rechts muss man mit ebenso fixed positionierten Divs fuellen. */
+            }
+
+            /* iframe soll gesamten Platz des umgebenden Containers verwenden */
+            div#responsive-container #shop-frame {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                border: none;
+            }
+            /* footer */
+            #sample-footer {
+                position: fixed;
+                bottom: 0;
+            }
+
+        </style>
+
+
+    </head>
+    <body>
+        <h1>My beautiful webSite!</h1>
+        <b>Startseite mit Shop</b> / <a href="sample-page.html">Zur anderen Seite</a>
+        <div id="responsive-container">
+            <iframe id="shop-frame" src="https://oekobox-online.com/v3/shop/bosshamerschhof2018/s6/index.jsp"></iframe>
+        </div>
+        <div id="sample-footer">Some footer</div>
+    </body>
+</html>
