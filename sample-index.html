@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="de">
     <head>
-        <!-- Beispiel fuer die Einbettung eines Shops in eine Webseite. -->
+        <!-- Beispiel fuer die Einbettung eines Shops in eine Webseite. Der "responsive-container" ist der für den Shop gedachte Platz. -->
 
         <meta charset="utf-8">
         <!-- auch diese Seite soll responsive sein, sonst kann der shop im iframe das auch nicht -->
@@ -10,23 +10,21 @@
         <style>
 
             /* inspired by https://stackoverflow.com/questions/6634582/how-to-resize-iframe-when-parent-window-resizes */
-            /* Positionierung des Containers mit dem Shop, fixed in der Seite */
+            /* Positionierung des Containers mit dem Shop, fixed in der Seite, das ist nur ein Besipiel */
             div#responsive-container {
-                position: fixed;
+                position: fixed;    /* muss positioned sein */
                 top: 100px;         /* platz für eigene Dinge - Angabe in px oder Prozent moeglich */
                 bottom: 25px;     /* dito, die Hoehe des Shop-Frames ergibt sich aus dem Rest */
                 left: 5%;         /* left + right +width müssen 100% ergeben! evtl. css calc verwenden */
                 width: 95%;       /* platz links oder rechts muss man mit ebenso fixed positionierten Divs fuellen. */
+                -webkit-overflow-scrolling: touch;
+                overflow-y: auto;
             }
 
             /* iframe soll gesamten Platz des umgebenden Containers verwenden */
             div#responsive-container #shop-frame {
                 position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 100%;
+                height: 100%;         /* Attention: Safari @ iOS needs an absolute  hight bigger than the available space to allow scrolling and touch! */
                 width: 100%;
                 border: none;
             }
@@ -38,6 +36,34 @@
 
         </style>
 
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        			  crossorigin="anonymous"></script>    <!-- just for the sfari hack below -->
+        <script>
+            $(document).ready(function() {
+
+                // on every load (fires on page change too!), we absolutely resize the container for all iOS/Safari freaks
+                var ua = window.navigator.userAgent;                 // https://stackoverflow.com/a/29696509/1667804
+                var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+                var webkit = !!ua.match(/WebKit/i);
+                var iOSSafari = iOS && webkit && !ua.match(/CriOS/i) && !ua.match(/OPiOS/i);
+
+                if (iOSSafari) {
+                    setTimeout(function() {             // seems we need some content first
+                        $("#shop-frame").on("load", function () {
+                            var height = $("#responsive-container").height();  // jquery fixes some other quirks here
+                            this.style.height = (height + 1) + 'px';
+                        });
+                    }, 1500);
+                }
+
+                // may be better on frame loaded      with oo-loadd signal
+
+
+            })
+
+
+        </script>
 
     </head>
     <body>
@@ -45,7 +71,9 @@
         <b>Startseite mit Shop</b> / <a href="sample-page.html">Zur anderen Seite</a>
         <div id="responsive-container">
             <!-- die Zieladresse ist ein von uns eingerichteter Online-Shop -->
-            <iframe id="shop-frame" src="https://oekobox-online.com/v3/shop/bosshamerschhof2018/shop2018/index.jsp"></iframe>
+            <iframe id="shop-frame" src="http://bs.local:8081/v3/shop/bosshamerschhof2018/std1/index.jsp" allow="geolocation"></iframe>
+            <!--iframe id="shop-frame" src="http://bs.local:8081/v3/shop/bosshamerschhof2018/s2/shop.jsp" allow="geolocation"></iframe-->
+            <!--iframe id="shop-frame" src="http://bs.local:8081/v3/shop/bosshamerschhof2018/std1/test.html" allow="geolocation"></iframe-->
         </div>
         <div id="sample-footer">Some footer</div>
     </body>
