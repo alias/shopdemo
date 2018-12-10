@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <!--
+           css=0 below prevents injection of CSS by the script. Loading it already here saves one browser roundtrip
+           nocatch=1 leaves errors in the local browser console
+           noinit=1 allows you to write a individual config.
+           config=std uses the config for the standard template
+
+           Adjust the CSS! Leave your CSS in the admin adrea of the shop or add it from a local file or inline.
+
+           Note that without css=0, all.css will be injected  as last CSS.
+        -->
+        <!--link rel="stylesheet" href="all.css"-->
+
+        <!-- calling this early (not at the end) provides better loading experience. -->
+        <!--script data-main="std_embedded.js" src="http://bs.local:8081/v3/shop/SYSTEM/api/client1.js?nocatch=1&noinit=1&css=0" ></script-->
+
+        <script src="https://oekobox-online.com/v3/shop/SYSTEM/api/client1.js?config=std&nocatch=1" ></script>
+
+    </head>
+    <body id="my-shop">
+        <div>
+            <h1>Some Title</h1>
+        </div>
+        <div id="oo-shop-embedded">
+               loading shop
+        </div>
+        <div>
+            Some Footer
+        </div>
+    </body>
+
+</html>
