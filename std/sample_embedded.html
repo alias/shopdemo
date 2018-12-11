@@ -4,27 +4,32 @@
         <meta charset="utf-8">
 
         <!--
-           css=0 below prevents injection of CSS by the script. Loading it already here saves one browser roundtrip
+           css=0 below prevents injection of CSS by the script. Loading it already here saves one browser roundtrip. css=1 injects all.css for std
            nocatch=1 leaves errors in the local browser console
-           noinit=1 allows you to write a individual config.
+           noinit=1 allows you to write a individual config and only thenstart the system
            config=std uses the config for the standard template
 
            Adjust the CSS! Leave your CSS in the admin adrea of the shop or add it from a local file or inline.
 
-           Note that without css=0, all.css will be injected  as last CSS.
+           Note that without css=0, all.css will be injected  as last CSS when config=std.
         -->
-        <!--link rel="stylesheet" href="all.css"-->
+        <!--link rel="stylesheet" href="PATHall.css"-->
 
-        <!-- calling this early (not at the end) provides better loading experience. -->
-        <!--script data-main="std_embedded.js" src="http://bs.local:8081/v3/shop/SYSTEM/api/client1.js?nocatch=1&noinit=1&css=0" ></script-->
+        <!-- example to call the standard with own configs and own startup trigger
+        <script data-main="sample_std_embedded.js" src="http://bs.local:8081/v3/shop/bosshamerschhof2018/api/client1.js?nocatch=1&noinit=1&css=1" ></script>           -->
 
-        <script src="https://oekobox-online.com/v3/shop/oekullus/api/client1.js?config=std&nocatch=1" ></script>
+        <!-- example to call the standard with own configs and startup
+        <script data-main="sample_std_embedded.js" src="http://DOMAIN/v3/shop/SYSTEM/api/client1.js?nocatch=1&noinit=1&css=1" ></script>           -->
+
+        <!-- example to call the standard with own  folow up code-->
+        <script data-main="sample_std_embedded_cfg.js" src="http://DOMAIN/v3/shop/SYSTEM/api/client1.js?nocatch=1&config=std&css=1" ></script>
+
 
     </head>
     <body id="my-shop">
         <div>
             <h1>My beautiful WebSite!</h1>
-            <b>shop page </b> <a href="sample-page">some other page</a>
+            <b>shop page </b> <a href="sample-page.html">some other page</a>
         </div>
         <div id="oo-shop-embedded">
                loading shop

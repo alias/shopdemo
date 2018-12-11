@@ -1,26 +1,24 @@
-// this can be used to adjust the location of the dependencies
-// (add oly whats needed; it will override the default)
-// use this to hook into the boostrap process
+// Example of an external configuration for the standard shop
 // This code is already part of client1?config=std   ! Use it only if you want to configure a shop  differently
-require(["jquery", "oo"],
-    function ($, oo) {
+oor.require(["oo"], function (oo) {
+        // here oo is fully loaded, with its own jquery version
+        var $ = window.oojq;      // provided by oo; needed for all code below, especially within initWeb below.
+        // template location, @ means "embed it". oosysname is already set
+        var lot = "@" + window.oosysname + "/std/";
 
-        // template location, @ means "embed it"
-        var lot = "@https://oekobox-online.com/v3/shop/SYSNAME/std/";
-
-        $(document).ready(function() {
+        $(document).ready(function () {
             oo.components.loadToShopElement(lot + "index.jsp", false, function () {
                 $(document).trigger("oo-embedded");        // fires the oo system , see below
             })
         });
 
         oo.addMixins({
-            ".oo-navi-image-name": "h3"        // to use bootstrap sizes
+            ".oo-navi-image-name": "h3"             // elements with class .oo-navi-image-name will also get class h3 assigned
         });
 
-        oo.setStyleBase("shop2018");         // define the style used here
+        oo.setStyleBase("shop2018");                // define the style used here (for theme editor)
 
-        oo.configureComponents({             // @ means in-place loading to hard coded #-shop-embedded
+        oo.configureComponents({                    // these are the standard values
             "oo-shop-page": lot + "index.jsp",
             "oo-cart-page": lot + "cart.jsp",
             "oo-logon-page": lot + "logon.jsp",

@@ -2,16 +2,17 @@
 /* we use requirejs to load all dependencies */
 
 /* Example to add more js code , see the accordeon code below and in  shop.html   */
-requirejs.config({
+oor.requirejs.config({
     paths: {
         "acc" : "../../s7/js/jquery-ui_acc.min",
         //"jquery1": "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min"
     }
 });
 
-require(["jquery", "oo" /*, "acc" */ ],
+oor.require(["jquery", "oo" /*, "acc" */ ],
     function ($, oo) {
-        // code here executed BEFORE framework initialization (if called with ?noinit)
+        // code here executed BEFORE framework initialization - if called with ?noinit - otherwise undetermind
+        // jquery is undetermind, if multiple versions are loaded! Use window.oojq if you need oo's version.
         console.log("Sample for manual app initialization!");
 
         /* see above: use the library code here
