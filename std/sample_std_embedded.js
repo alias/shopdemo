@@ -18,7 +18,7 @@ oor.require(["oo"], function (oo) {
 
         oo.setStyleBase("shop2018");                // define the style used here (for theme editor)
 
-        oo.configureComponents({                    // these are the standard values
+        oo.configureComponents({                    // these are the standard values, see the design-guide for details
             "oo-shop-page": lot + "index.jsp",
             "oo-cart-page": lot + "cart.jsp",
             "oo-logon-page": lot + "logon.jsp",
@@ -40,7 +40,6 @@ oor.require(["oo"], function (oo) {
         });
 
         function appInit() {      // referenced in the init() call later
-            //$("#oo-shop .oo-select-sub-0").show()
             console.log("************************************* Shop scripts loaded and page was processed.");
             $("#std-loading").fadeOut();
             // code to run AFTER shop initialization
