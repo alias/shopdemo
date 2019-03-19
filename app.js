@@ -9,12 +9,13 @@ oor.requirejs.config({
     }
 });
 
-oor.require(["jquery", "oo" /*, "acc" */ ],
-    function ($, oo) {
+oor.require([ "oo" /*, "acc" */ ],
+    function (oo) {
+        $=window.oojq;         // that way you use the same jquery than the OO System, no matther f other jquerie's around
         // code here executed BEFORE framework initialization - if called with ?noinit - otherwise undetermind
         // jquery is undetermind, if multiple versions are loaded! Use window.oojq if you need oo's version.
         console.log("Sample for manual app initialization!");
-
+        //$("body").css("background-color", "red");     // exaple usage of jquery
         /* see above: use the library code here
         $("#accordion").accordion({
           active: 2
